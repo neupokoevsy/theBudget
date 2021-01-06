@@ -1,24 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="viG-Ug-cs1">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Statistics-->
+        <scene sceneID="DVA-lw-G7O">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="gZn-lI-9Gi" customClass="StatisticsViewController" customModule="theBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dXB-jk-Bv0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MK0-Vt-avE">
+                                <rect key="frame" x="172" y="778" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MK0-Vt-avE" secondAttribute="height" multiplier="1:1" id="dv2-pS-BzN"/>
+                                    <constraint firstAttribute="width" constant="70" id="e7Q-cV-9x6"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="AddButton_StyleDark"/>
+                                <connections>
+                                    <segue destination="PQy-4d-1Vl" kind="show" id="5bw-dN-3Ed"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CAZ-1i-IZt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MK0-Vt-avE" firstAttribute="centerX" secondItem="CAZ-1i-IZt" secondAttribute="centerX" id="HXK-1V-LSB"/>
+                            <constraint firstItem="CAZ-1i-IZt" firstAttribute="bottom" secondItem="MK0-Vt-avE" secondAttribute="centerY" id="MMK-f5-drT"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.xaxis" catalog="system" selectedImage="chart.bar.xaxis" id="nZm-1v-75m"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="76E-zu-8ZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="446"/>
+        </scene>
+        <!--Records-->
+        <scene sceneID="OHA-Kk-BsJ">
+            <objects>
+                <viewController id="ddX-aQ-zAP" customClass="RecordsViewController" customModule="theBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Bx-GK-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2f-fv-POq">
+                                <rect key="frame" x="172" y="778" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="dni-iL-TPX"/>
+                                    <constraint firstAttribute="width" secondItem="V2f-fv-POq" secondAttribute="height" multiplier="1:1" id="xLu-pP-7vJ"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="AddButton_StyleDark"/>
+                                <connections>
+                                    <segue destination="PQy-4d-1Vl" kind="show" id="jFh-oC-Qx1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8Jm-5B-zT7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Jm-5B-zT7" firstAttribute="bottom" secondItem="V2f-fv-POq" secondAttribute="centerY" id="NUX-LW-4Ym"/>
+                            <constraint firstItem="V2f-fv-POq" firstAttribute="centerX" secondItem="8Jm-5B-zT7" secondAttribute="centerX" id="juY-R4-vCH"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Records" image="list.bullet.rectangle" catalog="system" selectedImage="list.bullet.rectangle" id="7PX-ig-Gvp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tl7-6k-iA8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="-214"/>
+        </scene>
+        <!--Add Record View Controller-->
+        <scene sceneID="EN0-JX-ciN">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PQy-4d-1Vl" customClass="AddRecordViewController" customModule="theBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xYR-Cq-oZE"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dem-m4-63J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2765" y="110"/>
+        </scene>
+        <!--Add Income View Controller-->
+        <scene sceneID="E5S-KN-23P">
+            <objects>
+                <viewController storyboardIdentifier="AddIncomeViewController" id="mOS-BW-dED" customClass="AddIncomeViewController" customModule="theBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qax-qa-djf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="C31-VZ-UxH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d4I-9x-Ia6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3843" y="453"/>
+        </scene>
+        <!--Add Expense View Controller-->
+        <scene sceneID="STG-71-Ih1">
+            <objects>
+                <viewController storyboardIdentifier="AddExpenseViewController" id="eB3-0m-Ty7" customClass="AddExpenseViewController" customModule="theBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c4D-8A-JWa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ANc-hL-LSD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pl1-XK-YOz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3822" y="-251"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="rXH-eO-ocQ">
+            <objects>
+                <tabBarController id="viG-Ug-cs1" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4X0-DE-Gf7" customClass="CustomTabBar" customModule="theBudget" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ddX-aQ-zAP" kind="relationship" relationship="viewControllers" id="gWM-DC-Zit"/>
+                        <segue destination="gZn-lI-9Gi" kind="relationship" relationship="viewControllers" id="DfG-cb-EuF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pYz-ZV-g9z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="165" y="110"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4X0-DE-Gf7">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
+    </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="5bw-dN-3Ed"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="AddButton_StyleDark" width="120" height="120"/>
+        <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

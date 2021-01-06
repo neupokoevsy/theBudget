@@ -16,6 +16,12 @@
 		A30A5F2B25A5D3800046D1D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30A5F2925A5D3800046D1D0 /* LaunchScreen.storyboard */; };
 		A30A5F3625A5D3800046D1D0 /* theBudgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A5F3525A5D3800046D1D0 /* theBudgetTests.swift */; };
 		A30A5F4125A5D3800046D1D0 /* theBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A5F4025A5D3800046D1D0 /* theBudgetUITests.swift */; };
+		A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CF525A5EB3F00931044 /* RecordsViewController.swift */; };
+		A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */; };
+		A3672D0025A5F0D900931044 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */; };
+		A3672D0525A5F12E00931044 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */; };
+		A3672D0A25A5F13E00931044 /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672D0925A5F13E00931044 /* AddIncomeViewController.swift */; };
+		A3FD6B7325A5D674006B54E0 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FD6B7225A5D674006B54E0 /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,12 @@
 		A30A5F3C25A5D3800046D1D0 /* theBudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = theBudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30A5F4025A5D3800046D1D0 /* theBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theBudgetUITests.swift; sourceTree = "<group>"; };
 		A30A5F4225A5D3800046D1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3672CF525A5EB3F00931044 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
+		A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
+		A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		A3672D0925A5F13E00931044 /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
+		A3FD6B7225A5D674006B54E0 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,9 @@
 		A30A5F1A25A5D37F0046D1D0 /* theBudget */ = {
 			isa = PBXGroup;
 			children = (
+				A3FD6B6425A5D61D006B54E0 /* Model */,
+				A3FD6B6525A5D624006B54E0 /* View */,
+				A3FD6B6625A5D629006B54E0 /* Controller */,
 				A30A5F1B25A5D37F0046D1D0 /* AppDelegate.swift */,
 				A30A5F1D25A5D37F0046D1D0 /* SceneDelegate.swift */,
 				A30A5F1F25A5D37F0046D1D0 /* ViewController.swift */,
@@ -129,6 +144,33 @@
 				A30A5F4225A5D3800046D1D0 /* Info.plist */,
 			);
 			path = theBudgetUITests;
+			sourceTree = "<group>";
+		};
+		A3FD6B6425A5D61D006B54E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A3FD6B6525A5D624006B54E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A3FD6B7225A5D674006B54E0 /* CustomTabBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A3FD6B6625A5D629006B54E0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A3672CF525A5EB3F00931044 /* RecordsViewController.swift */,
+				A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */,
+				A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */,
+				A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */,
+				A3672D0925A5F13E00931044 /* AddIncomeViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +304,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A30A5F2025A5D37F0046D1D0 /* ViewController.swift in Sources */,
+				A3FD6B7325A5D674006B54E0 /* CustomTabBar.swift in Sources */,
 				A30A5F1C25A5D37F0046D1D0 /* AppDelegate.swift in Sources */,
 				A30A5F2625A5D37F0046D1D0 /* theBudget.xcdatamodeld in Sources */,
+				A3672D0525A5F12E00931044 /* AddExpenseViewController.swift in Sources */,
+				A3672D0A25A5F13E00931044 /* AddIncomeViewController.swift in Sources */,
 				A30A5F1E25A5D37F0046D1D0 /* SceneDelegate.swift in Sources */,
+				A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */,
+				A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */,
+				A3672D0025A5F0D900931044 /* AddRecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +498,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = X3.theBudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -469,7 +517,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = X3.theBudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
