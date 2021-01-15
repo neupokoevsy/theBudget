@@ -10,6 +10,7 @@ import UIKit
 @IBDesignable
 
 class CustomTabBar: UITabBar {
+    
 
     private var shapeLayer: CALayer?
     
@@ -19,7 +20,7 @@ class CustomTabBar: UITabBar {
             let shapeLayer = CAShapeLayer()
             shapeLayer.path = createPath()
             shapeLayer.strokeColor = UIColor.lightGray.cgColor
-            shapeLayer.fillColor = #colorLiteral(red: 0.485127151, green: 0.494517386, blue: 0.500644803, alpha: 1)
+            shapeLayer.fillColor = #colorLiteral(red: 0.277935363, green: 0.277935363, blue: 0.277935363, alpha: 1)
             shapeLayer.lineWidth = 1.0
 
 

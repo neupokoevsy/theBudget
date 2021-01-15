@@ -9,12 +9,14 @@ import UIKit
 
 class RecordsViewController: UIViewController {
     
+    @IBOutlet weak var recordsButton: UITabBarItem!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.blue
+        
+        
         
         // Do any additional setup after loading the view.
     }

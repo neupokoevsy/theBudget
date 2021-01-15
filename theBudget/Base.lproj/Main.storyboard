@@ -79,7 +79,10 @@ when you will add more data</string>
                             <constraint firstItem="V2f-fv-POq" firstAttribute="centerX" secondItem="8Jm-5B-zT7" secondAttribute="centerX" id="juY-R4-vCH"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Records" image="list.bullet.rectangle" catalog="system" selectedImage="list.bullet.rectangle" id="7PX-ig-Gvp"/>
+                    <tabBarItem key="tabBarItem" title="Records" image="list.bullet" catalog="system" selectedImage="list.bullet" id="7PX-ig-Gvp"/>
+                    <connections>
+                        <outlet property="recordsButton" destination="7PX-ig-Gvp" id="nDm-Q1-7aX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tl7-6k-iA8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,6 +243,14 @@ when you will add more data</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" systemColor="linkColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="ddX-aQ-zAP" kind="relationship" relationship="viewControllers" id="gWM-DC-Zit"/>
@@ -257,12 +268,15 @@ when you will add more data</string>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="5bw-dN-3Ed"/>
+        <segue reference="jFh-oC-Qx1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AddButton_StyleDark" width="120" height="120"/>
         <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>
-        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
