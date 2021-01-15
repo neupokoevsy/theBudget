@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,12 +28,22 @@
                                     <segue destination="PQy-4d-1Vl" kind="show" id="5bw-dN-3Ed"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhn-ZX-pQe">
+                                <rect key="frame" x="88.5" y="423.5" width="237" height="49.5"/>
+                                <string key="text">Statistics will be shown 
+when you will add more data</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CAZ-1i-IZt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Jhn-ZX-pQe" firstAttribute="centerY" secondItem="dXB-jk-Bv0" secondAttribute="centerY" id="GUU-UQ-vt8"/>
                             <constraint firstItem="MK0-Vt-avE" firstAttribute="centerX" secondItem="CAZ-1i-IZt" secondAttribute="centerX" id="HXK-1V-LSB"/>
                             <constraint firstItem="CAZ-1i-IZt" firstAttribute="bottom" secondItem="MK0-Vt-avE" secondAttribute="centerY" id="MMK-f5-drT"/>
+                            <constraint firstItem="Jhn-ZX-pQe" firstAttribute="centerX" secondItem="dXB-jk-Bv0" secondAttribute="centerX" id="vb3-e8-SJL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.xaxis" catalog="system" selectedImage="chart.bar.xaxis" id="nZm-1v-75m"/>
@@ -91,9 +102,63 @@
                     <view key="view" contentMode="scaleToFill" id="Qax-qa-djf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hzD-uB-fDI">
+                                <rect key="frame" x="20" y="64" width="374" height="75"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="cqg-Ww-bC9"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="gaP-cW-9da"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zzO-Hv-wuC">
+                                    <size key="itemSize" width="77" height="53"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCollectionViewCell" id="hls-Fy-2b1" customClass="CalendarCollectionViewCell" customModule="theBudget" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="17.5" width="77" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sYp-mN-qDK">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wr-39-Z5U">
+                                                    <rect key="frame" x="19.5" y="10" width="38" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8wr-39-Z5U" firstAttribute="centerX" secondItem="sYp-mN-qDK" secondAttribute="centerX" id="Oq1-Da-MvA"/>
+                                                <constraint firstItem="8wr-39-Z5U" firstAttribute="centerY" secondItem="sYp-mN-qDK" secondAttribute="centerY" id="kjE-aK-7TI"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="77" height="40"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="8wr-39-Z5U" id="z4o-Lv-RTH"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="mOS-BW-dED" id="IRd-rq-Wbp"/>
+                                    <outlet property="delegate" destination="mOS-BW-dED" id="LGb-cu-uwR"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="C31-VZ-UxH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hzD-uB-fDI" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="IPu-W3-e0f"/>
+                            <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="hzD-uB-fDI" secondAttribute="trailing" constant="20" id="L8p-0Y-Fzf"/>
+                            <constraint firstItem="hzD-uB-fDI" firstAttribute="top" secondItem="C31-VZ-UxH" secondAttribute="top" constant="20" id="Z9u-VN-GBj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CalendarCollectionView" destination="hzD-uB-fDI" id="bFa-9d-Zh2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4I-9x-Ia6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -106,13 +171,66 @@
                     <view key="view" contentMode="scaleToFill" id="c4D-8A-JWa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dXc-qy-NyW">
+                                <rect key="frame" x="20" y="64" width="374" height="75"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="2lV-kO-Frn"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cJw-j3-I2l">
+                                    <size key="itemSize" width="77" height="53"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCollectionViewCell" id="3RR-b9-t5f" customClass="CalendarCollectionViewCell" customModule="theBudget" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="17.5" width="77" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yrK-6r-StH">
+                                            <rect key="frame" x="0.0" y="0.0" width="77" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNp-n7-FJm">
+                                                    <rect key="frame" x="19.5" y="10" width="38" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZNp-n7-FJm" firstAttribute="centerY" secondItem="yrK-6r-StH" secondAttribute="centerY" id="WrH-ag-FkN"/>
+                                                <constraint firstItem="ZNp-n7-FJm" firstAttribute="centerX" secondItem="yrK-6r-StH" secondAttribute="centerX" id="jK2-wR-XS5"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="77" height="40"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="ZNp-n7-FJm" id="Q9r-NH-3Vr"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="eB3-0m-Ty7" id="rDb-5m-JIS"/>
+                                    <outlet property="delegate" destination="eB3-0m-Ty7" id="egG-2f-Ugf"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ANc-hL-LSD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dXc-qy-NyW" firstAttribute="top" secondItem="ANc-hL-LSD" secondAttribute="top" constant="20" id="78B-Q5-BgM"/>
+                            <constraint firstItem="ANc-hL-LSD" firstAttribute="trailing" secondItem="dXc-qy-NyW" secondAttribute="trailing" constant="20" id="VUE-LO-5Ic"/>
+                            <constraint firstItem="dXc-qy-NyW" firstAttribute="leading" secondItem="ANc-hL-LSD" secondAttribute="leading" constant="20" id="yDS-3X-o3D"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CalendarCollectionView" destination="dXc-qy-NyW" id="BgU-Mt-9oe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pl1-XK-YOz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3822" y="-251"/>
+            <point key="canvasLocation" x="3840.579710144928" y="-251.11607142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rXH-eO-ocQ">
