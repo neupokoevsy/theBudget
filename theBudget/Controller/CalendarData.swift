@@ -39,6 +39,20 @@ class CalendarService {
         return arrayOfFormattedDates
     }
     
+    func datesForCoreData() -> [String] {
+        var arrayOfDatesForCoreData = [String]()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-DD"
+        var dateStartingIndex = -30
+        while dateStartingIndex != 30 {
+            dateStartingIndex += 1
+            arrayOfDatesForCoreData.append(formatter.string(from: Date().xDays(dateStartingIndex)))
+        }
+        currentDateIndex = find(value: formatter.string(from: Date()), in: arrayOfDatesForCoreData)!
+        return arrayOfDatesForCoreData
+    }
+    
     func find(value searchValue: String, in array: [String]) -> Int?
     {
         for (index, value) in array.enumerated()

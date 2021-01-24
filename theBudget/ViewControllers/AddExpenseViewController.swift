@@ -12,16 +12,26 @@ class AddExpenseViewController: UIViewController {
     //MARK: Calendar variables
     @IBOutlet weak var CalendarCollectionView: UICollectionView!
     var datesToDisplay = [String]()
+    var datesForCoreData = [String]()
     var selectedDateIndex: Int = 0
     var currentDateIndex = 0
-    var date = Date()
+    var date: Date?
     
     //MARK: Categories variables
     @IBOutlet weak var CategoriesCollectionView: UICollectionView!
     var categories: [Categories] = []
-    var currentlySelectedCategory: String = ""
+    var currentlySelectedCategory: String?
     var categoriesToShow: [Categories] = []
-
+    
+    
+    //MARK: User Input
+    @IBOutlet weak var amountTextField: UITextField!
+    var amount: Double = 0.0
+    let type: String = "Expense"
+    var comment: String?
+    let formatter = DateFormatter()
+    @IBOutlet weak var saveButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,21 +40,27 @@ class AddExpenseViewController: UIViewController {
         //MARK: Calendar get dates and autoselect & autocenter date
         datesToDisplay = CalendarService.instance.getDates()
         currentDateIndex = CalendarService.instance.currentDateIndex
+        datesForCoreData = CalendarService.instance.datesForCoreData()
+        
         let indexPathForFirstRow = IndexPath(row: currentDateIndex, section: 0)
         self.setSelectedItemFromScrollView(CalendarCollectionView)
         self.CalendarCollectionView.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .centeredHorizontally)
+        date = Date()
         
         //MARK: Categories fetch
         dataService.instance.fetchCoreDataCategories()
         categories = dataService.instance.categories
-
-        // Do any additional setup after loading the view.
+        
     }
     
     func adjustUI() {
         CalendarCollectionView.layer.cornerRadius = 5
         CalendarCollectionView.layer.borderWidth = 2
         CalendarCollectionView.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        self.hideKeyboardWhenTappedAround()
+        saveButton.layer.cornerRadius = 3
+        saveButton.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        amountTextField.becomeFirstResponder()
     }
     
 
@@ -57,11 +73,36 @@ class AddExpenseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        amount = Double(amountTextField.text!) ?? 0.0
+        if checkEntry() {
+            dataService.instance.saveNewRecord(amount: amount, category: currentlySelectedCategory!, date: date!, type: type, comment: "")
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
+    func checkEntry() -> Bool {
+        if amount == 0.0 || amountTextField.text == "" {
+            amountTextField.shake()
+            amountTextField.vibrate()
+        } else if currentlySelectedCategory == nil || currentlySelectedCategory == "" || currentlySelectedCategory == "New Category" {
+            CategoriesCollectionView.shake()
+            CategoriesCollectionView.vibrate()
+        } else if date == nil {
+            CalendarCollectionView.shake()
+            CalendarCollectionView.vibrate()
+        } else {
+            return true
+        }
+        return false
+    }
 
 }
 
 
-extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
     
     
     func setSelectedItemFromScrollView(_ scrollView: UIScrollView) {
@@ -75,8 +116,9 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
                 self.selectedDateIndex = (index?.row)!
                 let formatter = DateFormatter()
                 formatter.dateFormat = "YYYY-MM-DD"
-                let currentlySelectedDate = CalendarService.instance.getDates()[selectedDateIndex]
+                let currentlySelectedDate = CalendarService.instance.datesForCoreData()[selectedDateIndex]
                 date = formatter.date(from: currentlySelectedDate) ?? Date()
+                print(date!)
             }
     }
     
@@ -92,14 +134,7 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
         if collectionView == self.CalendarCollectionView {
         return datesToDisplay.count
         } else {
-            for categoryToShow in categories {
-                if categoryToShow.useCount >= 0 {
-                    categoriesToShow.append(categoryToShow)
-//                    print(categoriesToShow)
-                }
-            }
-//            print("Categories to show \(categoriesToShow.count)")
-            return categoriesToShow.count
+            return categories.count
         }
     }
     
@@ -115,6 +150,29 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
             return cellB
         }
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == CalendarCollectionView {
+            let selectedDate = datesForCoreData[indexPath.row]
+//            print(selectedDate)
+            formatter.dateFormat = "YYYY-MM-DD"
+            date = formatter.date(from: selectedDate)!
+            print(date!)
+        } else {
+            let category = categories[indexPath.row]
+            currentlySelectedCategory = category.title!
+            print(currentlySelectedCategory!)
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func dismiss(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     

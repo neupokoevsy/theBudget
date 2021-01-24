@@ -26,6 +26,7 @@
 		A3A4653025B1C1A6004B8451 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */; };
 		A3D8D7FE25BD620E002E1A6D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */; };
 		A3D8D80325BD92FF002E1A6D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */; };
+		A3D8D81725BDE891002E1A6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D81625BDE891002E1A6D /* Extensions.swift */; };
 		A3FD6B7325A5D674006B54E0 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FD6B7225A5D674006B54E0 /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		A3D8D81625BDE891002E1A6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A3FD6B7225A5D674006B54E0 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,13 +129,12 @@
 				A3FD6B6425A5D61D006B54E0 /* Model */,
 				A3FD6B6525A5D624006B54E0 /* View */,
 				A3FD6B6625A5D629006B54E0 /* Controller */,
-				A30A5F1B25A5D37F0046D1D0 /* AppDelegate.swift */,
-				A30A5F1D25A5D37F0046D1D0 /* SceneDelegate.swift */,
+				A3D8D80F25BDE85A002E1A6D /* Supporting Files */,
 				A30A5F2125A5D37F0046D1D0 /* Main.storyboard */,
 				A30A5F2725A5D3800046D1D0 /* Assets.xcassets */,
-				A30A5F2925A5D3800046D1D0 /* LaunchScreen.storyboard */,
-				A30A5F2C25A5D3800046D1D0 /* Info.plist */,
 				A30A5F2425A5D37F0046D1D0 /* theBudget.xcdatamodeld */,
+				A30A5F2C25A5D3800046D1D0 /* Info.plist */,
+				A30A5F2925A5D3800046D1D0 /* LaunchScreen.storyboard */,
 			);
 			path = theBudget;
 			sourceTree = "<group>";
@@ -166,6 +167,16 @@
 				A3672D0925A5F13E00931044 /* AddIncomeViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A3D8D80F25BDE85A002E1A6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A30A5F1B25A5D37F0046D1D0 /* AppDelegate.swift */,
+				A30A5F1D25A5D37F0046D1D0 /* SceneDelegate.swift */,
+				A3D8D81625BDE891002E1A6D /* Extensions.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A3FD6B6425A5D61D006B54E0 /* Model */ = {
@@ -337,6 +348,7 @@
 				A30A5F1E25A5D37F0046D1D0 /* SceneDelegate.swift in Sources */,
 				A3672D0F25A5F3AC00931044 /* CategoryModel.swift in Sources */,
 				A3D8D80325BD92FF002E1A6D /* SearchBarView.swift in Sources */,
+				A3D8D81725BDE891002E1A6D /* Extensions.swift in Sources */,
 				A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */,
 				A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */,
 				A3D8D7FE25BD620E002E1A6D /* CategoryCollectionViewCell.swift in Sources */,

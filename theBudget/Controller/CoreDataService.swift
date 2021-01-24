@@ -5,7 +5,7 @@
 //  Created by Sergey Neupokoev on 23/01/2021.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 class dataService{
@@ -16,6 +16,7 @@ class dataService{
     
     //******************************************************************
     //MARK: Categories related code (CoreData)
+    //MARK: Fetching and sorting by the user usage
     //******************************************************************
     
         func fetchCategories(completion: (_ complete: Bool) -> ()) {
@@ -46,4 +47,30 @@ class dataService{
             }
         }
     }
+    
+    
+    //******************************************************************
+    //MARK: Function that takes user input and saves it in CoreData
+    //******************************************************************
+    func saveNewRecord(amount: Double, category: String, date: Date, type: String, comment: String) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext
+        else {
+            return
+        }
+        let record = Record(context: managedContext)
+        record.amount = amount
+        record.category = category
+        record.date = date
+        record.type = type
+        record.comment = comment
+
+        do {
+            try managedContext.save()
+            print("Sucessfully saved new record")
+        }
+        catch {
+            debugPrint("Could not save data. Error: \(error.localizedDescription)")
+        }
+    }
+    
 }
