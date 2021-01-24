@@ -9,20 +9,34 @@ import UIKit
 
 class AddExpenseViewController: UIViewController {
     
+    //MARK: Calendar variables
     @IBOutlet weak var CalendarCollectionView: UICollectionView!
     var datesToDisplay = [String]()
     var selectedDateIndex: Int = 0
     var currentDateIndex = 0
     var date = Date()
+    
+    //MARK: Categories variables
+    @IBOutlet weak var CategoriesCollectionView: UICollectionView!
+    var categories: [Categories] = []
+    var currentlySelectedCategory: String = ""
+    var categoriesToShow: [Categories] = []
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         adjustUI()
+        
+        //MARK: Calendar get dates and autoselect & autocenter date
         datesToDisplay = CalendarService.instance.getDates()
         currentDateIndex = CalendarService.instance.currentDateIndex
         let indexPathForFirstRow = IndexPath(row: currentDateIndex, section: 0)
         self.setSelectedItemFromScrollView(CalendarCollectionView)
         self.CalendarCollectionView.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .centeredHorizontally)
+        
+        //MARK: Categories fetch
+        dataService.instance.fetchCoreDataCategories()
+        categories = dataService.instance.categories
 
         // Do any additional setup after loading the view.
     }
@@ -75,7 +89,18 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        datesToDisplay.count
+        if collectionView == self.CalendarCollectionView {
+        return datesToDisplay.count
+        } else {
+            for categoryToShow in categories {
+                if categoryToShow.useCount >= 0 {
+                    categoriesToShow.append(categoryToShow)
+//                    print(categoriesToShow)
+                }
+            }
+//            print("Categories to show \(categoriesToShow.count)")
+            return categoriesToShow.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -84,7 +109,10 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
             cellA.dateLabel.text = datesToDisplay[indexPath.row]
             return cellA
         } else {
-            return UICollectionViewCell()
+            let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: "CatecogyCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
+            let category = categories[indexPath.row]
+            cellB.updateViews(category: category)
+            return cellB
         }
         
     }

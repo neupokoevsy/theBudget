@@ -15,6 +15,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //******************************************************************
+        //MARK: Initial categories created upon installation of the App
+        //******************************************************************
+        
+        let userDefaults = UserDefaults.standard
+        let defaultValues = ["firstRun" : true]
+        userDefaults.register(defaults: defaultValues)
+        
+        if userDefaults.bool(forKey: "firstRun") {
+            let initialCategories = [
+                Category(title: "Beauty", imageName: "beauty.png", useCount: 0.0),
+                Category(title: "Car", imageName: "car.png", useCount: 0.0),
+                Category(title: "Clothes", imageName: "clothes.png", useCount: 0.0),
+                Category(title: "Electronics", imageName: "electronics.png", useCount: 0.0),
+                Category(title: "Food", imageName: "food.png", useCount: 0.0),
+                Category(title: "Gifts", imageName: "gifts.png", useCount: 0.0),
+                Category(title: "Hobby", imageName: "hobby.png", useCount: 0.0),
+                Category(title: "Hospital", imageName: "hospital.png", useCount: 0.0),
+                Category(title: "Household", imageName: "household.png", useCount: 0.0),
+                Category(title: "Lunch", imageName: "lunch.png", useCount: 0.0),
+                Category(title: "Online Shopping", imageName: "online_shopping.png", useCount: 0.0),
+                Category(title: "Pharmacy", imageName: "pharmacy.png", useCount: 0.0),
+                Category(title: "Activity", imageName: "sport.png", useCount: 0.0),
+                Category(title: "Transport", imageName: "transportation.png", useCount: 0.0),
+                Category(title: "Utility Payments", imageName: "utility_payments.png", useCount: 0.0),
+                Category(title: "Vacation", imageName: "vacation.png", useCount: 0.0),
+                Category(title: "Work", imageName: "work.png", useCount: 0.0),
+                Category(title: "Other", imageName: "other.png", useCount: 0.0),
+                Category(title: "New Category", imageName: "newCategory.png", useCount: 0.0)
+            ]
+            let managedContext = (appDelegate?.persistentContainer.viewContext)!
+            let entity = NSEntityDescription.entity(forEntityName: "Categories", in: managedContext)!
+            for cat in initialCategories {
+                let category = NSManagedObject(entity: entity, insertInto: managedContext)
+                category.setValue(cat.imageName, forKey: "imageName")
+                category.setValue(cat.title, forKey: "title")
+                category.setValue(cat.useCount, forKey: "useCount")
+                }
+            do {
+                try managedContext.save()
+                userDefaults.set(false, forKey: "firstRun")
+            }
+            catch {
+                debugPrint("Could not save. Error: \(error.localizedDescription)")
+            }
+        }
         return true
     }
 

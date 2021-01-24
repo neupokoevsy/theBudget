@@ -6,14 +6,22 @@
 //
 
 import UIKit
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
+
 
 class RecordsViewController: UIViewController {
+     
     
     @IBOutlet weak var recordsButton: UITabBarItem!
+    var categories: [Categories] = []
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataService.instance.fetchCoreDataCategories()
+        categories = dataService.instance.categories
         
         
         

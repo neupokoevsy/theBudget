@@ -11,9 +11,9 @@ struct Category {
     
     private(set) public var title: String
     private(set) public var imageName: String
-    public var useCount: Int
+    public var useCount: Double
     
-    init(title: String, imageName: String, useCount: Int) {
+    init(title: String, imageName: String, useCount: Double) {
         self.imageName = imageName
         self.title = title
         self.useCount = useCount

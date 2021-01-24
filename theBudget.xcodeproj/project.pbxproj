@@ -21,8 +21,11 @@
 		A3672D0525A5F12E00931044 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */; };
 		A3672D0A25A5F13E00931044 /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672D0925A5F13E00931044 /* AddIncomeViewController.swift */; };
 		A3672D0F25A5F3AC00931044 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672D0E25A5F3AC00931044 /* CategoryModel.swift */; };
+		A37227BB25BC4BD2003CDAFD /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37227BA25BC4BD2003CDAFD /* CoreDataService.swift */; };
 		A39F6D3525B1C4EC00209262 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F6D3425B1C4EC00209262 /* CalendarData.swift */; };
 		A3A4653025B1C1A6004B8451 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */; };
+		A3D8D7FE25BD620E002E1A6D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */; };
+		A3D8D80325BD92FF002E1A6D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */; };
 		A3FD6B7325A5D674006B54E0 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FD6B7225A5D674006B54E0 /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +67,11 @@
 		A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		A3672D0925A5F13E00931044 /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		A3672D0E25A5F3AC00931044 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		A37227BA25BC4BD2003CDAFD /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		A39F6D3425B1C4EC00209262 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		A3FD6B7225A5D674006B54E0 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +181,8 @@
 			children = (
 				A3FD6B7225A5D674006B54E0 /* CustomTabBar.swift */,
 				A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */,
+				A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */,
+				A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				A39F6D3425B1C4EC00209262 /* CalendarData.swift */,
+				A37227BA25BC4BD2003CDAFD /* CoreDataService.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -318,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3A4653025B1C1A6004B8451 /* CalendarCollectionViewCell.swift in Sources */,
+				A37227BB25BC4BD2003CDAFD /* CoreDataService.swift in Sources */,
 				A39F6D3525B1C4EC00209262 /* CalendarData.swift in Sources */,
 				A3FD6B7325A5D674006B54E0 /* CustomTabBar.swift in Sources */,
 				A30A5F1C25A5D37F0046D1D0 /* AppDelegate.swift in Sources */,
@@ -326,8 +336,10 @@
 				A3672D0A25A5F13E00931044 /* AddIncomeViewController.swift in Sources */,
 				A30A5F1E25A5D37F0046D1D0 /* SceneDelegate.swift in Sources */,
 				A3672D0F25A5F3AC00931044 /* CategoryModel.swift in Sources */,
+				A3D8D80325BD92FF002E1A6D /* SearchBarView.swift in Sources */,
 				A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */,
 				A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */,
+				A3D8D7FE25BD620E002E1A6D /* CategoryCollectionViewCell.swift in Sources */,
 				A3672D0025A5F0D900931044 /* AddRecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
