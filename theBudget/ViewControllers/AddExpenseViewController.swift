@@ -26,6 +26,7 @@ class AddExpenseViewController: UIViewController {
     
     //MARK: User Input
     @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var commentTextField: UITextField!
     var amount: Double = 0.0
     let type: String = "Expense"
     var comment: String?
@@ -61,7 +62,10 @@ class AddExpenseViewController: UIViewController {
         saveButton.layer.cornerRadius = 3
         saveButton.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         amountTextField.becomeFirstResponder()
+        amountTextField.addDoneButtonOnKeyboard(textViewDescription: amountTextField)
+        commentTextField.delegate = self
     }
+    
     
 
     /*
@@ -158,11 +162,11 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
 //            print(selectedDate)
             formatter.dateFormat = "YYYY-MM-DD"
             date = formatter.date(from: selectedDate)!
-            print(date!)
+//            print(date!)
         } else {
             let category = categories[indexPath.row]
             currentlySelectedCategory = category.title!
-            print(currentlySelectedCategory!)
+//            print(currentlySelectedCategory!)
         }
     }
     
@@ -170,10 +174,5 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
         textField.resignFirstResponder()
         return true
     }
-    
-    func dismiss(_ sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
-    }
-    
-    
+
 }
