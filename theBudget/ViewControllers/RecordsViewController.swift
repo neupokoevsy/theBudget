@@ -12,32 +12,44 @@ let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 
 class RecordsViewController: UIViewController {
-     
     
+    @IBOutlet weak var addRecordButton: UIButton!
     @IBOutlet weak var recordsButton: UITabBarItem!
-    var categories: [Categories] = []
+    @IBOutlet weak var recordsTable: UITableView!
+    
+    var records: [Record]?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataService.instance.fetchCoreDataCategories()
-        categories = dataService.instance.categories
+                
+        records = dataService.instance.fetchRecords()
+        self.recordsTable.backgroundColor = UIColor.blue
         
         
+        //MARK: Show the add button always on top of other views
+        super.view.bringSubviewToFront(addRecordButton)        
         
-        
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        records!.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = recordsTable.dequeueReusableCell(withIdentifier: "recordsCell") as? RecordMainTableViewCell
+        else {
+            return UITableViewCell()
+        }
+        let record = records![indexPath.row]
+        cell.configureCell(record: record)
+        return cell
+    }
+    
+    
 }

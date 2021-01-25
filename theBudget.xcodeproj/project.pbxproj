@@ -15,6 +15,7 @@
 		A30A5F2B25A5D3800046D1D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30A5F2925A5D3800046D1D0 /* LaunchScreen.storyboard */; };
 		A30A5F3625A5D3800046D1D0 /* theBudgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A5F3525A5D3800046D1D0 /* theBudgetTests.swift */; };
 		A30A5F4125A5D3800046D1D0 /* theBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A5F4025A5D3800046D1D0 /* theBudgetUITests.swift */; };
+		A35D8A8125BED21D00F67BE8 /* RecordMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D8A8025BED21D00F67BE8 /* RecordMainTableViewCell.swift */; };
 		A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CF525A5EB3F00931044 /* RecordsViewController.swift */; };
 		A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */; };
 		A3672D0025A5F0D900931044 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */; };
@@ -62,6 +63,7 @@
 		A30A5F3C25A5D3800046D1D0 /* theBudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = theBudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30A5F4025A5D3800046D1D0 /* theBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theBudgetUITests.swift; sourceTree = "<group>"; };
 		A30A5F4225A5D3800046D1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A35D8A8025BED21D00F67BE8 /* RecordMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMainTableViewCell.swift; sourceTree = "<group>"; };
 		A3672CF525A5EB3F00931044 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		A3FD6B6525A5D624006B54E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A35D8A8025BED21D00F67BE8 /* RecordMainTableViewCell.swift */,
 				A3FD6B7225A5D674006B54E0 /* CustomTabBar.swift */,
 				A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */,
 				A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */,
@@ -350,6 +353,7 @@
 				A3D8D80325BD92FF002E1A6D /* SearchBarView.swift in Sources */,
 				A3D8D81725BDE891002E1A6D /* Extensions.swift in Sources */,
 				A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */,
+				A35D8A8125BED21D00F67BE8 /* RecordMainTableViewCell.swift in Sources */,
 				A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */,
 				A3D8D7FE25BD620E002E1A6D /* CategoryCollectionViewCell.swift in Sources */,
 				A3672D0025A5F0D900931044 /* AddRecordViewController.swift in Sources */,

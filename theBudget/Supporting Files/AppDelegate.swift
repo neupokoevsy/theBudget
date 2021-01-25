@@ -36,15 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 Category(title: "Hospital", imageName: "hospital.png", useCount: 0.0),
                 Category(title: "Household", imageName: "household.png", useCount: 0.0),
                 Category(title: "Lunch", imageName: "lunch.png", useCount: 0.0),
-                Category(title: "Online Shopping", imageName: "online_shopping.png", useCount: 0.0),
+                Category(title: "Online Shopping", imageName: "online shopping.png", useCount: 0.0),
                 Category(title: "Pharmacy", imageName: "pharmacy.png", useCount: 0.0),
                 Category(title: "Activity", imageName: "sport.png", useCount: 0.0),
-                Category(title: "Transport", imageName: "transportation.png", useCount: 0.0),
-                Category(title: "Utility Payments", imageName: "utility_payments.png", useCount: 0.0),
+                Category(title: "Transport", imageName: "transport.png", useCount: 0.0),
+                Category(title: "Utility Payments", imageName: "utility payments.png", useCount: 0.0),
                 Category(title: "Vacation", imageName: "vacation.png", useCount: 0.0),
                 Category(title: "Work", imageName: "work.png", useCount: 0.0),
                 Category(title: "Other", imageName: "other.png", useCount: 0.0),
-                Category(title: "New Category", imageName: "newCategory.png", useCount: 0.0)
+                Category(title: "New Category", imageName: "new category.png", useCount: 0.0)
             ]
             let managedContext = (appDelegate?.persistentContainer.viewContext)!
             let entity = NSEntityDescription.entity(forEntityName: "Categories", in: managedContext)!

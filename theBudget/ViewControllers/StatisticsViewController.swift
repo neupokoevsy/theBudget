@@ -9,14 +9,18 @@ import UIKit
 
 class StatisticsViewController: UIViewController {
 
+    @IBOutlet weak var button: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        super.view.bringSubviewToFront(button)
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func buttonClicked(_ sender: UIButton) {
+        print("ButtonCLICKED")
+    }
+    
     /*
     // MARK: - Navigation
 
