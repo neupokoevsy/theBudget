@@ -25,8 +25,8 @@ class CalendarService {
     var currentDateIndex: Int = 0
     
     func getDates() -> [String] {
-        var arrayOfFormattedDates = [String]()
         
+        var arrayOfFormattedDates = [String]()
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM\ndd\nE"
         
@@ -40,8 +40,8 @@ class CalendarService {
     }
     
     func datesForCoreData() -> [String] {
-        var arrayOfDatesForCoreData = [String]()
         
+        var arrayOfDatesForCoreData = [String]()
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-DD"
         var dateStartingIndex = -30

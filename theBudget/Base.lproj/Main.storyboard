@@ -150,17 +150,55 @@ when you will add more data</string>
                                     <outlet property="delegate" destination="mOS-BW-dED" id="LGb-cu-uwR"/>
                                 </connections>
                             </collectionView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.00" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="I3F-Yx-ewl">
+                                <rect key="frame" x="100" y="270" width="214" height="63.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="continue"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="You can comment your record" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nZV-Sf-eSp">
+                                <rect key="frame" x="20" y="341" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oJ-fd-h2e">
+                                <rect key="frame" x="20" y="796" width="374" height="46"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="mOS-BW-dED" eventType="touchUpInside" id="DwC-WR-Vpd"/>
+                                    <action selector="saveButtonPressed:" destination="eB3-0m-Ty7" eventType="touchUpInside" id="dwb-2C-Dnr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C31-VZ-UxH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nZV-Sf-eSp" firstAttribute="top" secondItem="I3F-Yx-ewl" secondAttribute="bottom" constant="7.5" id="AT1-yG-BGg"/>
                             <constraint firstItem="hzD-uB-fDI" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="IPu-W3-e0f"/>
+                            <constraint firstItem="9oJ-fd-h2e" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="IVo-nd-2bI"/>
+                            <constraint firstItem="I3F-Yx-ewl" firstAttribute="top" secondItem="hzD-uB-fDI" secondAttribute="bottom" constant="131" id="KsL-I6-pGB"/>
                             <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="hzD-uB-fDI" secondAttribute="trailing" constant="20" id="L8p-0Y-Fzf"/>
+                            <constraint firstItem="I3F-Yx-ewl" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="100" id="Pc0-pa-xCe"/>
+                            <constraint firstItem="I3F-Yx-ewl" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="QGz-02-CeI"/>
+                            <constraint firstItem="hzD-uB-fDI" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="Wvc-vi-8ly"/>
                             <constraint firstItem="hzD-uB-fDI" firstAttribute="top" secondItem="C31-VZ-UxH" secondAttribute="top" constant="20" id="Z9u-VN-GBj"/>
+                            <constraint firstItem="C31-VZ-UxH" firstAttribute="bottom" secondItem="9oJ-fd-h2e" secondAttribute="bottom" constant="20" id="at2-XL-UZO"/>
+                            <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="I3F-Yx-ewl" secondAttribute="trailing" constant="100" id="cBp-oi-HQs"/>
+                            <constraint firstItem="nZV-Sf-eSp" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="mbB-he-O2P"/>
+                            <constraint firstItem="nZV-Sf-eSp" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="ohu-wj-q8a"/>
+                            <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="nZV-Sf-eSp" secondAttribute="trailing" constant="20" id="wyc-FM-B3e"/>
+                            <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="9oJ-fd-h2e" secondAttribute="trailing" constant="20" id="xZH-co-UEP"/>
+                            <constraint firstItem="9oJ-fd-h2e" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="xgq-aj-il2"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="CalendarCollectionView" destination="hzD-uB-fDI" id="bFa-9d-Zh2"/>
+                        <outlet property="amountTextField" destination="I3F-Yx-ewl" id="Ric-MW-Bhs"/>
+                        <outlet property="commentTextField" destination="nZV-Sf-eSp" id="3RM-nK-DBu"/>
+                        <outlet property="saveButton" destination="9oJ-fd-h2e" id="KeA-TQ-Z5m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4I-9x-Ia6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -52,7 +52,7 @@ class dataService{
     //******************************************************************
     //MARK: Function that takes user input and saves it in CoreData
     //******************************************************************
-    func saveNewRecord(amount: Double, category: String, date: Date, type: String, comment: String) {
+    func saveNewRecord(amount: Double, category: String?, date: Date, type: String, comment: String) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext
         else {
             return

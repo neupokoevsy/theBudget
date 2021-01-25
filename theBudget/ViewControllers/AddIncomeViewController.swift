@@ -9,20 +9,36 @@ import UIKit
 
 class AddIncomeViewController: UIViewController {
 
+    //MARK: Calendar variables
     @IBOutlet weak var CalendarCollectionView: UICollectionView!
     var datesToDisplay = [String]()
+    var datesForCoreData = [String]()
     var selectedDateIndex: Int = 0
     var currentDateIndex = 0
-    var date = Date()
+    var date: Date?
+    
+    //MARK: User Input
+    @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
+    var amount: Double = 0.0
+    let type: String = "Income"
+    var comment: String?
+    let formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         adjustUI()
+        
+        //MARK: Calendar get dates, autoselect & autocenter date
         datesToDisplay = CalendarService.instance.getDates()
+        datesForCoreData = CalendarService.instance.datesForCoreData()
         currentDateIndex = CalendarService.instance.currentDateIndex
         let indexPathForFirstRow = IndexPath(row: currentDateIndex, section: 0)
         self.setSelectedItemFromScrollView(CalendarCollectionView)
         self.CalendarCollectionView.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .centeredHorizontally)
+        date = Date()
 
         // Do any additional setup after loading the view.
     }
@@ -31,22 +47,38 @@ class AddIncomeViewController: UIViewController {
         CalendarCollectionView.layer.cornerRadius = 5
         CalendarCollectionView.layer.borderWidth = 2
         CalendarCollectionView.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        self.hideKeyboardWhenTappedAround()
+        saveButton.layer.cornerRadius = 3
+        saveButton.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        amountTextField.becomeFirstResponder()
+        amountTextField.addDoneButtonOnKeyboard(textViewDescription: amountTextField)
+        commentTextField.delegate = self
+    }
+
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        amount = Double(amountTextField.text!) ?? 0.0
+        if checkEntry() {
+            dataService.instance.saveNewRecord(amount: amount, category: nil, date: date!, type: type, comment: "")
+            dismiss(animated: true, completion: nil)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func checkEntry() -> Bool {
+        if amount == 0.0 || amountTextField.text == "" {
+            amountTextField.shake()
+            amountTextField.vibrate()
+        } else if date == nil {
+            CalendarCollectionView.shake()
+            CalendarCollectionView.vibrate()
+        } else {
+            return true
+        }
+        return false
     }
-    */
 
 }
 
-extension AddIncomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AddIncomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UISearchTextFieldDelegate {
     
     
     func setSelectedItemFromScrollView(_ scrollView: UIScrollView) {
@@ -60,8 +92,9 @@ extension AddIncomeViewController: UICollectionViewDelegate, UICollectionViewDat
                 self.selectedDateIndex = (index?.row)!
                 let formatter = DateFormatter()
                 formatter.dateFormat = "YYYY-MM-DD"
-                let currentlySelectedDate = CalendarService.instance.getDates()[selectedDateIndex]
+                let currentlySelectedDate = CalendarService.instance.datesForCoreData()[selectedDateIndex]
                 date = formatter.date(from: currentlySelectedDate) ?? Date()
+//                print(date!)
             }
     }
     
@@ -88,5 +121,17 @@ extension AddIncomeViewController: UICollectionViewDelegate, UICollectionViewDat
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let selectedDate = datesForCoreData[indexPath.row]
+//            print(selectedDate)
+            formatter.dateFormat = "YYYY-MM-DD"
+            date = formatter.date(from: selectedDate)!
+//            print(date!)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }

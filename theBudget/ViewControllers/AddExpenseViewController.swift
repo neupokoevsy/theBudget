@@ -38,7 +38,7 @@ class AddExpenseViewController: UIViewController {
         super.viewDidLoad()
         adjustUI()
         
-        //MARK: Calendar get dates and autoselect & autocenter date
+        //MARK: Calendar get dates, autoselect & autocenter date
         datesToDisplay = CalendarService.instance.getDates()
         currentDateIndex = CalendarService.instance.currentDateIndex
         datesForCoreData = CalendarService.instance.datesForCoreData()
@@ -122,7 +122,7 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
                 formatter.dateFormat = "YYYY-MM-DD"
                 let currentlySelectedDate = CalendarService.instance.datesForCoreData()[selectedDateIndex]
                 date = formatter.date(from: currentlySelectedDate) ?? Date()
-                print(date!)
+//                print(date!)
             }
     }
     
