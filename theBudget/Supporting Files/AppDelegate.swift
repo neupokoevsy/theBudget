@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 Category(title: "Lunch", imageName: "lunch.png", useCount: 0.0),
                 Category(title: "Online Shopping", imageName: "online shopping.png", useCount: 0.0),
                 Category(title: "Pharmacy", imageName: "pharmacy.png", useCount: 0.0),
-                Category(title: "Activity", imageName: "sport.png", useCount: 0.0),
+                Category(title: "Activity", imageName: "activity.png", useCount: 0.0),
                 Category(title: "Transport", imageName: "transport.png", useCount: 0.0),
                 Category(title: "Utility Payments", imageName: "utility payments.png", useCount: 0.0),
                 Category(title: "Vacation", imageName: "vacation.png", useCount: 0.0),

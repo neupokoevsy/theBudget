@@ -9,11 +9,9 @@ import UIKit
 
 class StatisticsViewController: UIViewController {
 
-    @IBOutlet weak var button: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        super.view.bringSubviewToFront(button)
         // Do any additional setup after loading the view.
     }
     

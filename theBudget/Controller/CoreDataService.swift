@@ -74,6 +74,26 @@ class dataService{
         }
     }
     
+    
+    func usedCertainCategory(category: String){
+        guard let managedContext = appDelegate?.persistentContainer.viewContext
+        else {
+            return
+        }
+        let fetchRequest: NSFetchRequest<Categories> = Categories.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "title contains [c] %@", category)
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            if let categoriesFetched = results.first{
+                categoriesFetched.title = category
+                categoriesFetched.useCount = 0.01
+            }
+          try managedContext.save()
+        } catch let error as NSError {
+          print(error.localizedDescription)
+        }
+    }
+    
     //******************************************************************
     //MARK: Records related code (CoreData)
     //******************************************************************

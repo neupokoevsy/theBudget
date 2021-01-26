@@ -38,6 +38,8 @@ class AddExpenseViewController: UIViewController {
         super.viewDidLoad()
         adjustUI()
         
+//        dataService.instance.usedCertainCategory(category: "Work")
+        
         //MARK: Calendar get dates, autoselect & autocenter date
         datesToDisplay = CalendarService.instance.getDates()
         currentDateIndex = CalendarService.instance.currentDateIndex
@@ -81,7 +83,9 @@ class AddExpenseViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         amount = Double(amountTextField.text!) ?? 0.0
         if checkEntry() {
-            dataService.instance.saveNewRecord(amount: amount, category: currentlySelectedCategory!, date: date!, type: type, comment: "")
+            dataService.instance.saveNewRecord(amount: amount, category: currentlySelectedCategory!, date: date!, type: type, comment: commentTextField.text ?? "")
+            dataService.instance.usedCertainCategory(category: currentlySelectedCategory!)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewRecordAdded"), object: nil)
             dismiss(animated: true, completion: nil)
         }
     }

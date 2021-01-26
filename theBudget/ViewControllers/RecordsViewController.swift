@@ -24,11 +24,20 @@ class RecordsViewController: UIViewController {
         super.viewDidLoad()
                 
         records = dataService.instance.fetchRecords()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchRecordsWithNotification(notification:)), name: NSNotification.Name(rawValue: "NewRecordAdded"), object: nil)
         
         //MARK: Show the add button always on top of other views
         super.view.bringSubviewToFront(addRecordButton)        
         
+    }
+    
+    //******************************************************************
+    //MARK: Fetch CoreData when receive notification from other VC's
+    //******************************************************************
+    
+    @objc func fetchRecordsWithNotification(notification: NSNotification) {
+        records = dataService.instance.fetchRecords()
+        recordsTable.reloadData()
     }
     
 
@@ -47,9 +56,6 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let record = records![indexPath.row]
         cell.configureCell(record: record)
-        if record.category != nil {
-            print(record.category!.lowercased())
-        }
         return cell
     }
     

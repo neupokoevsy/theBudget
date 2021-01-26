@@ -14,6 +14,7 @@ class RecordMainTableViewCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet var categoryImage: UIImageView!
     
 
@@ -27,9 +28,8 @@ class RecordMainTableViewCell: UITableViewCell {
         }
         if record.category != nil {
             self.categoryImage.image = UIImage(named: "\(String(describing: record.category!.lowercased())).png")
-//            print("\(record.category!.lowercased()).png")
             }
-//        self.categoryImage.image = UIImage(named: "lunch.png")
+        self.commentLabel.text = record.comment
         
         let date = record.date
         let dateFormatter = DateFormatter()

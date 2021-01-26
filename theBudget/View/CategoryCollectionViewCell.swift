@@ -32,6 +32,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     func updateViews(category: Categories){
         CategoryImageView.image = UIImage(named: category.imageName!)
+//        print("\(category.title!) used \(category.useCount) times")
         CategoryLabel.text = category.title
     }
     

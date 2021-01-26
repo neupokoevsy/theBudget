@@ -105,6 +105,12 @@ when you will add more data</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKO-u4-SUs">
+                                                    <rect key="frame" x="180.5" y="102.5" width="53.5" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="BUE-Re-401" firstAttribute="leading" secondItem="ysI-qz-EiO" secondAttribute="leadingMargin" id="1xG-XE-DK2"/>
@@ -113,7 +119,9 @@ when you will add more data</string>
                                                 <constraint firstItem="ryh-uz-137" firstAttribute="centerX" secondItem="ysI-qz-EiO" secondAttribute="centerX" id="CzC-6v-3TW"/>
                                                 <constraint firstItem="BUE-Re-401" firstAttribute="centerY" secondItem="ysI-qz-EiO" secondAttribute="centerY" id="K0W-RK-M2w"/>
                                                 <constraint firstItem="ISv-Kn-q1y" firstAttribute="top" secondItem="ysI-qz-EiO" secondAttribute="topMargin" id="WV3-6Q-DNz"/>
+                                                <constraint firstItem="sKO-u4-SUs" firstAttribute="bottom" secondItem="ysI-qz-EiO" secondAttribute="bottomMargin" id="hLG-YN-yXT"/>
                                                 <constraint firstItem="Naj-zH-wkB" firstAttribute="trailing" secondItem="ysI-qz-EiO" secondAttribute="trailingMargin" id="k5i-CA-PRV"/>
+                                                <constraint firstItem="sKO-u4-SUs" firstAttribute="centerX" secondItem="ysI-qz-EiO" secondAttribute="centerX" id="mUY-8d-rtO"/>
                                                 <constraint firstItem="Naj-zH-wkB" firstAttribute="centerY" secondItem="ysI-qz-EiO" secondAttribute="centerY" id="nIt-GU-awd"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -121,6 +129,7 @@ when you will add more data</string>
                                             <outlet property="amountLabel" destination="Naj-zH-wkB" id="wtR-AR-fDe"/>
                                             <outlet property="categoryImage" destination="v03-BS-6cT" id="C0E-SX-URW"/>
                                             <outlet property="categoryLabel" destination="WZh-tM-Na7" id="f0f-eF-PVL"/>
+                                            <outlet property="commentLabel" destination="sKO-u4-SUs" id="HY0-qO-2wN"/>
                                             <outlet property="dateLabel" destination="ryh-uz-137" id="vDD-DP-kxN"/>
                                             <outlet property="typeLabel" destination="ISv-Kn-q1y" id="GgR-xf-ngv"/>
                                         </connections>
@@ -482,7 +491,7 @@ when you will add more data</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5bw-dN-3Ed"/>
+        <segue reference="jFh-oC-Qx1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AddButton_StyleDark" width="120" height="120"/>
