@@ -15,6 +15,7 @@
 		A30A5F2B25A5D3800046D1D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30A5F2925A5D3800046D1D0 /* LaunchScreen.storyboard */; };
 		A30A5F3625A5D3800046D1D0 /* theBudgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A5F3525A5D3800046D1D0 /* theBudgetTests.swift */; };
 		A30A5F4125A5D3800046D1D0 /* theBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A5F4025A5D3800046D1D0 /* theBudgetUITests.swift */; };
+		A349A4F325C05A06000F41FD /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349A4F225C05A06000F41FD /* ShadowView.swift */; };
 		A35D8A8125BED21D00F67BE8 /* RecordMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D8A8025BED21D00F67BE8 /* RecordMainTableViewCell.swift */; };
 		A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CF525A5EB3F00931044 /* RecordsViewController.swift */; };
 		A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */; };
@@ -63,6 +64,7 @@
 		A30A5F3C25A5D3800046D1D0 /* theBudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = theBudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A30A5F4025A5D3800046D1D0 /* theBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theBudgetUITests.swift; sourceTree = "<group>"; };
 		A30A5F4225A5D3800046D1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A349A4F225C05A06000F41FD /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		A35D8A8025BED21D00F67BE8 /* RecordMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMainTableViewCell.swift; sourceTree = "<group>"; };
 		A3672CF525A5EB3F00931044 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				A30A5F1B25A5D37F0046D1D0 /* AppDelegate.swift */,
 				A30A5F1D25A5D37F0046D1D0 /* SceneDelegate.swift */,
 				A3D8D81625BDE891002E1A6D /* Extensions.swift */,
+				A349A4F225C05A06000F41FD /* ShadowView.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A349A4F325C05A06000F41FD /* ShadowView.swift in Sources */,
 				A3A4653025B1C1A6004B8451 /* CalendarCollectionViewCell.swift in Sources */,
 				A37227BB25BC4BD2003CDAFD /* CoreDataService.swift in Sources */,
 				A39F6D3525B1C4EC00209262 /* CalendarData.swift in Sources */,

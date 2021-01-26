@@ -13,6 +13,7 @@ let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class RecordsViewController: UIViewController {
     
+    
     @IBOutlet weak var addRecordButton: UIButton!
     @IBOutlet weak var recordsButton: UITabBarItem!
     @IBOutlet weak var recordsTable: UITableView!
@@ -45,6 +46,8 @@ class RecordsViewController: UIViewController {
 
 extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         records!.count
     }
@@ -56,11 +59,7 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let record = records![indexPath.row]
         cell.configureCell(record: record)
-//        cell.layer.borderWidth = 0.5
-//        cell.layer.borderColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
-//        cell.layer.cornerRadius = 10
-//        cell.layer.shadowOffset = CGSize(width: 10, height: 10)
-//        cell.layer.shadowColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+        
         return cell
     }
     
