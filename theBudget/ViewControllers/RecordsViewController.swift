@@ -24,7 +24,6 @@ class RecordsViewController: UIViewController {
         super.viewDidLoad()
                 
         records = dataService.instance.fetchRecords()
-        self.recordsTable.backgroundColor = UIColor.blue
         
         
         //MARK: Show the add button always on top of other views
@@ -48,6 +47,9 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let record = records![indexPath.row]
         cell.configureCell(record: record)
+        if record.category != nil {
+            print(record.category!.lowercased())
+        }
         return cell
     }
     

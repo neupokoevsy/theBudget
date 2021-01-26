@@ -21,6 +21,15 @@ class RecordMainTableViewCell: UITableViewCell {
         self.amountLabel.text = String(describing: record.amount)
         self.categoryLabel.text = record.category
         self.typeLabel.text = record.type
+        if record.type! == "Income" {
+            self.categoryImage.image = UIImage(named: "income.png")
+            self.categoryLabel.text = "Income"
+        }
+        if record.category != nil {
+            self.categoryImage.image = UIImage(named: "\(String(describing: record.category!.lowercased())).png")
+//            print("\(record.category!.lowercased()).png")
+            }
+//        self.categoryImage.image = UIImage(named: "lunch.png")
         
         let date = record.date
         let dateFormatter = DateFormatter()

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MK0-Vt-avE">
-                                <rect key="frame" x="172" y="778" width="70" height="70"/>
+                                <rect key="frame" x="172" y="758" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MK0-Vt-avE" secondAttribute="height" multiplier="1:1" id="dv2-pS-BzN"/>
                                     <constraint firstAttribute="width" constant="70" id="e7Q-cV-9x6"/>
@@ -36,28 +36,17 @@ when you will add more data</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDy-rX-hdm">
-                                <rect key="frame" x="184" y="687" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonClicked:" destination="gZn-lI-9Gi" eventType="touchUpInside" id="glt-Vz-JjG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CAZ-1i-IZt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Jhn-ZX-pQe" firstAttribute="centerY" secondItem="dXB-jk-Bv0" secondAttribute="centerY" id="GUU-UQ-vt8"/>
                             <constraint firstItem="MK0-Vt-avE" firstAttribute="centerX" secondItem="CAZ-1i-IZt" secondAttribute="centerX" id="HXK-1V-LSB"/>
-                            <constraint firstItem="CAZ-1i-IZt" firstAttribute="bottom" secondItem="MK0-Vt-avE" secondAttribute="centerY" id="MMK-f5-drT"/>
+                            <constraint firstItem="CAZ-1i-IZt" firstAttribute="bottom" secondItem="MK0-Vt-avE" secondAttribute="centerY" constant="20" id="MMK-f5-drT"/>
                             <constraint firstItem="Jhn-ZX-pQe" firstAttribute="centerX" secondItem="dXB-jk-Bv0" secondAttribute="centerX" id="vb3-e8-SJL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.xaxis" catalog="system" selectedImage="chart.bar.xaxis" id="nZm-1v-75m"/>
-                    <connections>
-                        <outlet property="button" destination="LDy-rX-hdm" id="iVd-CY-hGb"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76E-zu-8ZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,7 +61,7 @@ when you will add more data</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uKv-OU-iMI">
-                                <rect key="frame" x="0.0" y="44" width="414" height="804"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordsCell" rowHeight="130" id="pH7-mn-Xmk" customClass="RecordMainTableViewCell" customModule="theBudget" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="130"/>
@@ -82,13 +71,13 @@ when you will add more data</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BUE-Re-401">
-                                                    <rect key="frame" x="20" y="26" width="85" height="78"/>
+                                                    <rect key="frame" x="20" y="26" width="96" height="78"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v03-BS-6cT">
-                                                            <rect key="frame" x="16" y="0.0" width="53" height="57.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="96" height="57.5"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Utility Payments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZh-tM-Na7">
-                                                            <rect key="frame" x="0.0" y="61.5" width="85" height="16.5"/>
+                                                            <rect key="frame" x="5.5" y="61.5" width="85" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -144,7 +133,7 @@ when you will add more data</string>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2f-fv-POq">
-                                <rect key="frame" x="172" y="778" width="70" height="70"/>
+                                <rect key="frame" x="172" y="758" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="dni-iL-TPX"/>
                                     <constraint firstAttribute="width" secondItem="V2f-fv-POq" secondAttribute="height" multiplier="1:1" id="xLu-pP-7vJ"/>
@@ -159,9 +148,9 @@ when you will add more data</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uKv-OU-iMI" firstAttribute="leading" secondItem="8Jm-5B-zT7" secondAttribute="leading" id="Jdf-vV-nPL"/>
-                            <constraint firstItem="8Jm-5B-zT7" firstAttribute="bottom" secondItem="V2f-fv-POq" secondAttribute="centerY" id="NUX-LW-4Ym"/>
-                            <constraint firstItem="V2f-fv-POq" firstAttribute="bottom" secondItem="uKv-OU-iMI" secondAttribute="bottom" id="aWy-A1-3ft"/>
+                            <constraint firstItem="8Jm-5B-zT7" firstAttribute="bottom" secondItem="V2f-fv-POq" secondAttribute="centerY" constant="20" id="NUX-LW-4Ym"/>
                             <constraint firstItem="V2f-fv-POq" firstAttribute="centerX" secondItem="8Jm-5B-zT7" secondAttribute="centerX" id="juY-R4-vCH"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="uKv-OU-iMI" secondAttribute="bottom" id="lrx-x4-D0a"/>
                             <constraint firstItem="uKv-OU-iMI" firstAttribute="trailing" secondItem="8Jm-5B-zT7" secondAttribute="trailing" id="msg-Xc-0SL"/>
                             <constraint firstItem="uKv-OU-iMI" firstAttribute="top" secondItem="8Jm-5B-zT7" secondAttribute="top" id="yVe-Ra-utR"/>
                         </constraints>
@@ -493,7 +482,7 @@ when you will add more data</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jFh-oC-Qx1"/>
+        <segue reference="5bw-dN-3Ed"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AddButton_StyleDark" width="120" height="120"/>

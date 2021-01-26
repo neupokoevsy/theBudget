@@ -13,7 +13,7 @@ class dataService{
     static let instance = dataService()
     
     public var categories: [Categories] = []
-    public var records: [Record]?
+    public var records: [Record] = []
     
     //******************************************************************
     //MARK: Categories related code (CoreData)
@@ -85,14 +85,14 @@ class dataService{
         let sort = NSSortDescriptor(key: "date", ascending: false)
         fetchRequest.sortDescriptors = [sort]
         do {
-            records = try managedContext!.fetch(fetchRequest) as? [Record]
+            records = try managedContext!.fetch(fetchRequest) as! [Record]
         }
         catch
             {
             print("Could not fetch data: \(error.localizedDescription)")
         }
         
-        return records ?? []
+        return records 
     }
     
 }
