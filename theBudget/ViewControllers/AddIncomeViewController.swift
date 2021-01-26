@@ -59,7 +59,7 @@ class AddIncomeViewController: UIViewController {
         amount = Double(amountTextField.text!) ?? 0.0
         if checkEntry() {
             dataService.instance.saveNewRecord(amount: amount, category: nil, date: date!, type: type, comment: commentTextField.text ?? "")
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewRecordAdded"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
             dismiss(animated: true, completion: nil)
         }
     }

@@ -115,4 +115,26 @@ class dataService{
         return records 
     }
     
+    //******************************************************************
+    //MARK: Delete selected CoreData record
+    //******************************************************************
+    
+    
+    func removeRecord(atIndexPath indexPath: IndexPath) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext
+        else
+        {
+            return
+        }
+        managedContext.delete(records[indexPath.row])
+        do {
+            try managedContext.save()
+            self.records = dataService.instance.fetchRecords()
+            print("successfully removed item at \(indexPath.row)")
+        } catch {
+            debugPrint("Could not remove: \(error.localizedDescription)")
+        }
+        
+    }
+    
 }

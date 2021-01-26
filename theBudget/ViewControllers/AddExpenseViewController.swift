@@ -85,7 +85,7 @@ class AddExpenseViewController: UIViewController {
         if checkEntry() {
             dataService.instance.saveNewRecord(amount: amount, category: currentlySelectedCategory!, date: date!, type: type, comment: commentTextField.text ?? "")
             dataService.instance.usedCertainCategory(category: currentlySelectedCategory!)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NewRecordAdded"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
             dismiss(animated: true, completion: nil)
         }
     }
