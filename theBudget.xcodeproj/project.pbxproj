@@ -16,6 +16,7 @@
 		A30A5F3625A5D3800046D1D0 /* theBudgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A5F3525A5D3800046D1D0 /* theBudgetTests.swift */; };
 		A30A5F4125A5D3800046D1D0 /* theBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30A5F4025A5D3800046D1D0 /* theBudgetUITests.swift */; };
 		A349A4F325C05A06000F41FD /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349A4F225C05A06000F41FD /* ShadowView.swift */; };
+		A349A4F825C09D30000F41FD /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A349A4F725C09D30000F41FD /* EditingViewController.swift */; };
 		A35D8A8125BED21D00F67BE8 /* RecordMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D8A8025BED21D00F67BE8 /* RecordMainTableViewCell.swift */; };
 		A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CF525A5EB3F00931044 /* RecordsViewController.swift */; };
 		A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */; };
@@ -65,6 +66,7 @@
 		A30A5F4025A5D3800046D1D0 /* theBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = theBudgetUITests.swift; sourceTree = "<group>"; };
 		A30A5F4225A5D3800046D1D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A349A4F225C05A06000F41FD /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		A349A4F725C09D30000F41FD /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
 		A35D8A8025BED21D00F67BE8 /* RecordMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordMainTableViewCell.swift; sourceTree = "<group>"; };
 		A3672CF525A5EB3F00931044 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */,
 				A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */,
 				A3672D0925A5F13E00931044 /* AddIncomeViewController.swift */,
+				A349A4F725C09D30000F41FD /* EditingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				A3D8D81725BDE891002E1A6D /* Extensions.swift in Sources */,
 				A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */,
 				A35D8A8125BED21D00F67BE8 /* RecordMainTableViewCell.swift in Sources */,
+				A349A4F825C09D30000F41FD /* EditingViewController.swift in Sources */,
 				A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */,
 				A3D8D7FE25BD620E002E1A6D /* CategoryCollectionViewCell.swift in Sources */,
 				A3672D0025A5F0D900931044 /* AddRecordViewController.swift in Sources */,

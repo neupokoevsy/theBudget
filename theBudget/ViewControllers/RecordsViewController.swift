@@ -46,7 +46,9 @@ class RecordsViewController: UIViewController {
 
 extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
+    //******************************************************************
+    //MARK: Getting work done with TableView
+    //******************************************************************
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         records!.count
@@ -63,6 +65,27 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
+    //Edit action
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = self.contextualEditAction(forRowAtIndexPath: indexPath)
+        let swipeConfig = UISwipeActionsConfiguration(actions: [editAction])
+        swipeConfig.performsFirstActionWithFullSwipe = true
+        editAction.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        return swipeConfig
+    }
+    
+    func contextualEditAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction{
+        let editAction = UIContextualAction(style: .normal, title: "EDIT") { (action, RecordsViewController, completionHandler: (Bool) -> Void) in
+            let editingViewController = self.storyboard?.instantiateViewController(identifier: "RecordEditingViewController") as! EditingViewController
+            self.present(editingViewController, animated: true)
+            completionHandler(true)
+        }
+        return editAction
+    }
+    
+    
+    //Delete action
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = self.contextualDeleteAction(forRowAtIndexPath: indexPath)
         let swipeConfig = UISwipeActionsConfiguration(actions: [deleteAction])

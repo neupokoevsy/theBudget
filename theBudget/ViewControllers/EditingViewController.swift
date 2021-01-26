@@ -1,49 +1,50 @@
 //
-//  AddExpenseViewController.swift
+//  EditingViewController.swift
 //  theBudget
 //
-//  Created by Sergey Neupokoev on 06/01/2021.
+//  Created by Sergey Neupokoev on 26/01/2021.
 //
 
 import UIKit
 
-class AddExpenseViewController: UIViewController {
+class EditingViewController: UIViewController {
     
-    //MARK: Calendar variables
+    //Calendar variables
     @IBOutlet weak var CalendarCollectionView: UICollectionView!
     var datesToDisplay = [String]()
     var datesForCoreData = [String]()
     var selectedDateIndex: Int = 0
     var currentDateIndex = 0
     var date: Date?
+    let formatter = DateFormatter()
     
-    //MARK: Categories variables
-    @IBOutlet weak var CategoriesCollectionView: UICollectionView!
-    var categories: [Categories] = []
-    var currentlySelectedCategory: String?
-//    var categoriesToShow: [Categories] = []
-    
-    
-    //MARK: User Input
+    //Record variables
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var commentTextField: UITextField!
-    var amount: Double = 0.0
-    let type: String = "Expense"
+    var records: [Record]?
+    var amount: Double?
+    var type: String = "Expense"
     var comment: String?
-    let formatter = DateFormatter()
-    @IBOutlet weak var saveButton: UIButton!
     
+    //Categories variables
+    @IBOutlet weak var CategoriesCollectionView: UICollectionView!
+    var categories: [Categories]?
+    var currentlySelectedCategory: String?
+
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var expenseSwitch: UISwitch!
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        adjustUI()
         
+        records = dataService.instance.fetchRecords()
         
         //MARK: Calendar get dates, autoselect & autocenter date
         datesToDisplay = CalendarService.instance.getDates()
         currentDateIndex = CalendarService.instance.currentDateIndex
         datesForCoreData = CalendarService.instance.datesForCoreData()
-        
         let indexPathForFirstRow = IndexPath(row: currentDateIndex, section: 0)
         self.setSelectedItemFromScrollView(CalendarCollectionView)
         self.CalendarCollectionView.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .centeredHorizontally)
@@ -53,40 +54,6 @@ class AddExpenseViewController: UIViewController {
         dataService.instance.fetchCoreDataCategories()
         categories = dataService.instance.categories
         
-    }
-    
-    func adjustUI() {
-        CalendarCollectionView.layer.cornerRadius = 5
-        CalendarCollectionView.layer.borderWidth = 2
-        CalendarCollectionView.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-        self.hideKeyboardWhenTappedAround()
-        saveButton.layer.cornerRadius = 3
-        saveButton.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-        amountTextField.becomeFirstResponder()
-        amountTextField.addDoneButtonOnKeyboard(textViewDescription: amountTextField)
-        commentTextField.delegate = self
-    }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    @IBAction func saveButtonPressed(_ sender: UIButton) {
-        amount = Double(amountTextField.text!) ?? 0.0
-        if checkEntry() {
-            dataService.instance.saveNewRecord(amount: amount, category: currentlySelectedCategory!, date: date!, type: type, comment: commentTextField.text ?? "")
-            dataService.instance.usedCertainCategory(category: currentlySelectedCategory!)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
-            dismiss(animated: true, completion: nil)
-        }
     }
     
     
@@ -105,12 +72,24 @@ class AddExpenseViewController: UIViewController {
         }
         return false
     }
-
+    
+    @IBAction func editExistingRecord(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func toggleExpenseSwitch(_ sender: UISwitch) {
+        if !expenseSwitch.isOn {
+            CategoriesCollectionView.isHidden = true
+            type = "Income"
+        } else {
+            CategoriesCollectionView.isHidden = false
+            type = "Expense"
+        }
+    }
+    
 }
 
-
-extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
-    
+extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func setSelectedItemFromScrollView(_ scrollView: UIScrollView) {
             self.CalendarCollectionView.setNeedsLayout()
@@ -141,7 +120,7 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
         if collectionView == self.CalendarCollectionView {
         return datesToDisplay.count
         } else {
-            return categories.count
+            return categories!.count
         }
     }
     
@@ -152,7 +131,7 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
             return cellA
         } else {
             let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: "CatecogyCollectionViewCell", for: indexPath) as! CategoryCollectionViewCell
-            let category = categories[indexPath.row]
+            let category = categories![indexPath.row]
             cellB.updateViews(category: category)
             return cellB
         }
@@ -167,7 +146,7 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
             date = formatter.date(from: selectedDate)!
 //            print(date!)
         } else {
-            let category = categories[indexPath.row]
+            let category = categories![indexPath.row]
             currentlySelectedCategory = category.title!
 //            print(currentlySelectedCategory!)
         }
@@ -185,5 +164,5 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
         textField.resignFirstResponder()
         return true
     }
-
+    
 }
