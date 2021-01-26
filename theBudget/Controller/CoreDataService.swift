@@ -86,7 +86,7 @@ class dataService{
             let results = try managedContext.fetch(fetchRequest)
             if let categoriesFetched = results.first{
                 categoriesFetched.title = category
-                categoriesFetched.useCount = 0.01
+                categoriesFetched.useCount = categoriesFetched.useCount+0.01
             }
           try managedContext.save()
         } catch let error as NSError {

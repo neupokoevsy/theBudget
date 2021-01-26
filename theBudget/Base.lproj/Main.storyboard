@@ -99,15 +99,15 @@ when you will add more data</string>
                                                     <color key="textColor" systemColor="systemRedColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01 Jan 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-uz-137">
-                                                    <rect key="frame" x="165" y="11" width="84.5" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKO-u4-SUs">
+                                                    <rect key="frame" x="180.5" y="11" width="53.5" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKO-u4-SUs">
-                                                    <rect key="frame" x="180.5" y="102.5" width="53.5" height="16.5"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01 Jan 2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-uz-137">
+                                                    <rect key="frame" x="316" y="98.5" width="78" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -115,13 +115,13 @@ when you will add more data</string>
                                             <constraints>
                                                 <constraint firstItem="BUE-Re-401" firstAttribute="leading" secondItem="ysI-qz-EiO" secondAttribute="leadingMargin" id="1xG-XE-DK2"/>
                                                 <constraint firstItem="ISv-Kn-q1y" firstAttribute="trailing" secondItem="ysI-qz-EiO" secondAttribute="trailingMargin" id="4dG-fm-Oxa"/>
-                                                <constraint firstItem="ryh-uz-137" firstAttribute="top" secondItem="ysI-qz-EiO" secondAttribute="topMargin" id="6Ww-rU-FLj"/>
-                                                <constraint firstItem="ryh-uz-137" firstAttribute="centerX" secondItem="ysI-qz-EiO" secondAttribute="centerX" id="CzC-6v-3TW"/>
+                                                <constraint firstItem="ryh-uz-137" firstAttribute="bottom" secondItem="ysI-qz-EiO" secondAttribute="bottomMargin" id="5XH-yP-tAc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ryh-uz-137" secondAttribute="trailing" id="CdQ-qU-hRJ"/>
                                                 <constraint firstItem="BUE-Re-401" firstAttribute="centerY" secondItem="ysI-qz-EiO" secondAttribute="centerY" id="K0W-RK-M2w"/>
+                                                <constraint firstItem="sKO-u4-SUs" firstAttribute="centerX" secondItem="ysI-qz-EiO" secondAttribute="centerX" id="LhT-Sj-2Kb"/>
+                                                <constraint firstItem="sKO-u4-SUs" firstAttribute="top" secondItem="ysI-qz-EiO" secondAttribute="topMargin" id="NiT-PO-BVX"/>
                                                 <constraint firstItem="ISv-Kn-q1y" firstAttribute="top" secondItem="ysI-qz-EiO" secondAttribute="topMargin" id="WV3-6Q-DNz"/>
-                                                <constraint firstItem="sKO-u4-SUs" firstAttribute="bottom" secondItem="ysI-qz-EiO" secondAttribute="bottomMargin" id="hLG-YN-yXT"/>
                                                 <constraint firstItem="Naj-zH-wkB" firstAttribute="trailing" secondItem="ysI-qz-EiO" secondAttribute="trailingMargin" id="k5i-CA-PRV"/>
-                                                <constraint firstItem="sKO-u4-SUs" firstAttribute="centerX" secondItem="ysI-qz-EiO" secondAttribute="centerX" id="mUY-8d-rtO"/>
                                                 <constraint firstItem="Naj-zH-wkB" firstAttribute="centerY" secondItem="ysI-qz-EiO" secondAttribute="centerY" id="nIt-GU-awd"/>
                                             </constraints>
                                         </tableViewCellContentView>
