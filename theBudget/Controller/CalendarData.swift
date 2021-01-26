@@ -43,7 +43,7 @@ class CalendarService {
         
         var arrayOfDatesForCoreData = [String]()
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
         var dateStartingIndex = -30
         while dateStartingIndex != 30 {
             dateStartingIndex += 1

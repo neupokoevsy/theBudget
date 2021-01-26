@@ -30,7 +30,7 @@ class dataService{
             fetchRequest.sortDescriptors = [sort]
             do {
                 categories = try managedContext.fetch(fetchRequest) as! [Categories]
-                print("Fetched from CoreData Successfully")
+//                print("Fetched from CoreData Successfully")
 
             }
             catch
@@ -67,7 +67,7 @@ class dataService{
 
         do {
             try managedContext.save()
-            print("Sucessfully saved new record")
+//            print("Sucessfully saved new record")
         }
         catch {
             debugPrint("Could not save data. Error: \(error.localizedDescription)")
@@ -130,7 +130,7 @@ class dataService{
         do {
             try managedContext.save()
             self.records = dataService.instance.fetchRecords()
-            print("successfully removed item at \(indexPath.row)")
+//            print("successfully removed item at \(indexPath.row)")
         } catch {
             debugPrint("Could not remove: \(error.localizedDescription)")
         }
