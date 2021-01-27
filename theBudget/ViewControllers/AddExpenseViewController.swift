@@ -122,7 +122,7 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
                 self.CalendarCollectionView.selectItem(at: index, animated: true, scrollPosition: [])
                 self.selectedDateIndex = (index?.row)!
                 let formatter = DateFormatter()
-                formatter.dateFormat = "YYYY-MM-DD"
+                formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
                 let currentlySelectedDate = CalendarService.instance.datesForCoreData()[selectedDateIndex]
                 date = formatter.date(from: currentlySelectedDate) ?? Date()
 //                print(date!)
@@ -163,7 +163,7 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
         if collectionView == CalendarCollectionView {
             let selectedDate = datesForCoreData[indexPath.row]
 //            print(selectedDate)
-            formatter.dateFormat = "YYYY-MM-DD"
+            formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
             date = formatter.date(from: selectedDate)!
 //            print(date!)
         } else {

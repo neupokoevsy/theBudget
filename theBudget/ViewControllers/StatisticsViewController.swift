@@ -8,25 +8,26 @@
 import UIKit
 
 class StatisticsViewController: UIViewController {
+    
+    @IBOutlet weak var NoDataLabel: UILabel!
+    var records: [Record]?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func buttonClicked(_ sender: UIButton) {
-        print("ButtonCLICKED")
+    override func viewWillAppear(_ animated: Bool) {
+        records = dataService.instance.fetchRecords()
+        if records!.count > 0 {
+            NoDataLabel.isHidden = true
+        } else {
+            NoDataLabel.isHidden = false
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

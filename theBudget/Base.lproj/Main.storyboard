@@ -47,6 +47,9 @@ when you will add more data</string>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.xaxis" catalog="system" selectedImage="chart.bar.xaxis" id="nZm-1v-75m"/>
+                    <connections>
+                        <outlet property="NoDataLabel" destination="Jhn-ZX-pQe" id="5zD-rF-AYM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76E-zu-8ZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -688,7 +691,7 @@ when you will add more data</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jFh-oC-Qx1"/>
+        <segue reference="5bw-dN-3Ed"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AddButton_StyleDark" width="120" height="120"/>

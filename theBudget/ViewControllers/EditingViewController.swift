@@ -17,6 +17,7 @@ class EditingViewController: UIViewController {
     var currentDateIndex = 0
     var date: Date?
     let formatter = DateFormatter()
+    var transferredDateIndex: Int?
     
     //Record variables
     @IBOutlet weak var amountTextField: UITextField!
@@ -33,27 +34,55 @@ class EditingViewController: UIViewController {
 
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var expenseSwitch: UISwitch!
+    var receivedIndexPath: IndexPath?
 
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        adjustUI()
         
         records = dataService.instance.fetchRecords()
+        
+        setupInfoFromTableView()
+        
+
+        
         
         //MARK: Calendar get dates, autoselect & autocenter date
         datesToDisplay = CalendarService.instance.getDates()
         currentDateIndex = CalendarService.instance.currentDateIndex
         datesForCoreData = CalendarService.instance.datesForCoreData()
-        let indexPathForFirstRow = IndexPath(row: currentDateIndex, section: 0)
+        
+        formatter.dateFormat = "MMM\ndd\nE"
+        let convertedDate = formatter.string(from: dataService.instance.editableDate!)
+        transferredDateIndex = CalendarService.instance.find(value: convertedDate, in: datesToDisplay)
+        
+        let indexPathForFirstRow = IndexPath(row: transferredDateIndex!, section: 0)
         self.setSelectedItemFromScrollView(CalendarCollectionView)
         self.CalendarCollectionView.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .centeredHorizontally)
-        date = Date()
+        
+
+
+//        date = Date()
         
         //MARK: Categories fetch
         dataService.instance.fetchCoreDataCategories()
         categories = dataService.instance.categories
         
+    
+    }
+    
+    func adjustUI() {
+        CalendarCollectionView.layer.cornerRadius = 5
+        CalendarCollectionView.layer.borderWidth = 2
+        CalendarCollectionView.layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        self.hideKeyboardWhenTappedAround()
+        saveButton.layer.cornerRadius = 3
+        saveButton.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        amountTextField.becomeFirstResponder()
+        amountTextField.addDoneButtonOnKeyboard(textViewDescription: amountTextField)
+        commentTextField.delegate = self
     }
     
     
@@ -74,22 +103,38 @@ class EditingViewController: UIViewController {
     }
     
     @IBAction func editExistingRecord(_ sender: UIButton) {
-        
+        amount = Double(amountTextField.text!) ?? 0.0
+        if checkEntry(){
+            dataService.instance.editRecord(atIndexPath: receivedIndexPath!, updateAmount: amount!, updateCategory: currentlySelectedCategory!, updateComment: commentTextField.text ?? "", updateDate: date!, updateType: type)
+            dataService.instance.usedCertainCategory(category: currentlySelectedCategory!)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
+        dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func toggleExpenseSwitch(_ sender: UISwitch) {
         if !expenseSwitch.isOn {
             CategoriesCollectionView.isHidden = true
             type = "Income"
+            if type == "Income" {
+                currentlySelectedCategory = "Income"
+            }
         } else {
             CategoriesCollectionView.isHidden = false
             type = "Expense"
         }
     }
     
+    func setupInfoFromTableView() {
+        let receivedAmount = dataService.instance.editableAmount
+        amountTextField.text = String(describing: receivedAmount!)
+        commentTextField.text = dataService.instance.editableComment
+        date = dataService.instance.editableDate
+    }
+    
 }
 
-extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate{
     
     func setSelectedItemFromScrollView(_ scrollView: UIScrollView) {
             self.CalendarCollectionView.setNeedsLayout()
@@ -101,7 +146,7 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
                 self.CalendarCollectionView.selectItem(at: index, animated: true, scrollPosition: [])
                 self.selectedDateIndex = (index?.row)!
                 let formatter = DateFormatter()
-                formatter.dateFormat = "YYYY-MM-DD"
+                formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
                 let currentlySelectedDate = CalendarService.instance.datesForCoreData()[selectedDateIndex]
                 date = formatter.date(from: currentlySelectedDate) ?? Date()
 //                print(date!)
@@ -142,15 +187,18 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
         if collectionView == CalendarCollectionView {
             let selectedDate = datesForCoreData[indexPath.row]
 //            print(selectedDate)
-            formatter.dateFormat = "YYYY-MM-DD"
+            formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
             date = formatter.date(from: selectedDate)!
-//            print(date!)
+//            print("Original date: \(String(describing: date!))")
+//            print(formatter.date(from: selectedDate)!)
         } else {
             let category = categories![indexPath.row]
             currentlySelectedCategory = category.title!
 //            print(currentlySelectedCategory!)
         }
     }
+    
+    
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
