@@ -106,6 +106,7 @@ class EditingViewController: UIViewController {
         amount = Double(amountTextField.text!) ?? 0.0
         if checkEntry(){
             dataService.instance.editRecord(atIndexPath: receivedIndexPath!, updateAmount: amount!, updateCategory: currentlySelectedCategory!, updateComment: commentTextField.text ?? "", updateDate: date!, updateType: type)
+            dataService.instance.usedCertainCategory(category: currentlySelectedCategory!)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
         dismiss(animated: true, completion: nil)
         }
@@ -129,8 +130,6 @@ class EditingViewController: UIViewController {
         amountTextField.text = String(describing: receivedAmount!)
         commentTextField.text = dataService.instance.editableComment
         date = dataService.instance.editableDate
-        
-
     }
     
 }
