@@ -77,7 +77,12 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func contextualEditAction(forRowAtIndexPath indexPath: IndexPath) -> UIContextualAction{
         let editAction = UIContextualAction(style: .normal, title: "EDIT") { (action, RecordsViewController, completionHandler: (Bool) -> Void) in
+            dataService.instance.showEditRecord(atIndexPath: indexPath)
             let editingViewController = self.storyboard?.instantiateViewController(identifier: "RecordEditingViewController") as! EditingViewController
+            editingViewController.receivedIndexPath = indexPath
+            
+            
+            
             self.present(editingViewController, animated: true)
             completionHandler(true)
         }

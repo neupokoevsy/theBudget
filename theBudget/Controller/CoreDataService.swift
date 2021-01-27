@@ -12,6 +12,12 @@ class dataService{
     
     static let instance = dataService()
     
+    private(set) public var editableAmount: Double?
+    private(set) public var editableCategory: String?
+    private(set) public var editableComment: String?
+    private(set) public var editableDate: Date?
+    private(set) public var editableType: String?
+    
     public var categories: [Categories] = []
     public var records: [Record] = []
     
@@ -135,6 +141,55 @@ class dataService{
             debugPrint("Could not remove: \(error.localizedDescription)")
         }
         
+    }
+    
+    func editRecord(atIndexPath indexPath: IndexPath, updateAmount: Double, updateCategory: String, updateComment: String, updateDate: Date, updateType: String) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext
+    else
+    {
+        return
+    }
+        do {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
+            let sort = NSSortDescriptor(key: "date", ascending: false)
+            fetchRequest.sortDescriptors = [sort]
+            let result = try managedContext.fetch(fetchRequest) as! [Record]
+            
+            result[indexPath.row].setValue(updateAmount, forKey: "amount")
+            result[indexPath.row].setValue(updateCategory, forKey: "category")
+            result[indexPath.row].setValue(updateComment, forKey: "comment")
+            result[indexPath.row].setValue(updateDate, forKey: "date")
+            result[indexPath.row].setValue(updateType, forKey: "type")
+            
+            try managedContext.save()
+        }
+
+        catch
+            {
+            print("Could not fetch data: \(error.localizedDescription)")
+        }
+        
+    }
+    
+    func showEditRecord(atIndexPath indexPath: IndexPath) {
+         let managedContext = appDelegate!.persistentContainer.viewContext
+        do {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Record")
+            let sort = NSSortDescriptor(key: "date", ascending: false)
+            fetchRequest.sortDescriptors = [sort]
+            let result = try managedContext.fetch(fetchRequest) as! [Record]
+//            print(result[indexPath.row].value(forKey: "amount")!)
+            self.editableAmount = result[indexPath.row].value(forKey: "amount") as? Double ?? 0.0
+            self.editableCategory = (result[indexPath.row].value(forKey: "category") as! String)
+            self.editableComment = (result[indexPath.row].value(forKey: "comment") as! String)
+            self.editableDate = (result[indexPath.row].value(forKey: "date") as! Date)
+            self.editableType = (result[indexPath.row].value(forKey: "type") as! String)
+        }
+
+        catch
+            {
+            print("Could not fetch data: \(error.localizedDescription)")
+        }
     }
     
 }
