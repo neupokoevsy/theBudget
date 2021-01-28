@@ -185,7 +185,11 @@ class dataService{
             let result = try managedContext.fetch(fetchRequest) as! [Record]
 //            print(result[indexPath.row].value(forKey: "amount")!)
             self.editableAmount = result[indexPath.row].value(forKey: "amount") as? Double ?? 0.0
-            self.editableCategory = (result[indexPath.row].value(forKey: "category") as! String)
+            if result[indexPath.row].value(forKey: "category") != nil {
+                self.editableCategory = (result[indexPath.row].value(forKey: "category") as! String)
+            } else {
+                self.editableCategory = "Income"
+            }
             self.editableComment = (result[indexPath.row].value(forKey: "comment") as! String)
             self.editableDate = (result[indexPath.row].value(forKey: "date") as! Date)
             self.editableType = (result[indexPath.row].value(forKey: "type") as! String)

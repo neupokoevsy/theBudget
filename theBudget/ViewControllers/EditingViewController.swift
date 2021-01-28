@@ -76,7 +76,7 @@ class EditingViewController: UIViewController {
         categories = dataService.instance.categories
         indexOfCategory = CalendarService.instance.find(value: dataService.instance.editableCategory!, in: dataService.instance.categoriesArray)
         
-        let indexPathForFirstRowCategory = IndexPath(row: indexOfCategory!, section: 0)
+        let indexPathForFirstRowCategory = IndexPath(row: indexOfCategory ?? 0, section: 0)
         self.setSelectedCategoryFromScrollView(CategoriesCollectionView)
         self.CategoriesCollectionView.selectItem(at: indexPathForFirstRowCategory, animated: true, scrollPosition: .centeredHorizontally)
 //        print(indexWeNeed)
@@ -159,6 +159,16 @@ class EditingViewController: UIViewController {
     //***************************************************************************
     
     func setupInfoFromTableView() {
+        if dataService.instance.editableCategory == "Income" {
+            expenseSwitch.setOn(false, animated: true)
+            currentlySelectedCategory = "Income"
+            CategoriesCollectionView.isHidden = true
+            type = "Income"
+        } else {
+            expenseSwitch.setOn(true, animated: true)
+            currentlySelectedCategory = dataService.instance.editableCategory!
+            CategoriesCollectionView.isHidden = false
+        }
         let receivedAmount = dataService.instance.editableAmount
         amountTextField.text = String(describing: receivedAmount!)
         commentTextField.text = dataService.instance.editableComment
@@ -199,7 +209,7 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
     //***************************************************************************
     
     func setSelectedCategoryFromScrollView(_ scrollView: UIScrollView) {
-        let index = IndexPath(row: indexOfCategory!, section: 0)
+        let index = IndexPath(row: indexOfCategory ?? 0, section: 0)
         CategoriesCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         self.CategoriesCollectionView.selectItem(at: index, animated: true, scrollPosition: [])
         currentlySelectedCategory = dataService.instance.editableCategory!
