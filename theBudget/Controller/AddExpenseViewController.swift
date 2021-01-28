@@ -9,7 +9,7 @@ import UIKit
 
 class AddExpenseViewController: UIViewController {
     
-    //MARK: Calendar variables
+    //Calendar variables
     @IBOutlet weak var CalendarCollectionView: UICollectionView!
     var datesToDisplay = [String]()
     var datesForCoreData = [String]()
@@ -17,14 +17,14 @@ class AddExpenseViewController: UIViewController {
     var currentDateIndex = 0
     var date: Date?
     
-    //MARK: Categories variables
+    //Categories variables
     @IBOutlet weak var CategoriesCollectionView: UICollectionView!
     var categories: [Categories] = []
     var currentlySelectedCategory: String?
 //    var categoriesToShow: [Categories] = []
     
     
-    //MARK: User Input
+    //User Input
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var commentTextField: UITextField!
     var amount: Double = 0.0
@@ -33,19 +33,22 @@ class AddExpenseViewController: UIViewController {
     let formatter = DateFormatter()
     @IBOutlet weak var saveButton: UIButton!
     
+    //Haptic feedback for selection
     let selection = UISelectionFeedbackGenerator()
     let lightImpact = UIImpactFeedbackGenerator(style: .light)
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        adjustUI()
         
+        //Necessary setup
+        adjustUI()
         self.selection.prepare()
 
         
-        
+        //***************************************************************************
         //MARK: Calendar get dates, autoselect & autocenter date
+        //***************************************************************************
         datesToDisplay = CalendarService.instance.getDates()
         currentDateIndex = CalendarService.instance.currentDateIndex
         datesForCoreData = CalendarService.instance.datesForCoreData()
@@ -55,11 +58,17 @@ class AddExpenseViewController: UIViewController {
         self.CalendarCollectionView.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .centeredHorizontally)
         date = Date()
         
+        //***************************************************************************
         //MARK: Categories fetch
+        //***************************************************************************
         dataService.instance.fetchCoreDataCategories()
         categories = dataService.instance.categories
         
     }
+    
+    //***************************************************************************
+    //MARK: Adjusting the UI slightly to make it look nice :)
+    //***************************************************************************
     
     func adjustUI() {
         CalendarCollectionView.layer.cornerRadius = 5
@@ -72,29 +81,10 @@ class AddExpenseViewController: UIViewController {
         amountTextField.addDoneButtonOnKeyboard(textViewDescription: amountTextField)
         commentTextField.delegate = self
     }
-    
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    @IBAction func saveButtonPressed(_ sender: UIButton) {
-        amount = Double(amountTextField.text!) ?? 0.0
-        if checkEntry() {
-            dataService.instance.saveNewRecord(amount: amount, category: currentlySelectedCategory!, date: date!, type: type, comment: commentTextField.text ?? "")
-            dataService.instance.usedCertainCategory(category: currentlySelectedCategory!)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
-            dismiss(animated: true, completion: nil)
-        }
-    }
-    
+    //***************************************************************************
+    //MARK: Checking that all entry values have been set
+    //***************************************************************************
     
     func checkEntry() -> Bool {
         if amount == 0.0 || amountTextField.text == "" {
@@ -111,11 +101,34 @@ class AddExpenseViewController: UIViewController {
         }
         return false
     }
+    
+    //***************************************************************************
+    //MARK: Save the data and notifying the TableView to update views
+    //***************************************************************************
+    
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        amount = Double(amountTextField.text!) ?? 0.0
+        if checkEntry() {
+            dataService.instance.saveNewRecord(amount: amount, category: currentlySelectedCategory!, date: date!, type: type, comment: commentTextField.text ?? "")
+            dataService.instance.usedCertainCategory(category: currentlySelectedCategory!)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
+            dismiss(animated: true, completion: nil)
+        }
+    }
 
 }
 
 
 extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
+    
+    //***************************************************************************
+    //MARK: Collection Views related code goes below
+    //***************************************************************************
+    
+    
+    //***************************************************************************
+    //Automatically select and center date
+    //***************************************************************************
     
     
     func setSelectedItemFromScrollView(_ scrollView: UIScrollView) {
@@ -171,19 +184,19 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == CalendarCollectionView {
             let selectedDate = datesForCoreData[indexPath.row]
-//            print(selectedDate)
             formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
             date = formatter.date(from: selectedDate)!
             self.selection.selectionChanged()
-//            print(date!)
         } else {
             let category = categories[indexPath.row]
             currentlySelectedCategory = category.title!
             self.selection.selectionChanged()
-//            print(currentlySelectedCategory!)
         }
     }
     
+    //***************************************************************************
+    //MARK: Text field related code goes below
+    //***************************************************************************
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 100

@@ -266,10 +266,10 @@ when you will add more data</string>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-1r-Otk">
-                                <rect key="frame" x="3.5" y="271.5" width="88.5" height="49.5"/>
+                                <rect key="frame" x="18" y="276" width="74" height="41"/>
                                 <string key="text">CREDITED
 AMOUNT</string>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.45300108980272114" blue="0.0" alpha="0.69598509933774833" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -277,20 +277,20 @@ AMOUNT</string>
                         <viewLayoutGuide key="safeArea" id="C31-VZ-UxH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="I3F-Yx-ewl" firstAttribute="leading" secondItem="zW7-1r-Otk" secondAttribute="trailing" constant="8" symbolic="YES" id="2dd-5N-Opx"/>
                             <constraint firstItem="nZV-Sf-eSp" firstAttribute="top" secondItem="I3F-Yx-ewl" secondAttribute="bottom" constant="7.5" id="AT1-yG-BGg"/>
                             <constraint firstItem="hzD-uB-fDI" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="IPu-W3-e0f"/>
                             <constraint firstItem="9oJ-fd-h2e" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="IVo-nd-2bI"/>
                             <constraint firstItem="I3F-Yx-ewl" firstAttribute="top" secondItem="hzD-uB-fDI" secondAttribute="bottom" constant="131" id="KsL-I6-pGB"/>
                             <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="hzD-uB-fDI" secondAttribute="trailing" constant="20" id="L8p-0Y-Fzf"/>
-                            <constraint firstItem="nZV-Sf-eSp" firstAttribute="top" secondItem="zW7-1r-Otk" secondAttribute="bottom" constant="15" id="NYV-Pc-Jxd"/>
                             <constraint firstItem="hzD-uB-fDI" firstAttribute="top" secondItem="C31-VZ-UxH" secondAttribute="top" constant="15" id="Osr-5D-BTI"/>
                             <constraint firstItem="I3F-Yx-ewl" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="100" id="Pc0-pa-xCe"/>
                             <constraint firstItem="I3F-Yx-ewl" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="QGz-02-CeI"/>
                             <constraint firstItem="hzD-uB-fDI" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="Wvc-vi-8ly"/>
                             <constraint firstItem="C31-VZ-UxH" firstAttribute="bottom" secondItem="9oJ-fd-h2e" secondAttribute="bottom" constant="50" id="at2-XL-UZO"/>
                             <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="I3F-Yx-ewl" secondAttribute="trailing" constant="100" id="cBp-oi-HQs"/>
+                            <constraint firstItem="nZV-Sf-eSp" firstAttribute="top" secondItem="zW7-1r-Otk" secondAttribute="bottom" constant="19" id="gf9-wg-3Va"/>
                             <constraint firstItem="nZV-Sf-eSp" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="mbB-he-O2P"/>
+                            <constraint firstItem="I3F-Yx-ewl" firstAttribute="leading" secondItem="zW7-1r-Otk" secondAttribute="trailing" constant="8" symbolic="YES" id="oPI-KF-9qE"/>
                             <constraint firstItem="nZV-Sf-eSp" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="ohu-wj-q8a"/>
                             <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="nZV-Sf-eSp" secondAttribute="trailing" constant="20" id="wyc-FM-B3e"/>
                             <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="9oJ-fd-h2e" secondAttribute="trailing" constant="20" id="xZH-co-UEP"/>
@@ -461,13 +461,20 @@ AMOUNT</string>
                                     <action selector="saveButtonPressed:" destination="eB3-0m-Ty7" eventType="touchUpInside" id="PLd-cn-8xS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="b6b-v1-WSr">
-                                <rect key="frame" x="9" y="277" width="82.5" height="49.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="b6b-v1-WSr">
+                                <rect key="frame" x="23" y="281" width="69" height="41"/>
                                 <string key="text">DEBITED
 AMOUNT</string>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                 <color key="textColor" red="0.82976587810000002" green="0.14616116630000001" blue="0.0" alpha="0.69598509929999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="HP4-06-O9m">
+                                <rect key="frame" x="18" y="281" width="74" height="41"/>
+                                <string key="text">CREDITED
+AMOUNT</string>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.45300108979999998" blue="0.0" alpha="0.69598509929999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -475,14 +482,17 @@ AMOUNT</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Qtm-fB-U9Y" firstAttribute="centerX" secondItem="wbM-we-0KI" secondAttribute="centerX" id="38m-ki-0WC"/>
+                            <constraint firstItem="p6Y-lF-TaJ" firstAttribute="leading" secondItem="HP4-06-O9m" secondAttribute="trailing" constant="8" symbolic="YES" id="3LS-Gf-BD5"/>
                             <constraint firstItem="iew-XO-KOT" firstAttribute="trailing" secondItem="H5k-T6-uq1" secondAttribute="trailing" constant="20" id="4zA-sV-ml9"/>
                             <constraint firstItem="uVU-6d-AWV" firstAttribute="leading" secondItem="iew-XO-KOT" secondAttribute="leading" constant="20" id="Fvr-yA-4IL"/>
                             <constraint firstItem="iew-XO-KOT" firstAttribute="trailing" secondItem="uVU-6d-AWV" secondAttribute="trailing" constant="20" id="FyV-XG-32c"/>
                             <constraint firstItem="H5k-T6-uq1" firstAttribute="leading" secondItem="iew-XO-KOT" secondAttribute="leading" constant="20" id="IDg-7q-yZn"/>
                             <constraint firstItem="p6Y-lF-TaJ" firstAttribute="leading" secondItem="iew-XO-KOT" secondAttribute="leading" constant="100" id="Qpa-gS-Ye8"/>
+                            <constraint firstItem="p6Y-lF-TaJ" firstAttribute="leading" secondItem="b6b-v1-WSr" secondAttribute="trailing" constant="8" symbolic="YES" id="Tx3-dr-ACC"/>
                             <constraint firstItem="b2g-AY-c0x" firstAttribute="top" secondItem="p6Y-lF-TaJ" secondAttribute="bottom" constant="7.5" id="UCW-G5-tLY"/>
                             <constraint firstItem="uVU-6d-AWV" firstAttribute="centerX" secondItem="wbM-we-0KI" secondAttribute="centerX" id="XJt-bL-6Ji"/>
                             <constraint firstItem="o17-oA-PQ4" firstAttribute="centerX" secondItem="wbM-we-0KI" secondAttribute="centerX" id="XLb-Ej-j6Z"/>
+                            <constraint firstItem="HP4-06-O9m" firstAttribute="top" secondItem="uVU-6d-AWV" secondAttribute="bottom" constant="19" id="Ygn-0C-F5e"/>
                             <constraint firstItem="H5k-T6-uq1" firstAttribute="top" secondItem="iew-XO-KOT" secondAttribute="top" constant="20" id="cQe-ik-Qit"/>
                             <constraint firstItem="iew-XO-KOT" firstAttribute="trailing" secondItem="p6Y-lF-TaJ" secondAttribute="trailing" constant="100" id="cT6-MP-PP4"/>
                             <constraint firstItem="p6Y-lF-TaJ" firstAttribute="centerX" secondItem="wbM-we-0KI" secondAttribute="centerX" id="dSr-Pd-xoz"/>
@@ -493,6 +503,7 @@ AMOUNT</string>
                             <constraint firstItem="iew-XO-KOT" firstAttribute="bottom" secondItem="o17-oA-PQ4" secondAttribute="bottom" constant="50" id="kdB-FP-MRP"/>
                             <constraint firstItem="iew-XO-KOT" firstAttribute="trailing" secondItem="o17-oA-PQ4" secondAttribute="trailing" constant="20" id="kub-QB-qAa"/>
                             <constraint firstItem="o17-oA-PQ4" firstAttribute="leading" secondItem="iew-XO-KOT" secondAttribute="leading" constant="20" id="ldh-ro-DPW"/>
+                            <constraint firstItem="b2g-AY-c0x" firstAttribute="top" secondItem="b6b-v1-WSr" secondAttribute="bottom" constant="19" id="mZn-u7-12Z"/>
                             <constraint firstItem="p6Y-lF-TaJ" firstAttribute="top" secondItem="uVU-6d-AWV" secondAttribute="bottom" constant="8" symbolic="YES" id="rn2-Fd-he3"/>
                             <constraint firstItem="b2g-AY-c0x" firstAttribute="leading" secondItem="iew-XO-KOT" secondAttribute="leading" constant="20" id="tq5-vQ-uBO"/>
                             <constraint firstItem="uVU-6d-AWV" firstAttribute="top" secondItem="H5k-T6-uq1" secondAttribute="bottom" constant="8" symbolic="YES" id="yVw-DK-U6V"/>
@@ -503,6 +514,8 @@ AMOUNT</string>
                         <outlet property="CategoriesCollectionView" destination="uVU-6d-AWV" id="e2k-P1-NbH"/>
                         <outlet property="amountTextField" destination="p6Y-lF-TaJ" id="vej-0x-MgM"/>
                         <outlet property="commentTextField" destination="b2g-AY-c0x" id="PdA-sa-IRe"/>
+                        <outlet property="creditedAmountLabel" destination="HP4-06-O9m" id="M1G-2y-7OR"/>
+                        <outlet property="debitedAmountLabel" destination="b6b-v1-WSr" id="poD-6s-NEC"/>
                         <outlet property="expenseSwitch" destination="Sca-nd-YWu" id="sHE-zB-dsy"/>
                         <outlet property="saveButton" destination="o17-oA-PQ4" id="mnW-SE-Jwf"/>
                     </connections>
@@ -645,7 +658,7 @@ AMOUNT</string>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="G7D-4K-PuV">
-                                <rect key="frame" x="23" y="271" width="69" height="41"/>
+                                <rect key="frame" x="23" y="276" width="69" height="41"/>
                                 <string key="text">DEBITED
 AMOUNT</string>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
@@ -668,13 +681,13 @@ AMOUNT</string>
                             <constraint firstItem="vTR-mn-hqZ" firstAttribute="top" secondItem="oKU-Ld-CFT" secondAttribute="bottom" constant="8" symbolic="YES" id="JbF-Hu-cUG"/>
                             <constraint firstItem="oKU-Ld-CFT" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="QsB-hF-veB"/>
                             <constraint firstItem="oKU-Ld-CFT" firstAttribute="top" secondItem="dXc-qy-NyW" secondAttribute="bottom" constant="8" symbolic="YES" id="RVt-iD-c6g"/>
-                            <constraint firstItem="vTR-mn-hqZ" firstAttribute="leading" secondItem="G7D-4K-PuV" secondAttribute="trailing" constant="8" symbolic="YES" id="U91-xY-9Bj"/>
+                            <constraint firstItem="G7D-4K-PuV" firstAttribute="top" secondItem="oKU-Ld-CFT" secondAttribute="bottom" constant="19" id="SMt-53-sxT"/>
                             <constraint firstItem="ANc-hL-LSD" firstAttribute="trailing" secondItem="dXc-qy-NyW" secondAttribute="trailing" constant="20" id="VUE-LO-5Ic"/>
-                            <constraint firstItem="G7D-4K-PuV" firstAttribute="top" secondItem="oKU-Ld-CFT" secondAttribute="bottom" constant="14" id="VbO-XS-Lgx"/>
                             <constraint firstItem="UjI-iC-HX7" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="eMc-Nx-6va"/>
                             <constraint firstItem="dXc-qy-NyW" firstAttribute="top" secondItem="ANc-hL-LSD" secondAttribute="top" constant="15" id="s62-Qf-yGK"/>
                             <constraint firstItem="vTR-mn-hqZ" firstAttribute="leading" secondItem="ANc-hL-LSD" secondAttribute="leading" constant="100" id="us7-Bh-8HQ"/>
                             <constraint firstItem="ANc-hL-LSD" firstAttribute="trailing" secondItem="oKU-Ld-CFT" secondAttribute="trailing" constant="20" id="vCl-Rd-fcT"/>
+                            <constraint firstItem="vTR-mn-hqZ" firstAttribute="leading" secondItem="G7D-4K-PuV" secondAttribute="trailing" constant="8" symbolic="YES" id="w7Z-fu-n1g"/>
                             <constraint firstItem="dXc-qy-NyW" firstAttribute="leading" secondItem="ANc-hL-LSD" secondAttribute="leading" constant="20" id="yDS-3X-o3D"/>
                             <constraint firstItem="UjI-iC-HX7" firstAttribute="leading" secondItem="ANc-hL-LSD" secondAttribute="leading" constant="20" id="z87-yP-hhA"/>
                             <constraint firstItem="UjI-iC-HX7" firstAttribute="top" secondItem="vTR-mn-hqZ" secondAttribute="bottom" constant="7.5" id="zHl-FO-EhQ"/>

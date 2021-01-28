@@ -32,9 +32,12 @@ class EditingViewController: UIViewController {
     var categories: [Categories]?
     var currentlySelectedCategory: String?
     var indexOfCategory: Int?
-
+    
+    //Outlets
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var expenseSwitch: UISwitch!
+    @IBOutlet weak var debitedAmountLabel: UILabel!
+    @IBOutlet weak var creditedAmountLabel: UILabel!
     var receivedIndexPath: IndexPath?
     
     //Haptic feedback for selection
@@ -145,12 +148,16 @@ class EditingViewController: UIViewController {
     @IBAction func toggleExpenseSwitch(_ sender: UISwitch) {
         if !expenseSwitch.isOn {
             CategoriesCollectionView.isHidden = true
+            debitedAmountLabel.isHidden = true
+            creditedAmountLabel.isHidden = false
             type = "Income"
             if type == "Income" {
                 currentlySelectedCategory = "Income"
             }
         } else {
             CategoriesCollectionView.isHidden = false
+            debitedAmountLabel.isHidden = false
+            creditedAmountLabel.isHidden = true
             type = "Expense"
         }
     }

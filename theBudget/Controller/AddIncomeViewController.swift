@@ -9,7 +9,7 @@ import UIKit
 
 class AddIncomeViewController: UIViewController {
 
-    //MARK: Calendar variables
+    //Calendar variables
     @IBOutlet weak var CalendarCollectionView: UICollectionView!
     var datesToDisplay = [String]()
     var datesForCoreData = [String]()
@@ -17,7 +17,7 @@ class AddIncomeViewController: UIViewController {
     var currentDateIndex = 0
     var date: Date?
     
-    //MARK: User Input
+    //User Input
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
@@ -26,7 +26,7 @@ class AddIncomeViewController: UIViewController {
     var comment: String?
     let formatter = DateFormatter()
     
-    //MARK: Haptic feedback for selection
+    //Haptic feedback for selection
     let selection = UISelectionFeedbackGenerator()
     let lightImpact = UIImpactFeedbackGenerator(style: .light)
 
@@ -34,11 +34,13 @@ class AddIncomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Necessary setup
         self.selection.prepare()
-        
         adjustUI()
         
+        //***************************************************************************
         //MARK: Calendar get dates, autoselect & autocenter date
+        //***************************************************************************
         datesToDisplay = CalendarService.instance.getDates()
         datesForCoreData = CalendarService.instance.datesForCoreData()
         currentDateIndex = CalendarService.instance.currentDateIndex
@@ -49,6 +51,10 @@ class AddIncomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    //***************************************************************************
+    //MARK: Adjusting the UI slightly to make it look nice :)
+    //***************************************************************************
     
     func adjustUI() {
         CalendarCollectionView.layer.cornerRadius = 5
@@ -62,14 +68,11 @@ class AddIncomeViewController: UIViewController {
         commentTextField.delegate = self
     }
 
-    @IBAction func saveButtonPressed(_ sender: UIButton) {
-        amount = Double(amountTextField.text!) ?? 0.0
-        if checkEntry() {
-            dataService.instance.saveNewRecord(amount: amount, category: nil, date: date!, type: type, comment: commentTextField.text ?? "")
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
-            dismiss(animated: true, completion: nil)
-        }
-    }
+
+    
+    //***************************************************************************
+    //MARK: Checking that all entry values have been set
+    //***************************************************************************
     
     func checkEntry() -> Bool {
         if amount == 0.0 || amountTextField.text == "" {
@@ -83,11 +86,32 @@ class AddIncomeViewController: UIViewController {
         }
         return false
     }
+    
+    //***************************************************************************
+    //MARK: Save the data and notifying the TableView to update views
+    //***************************************************************************
+    
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        amount = Double(amountTextField.text!) ?? 0.0
+        if checkEntry() {
+            dataService.instance.saveNewRecord(amount: amount, category: nil, date: date!, type: type, comment: commentTextField.text ?? "")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
+            dismiss(animated: true, completion: nil)
+        }
+    }
 
 }
 
 extension AddIncomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UISearchTextFieldDelegate {
     
+    //***************************************************************************
+    //MARK: Collection Views related code goes below
+    //***************************************************************************
+    
+    
+    //***************************************************************************
+    //Automatically select and center date
+    //***************************************************************************
     
     func setSelectedItemFromScrollView(_ scrollView: UIScrollView) {
             self.CalendarCollectionView.setNeedsLayout()
@@ -133,12 +157,14 @@ extension AddIncomeViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let selectedDate = datesForCoreData[indexPath.row]
-//            print(selectedDate)
             formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
             date = formatter.date(from: selectedDate)!
             selection.selectionChanged()
-//            print(date!)
     }
+    
+    //***************************************************************************
+    //MARK: Text field related code goes below
+    //***************************************************************************
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 100
