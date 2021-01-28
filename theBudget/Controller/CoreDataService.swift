@@ -37,10 +37,15 @@ class dataService{
             fetchRequest.sortDescriptors = [sort]
             do {
                 categories = try managedContext.fetch(fetchRequest) as! [Categories]
+                if categoriesArray.count == 0 {
                 for category in categories {
                     categoriesArray.append(String(describing: category.title!))
 //                    print(category.title)
+                    print(categoriesArray)
+                    
+                    }
                 }
+                print(categoriesArray.count)
 //                print("Fetched from CoreData Successfully")
 
             }
