@@ -18,10 +18,6 @@ class AddRecordViewController: UIPageViewController, UIPageViewControllerDelegat
                 self.newVc(viewController: "AddIncomeViewController")]
     } ()
     
-    
-    
-
-    
     var pageControl = UIPageControl()
 
 
