@@ -199,8 +199,20 @@ when you will add more data</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oJ-fd-h2e">
+                                <rect key="frame" x="20" y="766" width="374" height="46"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="mOS-BW-dED" eventType="touchUpInside" id="DwC-WR-Vpd"/>
+                                    <action selector="saveButtonPressed:" destination="eB3-0m-Ty7" eventType="touchUpInside" id="dwb-2C-Dnr"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hzD-uB-fDI">
-                                <rect key="frame" x="20" y="64" width="374" height="75"/>
+                                <rect key="frame" x="20" y="59" width="374" height="75"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="cqg-Ww-bC9"/>
@@ -244,40 +256,38 @@ when you will add more data</string>
                                 </connections>
                             </collectionView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.00" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="I3F-Yx-ewl">
-                                <rect key="frame" x="100" y="270" width="214" height="63.5"/>
+                                <rect key="frame" x="100" y="265" width="214" height="63.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="continue"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="You can comment your record" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nZV-Sf-eSp">
-                                <rect key="frame" x="20" y="341" width="374" height="34"/>
+                                <rect key="frame" x="20" y="336" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oJ-fd-h2e">
-                                <rect key="frame" x="20" y="766" width="374" height="46"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="SAVE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="mOS-BW-dED" eventType="touchUpInside" id="DwC-WR-Vpd"/>
-                                    <action selector="saveButtonPressed:" destination="eB3-0m-Ty7" eventType="touchUpInside" id="dwb-2C-Dnr"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-1r-Otk">
+                                <rect key="frame" x="3.5" y="271.5" width="88.5" height="49.5"/>
+                                <string key="text">CREDITED
+AMOUNT</string>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.45300108980272114" blue="0.0" alpha="0.69598509933774833" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C31-VZ-UxH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="I3F-Yx-ewl" firstAttribute="leading" secondItem="zW7-1r-Otk" secondAttribute="trailing" constant="8" symbolic="YES" id="2dd-5N-Opx"/>
                             <constraint firstItem="nZV-Sf-eSp" firstAttribute="top" secondItem="I3F-Yx-ewl" secondAttribute="bottom" constant="7.5" id="AT1-yG-BGg"/>
                             <constraint firstItem="hzD-uB-fDI" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="IPu-W3-e0f"/>
                             <constraint firstItem="9oJ-fd-h2e" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="IVo-nd-2bI"/>
                             <constraint firstItem="I3F-Yx-ewl" firstAttribute="top" secondItem="hzD-uB-fDI" secondAttribute="bottom" constant="131" id="KsL-I6-pGB"/>
                             <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="hzD-uB-fDI" secondAttribute="trailing" constant="20" id="L8p-0Y-Fzf"/>
+                            <constraint firstItem="nZV-Sf-eSp" firstAttribute="top" secondItem="zW7-1r-Otk" secondAttribute="bottom" constant="15" id="NYV-Pc-Jxd"/>
+                            <constraint firstItem="hzD-uB-fDI" firstAttribute="top" secondItem="C31-VZ-UxH" secondAttribute="top" constant="15" id="Osr-5D-BTI"/>
                             <constraint firstItem="I3F-Yx-ewl" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="100" id="Pc0-pa-xCe"/>
                             <constraint firstItem="I3F-Yx-ewl" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="QGz-02-CeI"/>
                             <constraint firstItem="hzD-uB-fDI" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="Wvc-vi-8ly"/>
-                            <constraint firstItem="hzD-uB-fDI" firstAttribute="top" secondItem="C31-VZ-UxH" secondAttribute="top" constant="20" id="Z9u-VN-GBj"/>
                             <constraint firstItem="C31-VZ-UxH" firstAttribute="bottom" secondItem="9oJ-fd-h2e" secondAttribute="bottom" constant="50" id="at2-XL-UZO"/>
                             <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="I3F-Yx-ewl" secondAttribute="trailing" constant="100" id="cBp-oi-HQs"/>
                             <constraint firstItem="nZV-Sf-eSp" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="mbB-he-O2P"/>
@@ -500,8 +510,19 @@ when you will add more data</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2E-bE-zq7">
+                                <rect key="frame" x="20" y="766" width="374" height="46"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="eB3-0m-Ty7" eventType="touchUpInside" id="wFQ-qT-M2C"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dXc-qy-NyW">
-                                <rect key="frame" x="20" y="64" width="374" height="75"/>
+                                <rect key="frame" x="20" y="59" width="374" height="75"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="2lV-kO-Frn"/>
@@ -544,7 +565,7 @@ when you will add more data</string>
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-Ld-CFT">
-                                <rect key="frame" x="20" y="147" width="374" height="115"/>
+                                <rect key="frame" x="20" y="142" width="374" height="115"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="115" id="9To-CI-ZM0"/>
@@ -605,26 +626,23 @@ when you will add more data</string>
                                 </connections>
                             </collectionView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.00" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vTR-mn-hqZ">
-                                <rect key="frame" x="100" y="270" width="214" height="63.5"/>
+                                <rect key="frame" x="100" y="265" width="214" height="63.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="continue"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2E-bE-zq7">
-                                <rect key="frame" x="20" y="766" width="374" height="46"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="SAVE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="eB3-0m-Ty7" eventType="touchUpInside" id="wFQ-qT-M2C"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="You can comment your record" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UjI-iC-HX7">
-                                <rect key="frame" x="20" y="341" width="374" height="34"/>
+                                <rect key="frame" x="20" y="336" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="G7D-4K-PuV">
+                                <rect key="frame" x="9.5" y="271" width="82.5" height="49.5"/>
+                                <string key="text">DEBITED
+AMOUNT</string>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.82976587814693881" green="0.14616116633333334" blue="0.0" alpha="0.69598509933774833" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ANc-hL-LSD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -632,7 +650,6 @@ when you will add more data</string>
                             <constraint firstItem="ANc-hL-LSD" firstAttribute="trailing" secondItem="t2E-bE-zq7" secondAttribute="trailing" constant="20" id="1Ec-UX-fxZ"/>
                             <constraint firstItem="dXc-qy-NyW" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="3ZX-Iy-0yx"/>
                             <constraint firstItem="vTR-mn-hqZ" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="4Ta-Qw-xQy"/>
-                            <constraint firstItem="dXc-qy-NyW" firstAttribute="top" secondItem="ANc-hL-LSD" secondAttribute="top" constant="20" id="78B-Q5-BgM"/>
                             <constraint firstItem="oKU-Ld-CFT" firstAttribute="leading" secondItem="ANc-hL-LSD" secondAttribute="leading" constant="20" id="7b8-P4-EXT"/>
                             <constraint firstItem="t2E-bE-zq7" firstAttribute="leading" secondItem="ANc-hL-LSD" secondAttribute="leading" constant="20" id="7sF-8Z-DAv"/>
                             <constraint firstItem="t2E-bE-zq7" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="Bq4-W3-OlH"/>
@@ -642,8 +659,11 @@ when you will add more data</string>
                             <constraint firstItem="vTR-mn-hqZ" firstAttribute="top" secondItem="oKU-Ld-CFT" secondAttribute="bottom" constant="8" symbolic="YES" id="JbF-Hu-cUG"/>
                             <constraint firstItem="oKU-Ld-CFT" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="QsB-hF-veB"/>
                             <constraint firstItem="oKU-Ld-CFT" firstAttribute="top" secondItem="dXc-qy-NyW" secondAttribute="bottom" constant="8" symbolic="YES" id="RVt-iD-c6g"/>
+                            <constraint firstItem="vTR-mn-hqZ" firstAttribute="leading" secondItem="G7D-4K-PuV" secondAttribute="trailing" constant="8" symbolic="YES" id="U91-xY-9Bj"/>
                             <constraint firstItem="ANc-hL-LSD" firstAttribute="trailing" secondItem="dXc-qy-NyW" secondAttribute="trailing" constant="20" id="VUE-LO-5Ic"/>
+                            <constraint firstItem="G7D-4K-PuV" firstAttribute="top" secondItem="oKU-Ld-CFT" secondAttribute="bottom" constant="14" id="VbO-XS-Lgx"/>
                             <constraint firstItem="UjI-iC-HX7" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="eMc-Nx-6va"/>
+                            <constraint firstItem="dXc-qy-NyW" firstAttribute="top" secondItem="ANc-hL-LSD" secondAttribute="top" constant="15" id="s62-Qf-yGK"/>
                             <constraint firstItem="vTR-mn-hqZ" firstAttribute="leading" secondItem="ANc-hL-LSD" secondAttribute="leading" constant="100" id="us7-Bh-8HQ"/>
                             <constraint firstItem="ANc-hL-LSD" firstAttribute="trailing" secondItem="oKU-Ld-CFT" secondAttribute="trailing" constant="20" id="vCl-Rd-fcT"/>
                             <constraint firstItem="dXc-qy-NyW" firstAttribute="leading" secondItem="ANc-hL-LSD" secondAttribute="leading" constant="20" id="yDS-3X-o3D"/>

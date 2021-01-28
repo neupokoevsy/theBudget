@@ -75,6 +75,7 @@ class EditingViewController: UIViewController {
         dataService.instance.fetchCoreDataCategories()
         categories = dataService.instance.categories
         indexOfCategory = CalendarService.instance.find(value: dataService.instance.editableCategory!, in: dataService.instance.categoriesArray)
+        print(indexOfCategory)
         
         let indexPathForFirstRowCategory = IndexPath(row: indexOfCategory ?? 0, section: 0)
         self.setSelectedCategoryFromScrollView(CategoriesCollectionView)

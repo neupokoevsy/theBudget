@@ -122,6 +122,7 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
             self.CalendarCollectionView.setNeedsLayout()
             self.CalendarCollectionView.layoutIfNeeded()
             let center = CGPoint(x: scrollView.center.x + scrollView.contentOffset.x, y: (scrollView.center.y + scrollView.contentOffset.y))
+//            print(center)
             let index = CalendarCollectionView.indexPathForItem(at: center)
             if index != nil {
                 CalendarCollectionView.scrollToItem(at: index!, at: .centeredHorizontally, animated: true)
