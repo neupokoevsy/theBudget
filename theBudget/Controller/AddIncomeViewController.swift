@@ -21,6 +21,7 @@ class AddIncomeViewController: UIViewController {
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    var enteredAmount: String?
     var amount: Double = 0.0
     let type: String = "Income"
     var comment: String?
@@ -92,7 +93,8 @@ class AddIncomeViewController: UIViewController {
     //***************************************************************************
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        amount = Double(amountTextField.text!) ?? 0.0
+        enteredAmount = amountTextField.text?.replacingOccurrences(of: ",", with: ".")
+        amount = Double(enteredAmount!) ?? 0.0
         if checkEntry() {
             dataService.instance.saveNewRecord(amount: amount, category: nil, date: date!, type: type, comment: commentTextField.text ?? "")
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)

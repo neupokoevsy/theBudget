@@ -190,7 +190,11 @@ class dataService{
             } else {
                 self.editableCategory = "Income"
             }
-            self.editableComment = (result[indexPath.row].value(forKey: "comment") as! String)
+            if result[indexPath.row].value(forKey: "comment") != nil {
+                self.editableComment = (result[indexPath.row].value(forKey: "comment") as! String)
+            } else {
+                self.editableComment = ""
+            }
             self.editableDate = (result[indexPath.row].value(forKey: "date") as! Date)
             self.editableType = (result[indexPath.row].value(forKey: "type") as! String)
         }

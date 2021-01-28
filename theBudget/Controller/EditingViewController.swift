@@ -23,6 +23,7 @@ class EditingViewController: UIViewController {
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var commentTextField: UITextField!
     var records: [Record]?
+    var enteredAmount: String?
     var amount: Double?
     var type: String = "Expense"
     var comment: String?
@@ -131,7 +132,8 @@ class EditingViewController: UIViewController {
     //***************************************************************************
     
     @IBAction func editExistingRecord(_ sender: UIButton) {
-        amount = Double(amountTextField.text!) ?? 0.0
+        enteredAmount = amountTextField.text?.replacingOccurrences(of: ",", with: ".")
+        amount = Double(enteredAmount!) ?? 0.0
         if checkEntry(){
             dataService.instance.editRecord(atIndexPath: receivedIndexPath!, updateAmount: amount!, updateCategory: currentlySelectedCategory!, updateComment: commentTextField.text ?? "", updateDate: date!, updateType: type)
             dataService.instance.usedCertainCategory(category: currentlySelectedCategory!)
