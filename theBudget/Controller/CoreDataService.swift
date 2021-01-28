@@ -19,6 +19,7 @@ class dataService{
     private(set) public var editableType: String?
     
     public var categories: [Categories] = []
+    public var categoriesArray: [String] = []
     public var records: [Record] = []
     
     //******************************************************************
@@ -36,6 +37,10 @@ class dataService{
             fetchRequest.sortDescriptors = [sort]
             do {
                 categories = try managedContext.fetch(fetchRequest) as! [Categories]
+                for category in categories {
+                    categoriesArray.append(String(describing: category.title!))
+//                    print(category.title)
+                }
 //                print("Fetched from CoreData Successfully")
 
             }

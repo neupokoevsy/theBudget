@@ -31,12 +31,13 @@ class EditingViewController: UIViewController {
     @IBOutlet weak var CategoriesCollectionView: UICollectionView!
     var categories: [Categories]?
     var currentlySelectedCategory: String?
+    var indexOfCategory: Int?
 
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var expenseSwitch: UISwitch!
     var receivedIndexPath: IndexPath?
     
-    //MARK: Haptic feedback for selection
+    //Haptic feedback for selection
     let selection = UISelectionFeedbackGenerator()
     let lightImpact = UIImpactFeedbackGenerator(style: .light)
 
@@ -44,14 +45,18 @@ class EditingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Necessary setup
         adjustUI()
-        
         records = dataService.instance.fetchRecords()
-        
         setupInfoFromTableView()
         self.selection.prepare()
         
+        
+        //***************************************************************************
         //MARK: Calendar get dates, autoselect & autocenter date
+        //***************************************************************************
+        
         datesToDisplay = CalendarService.instance.getDates()
         currentDateIndex = CalendarService.instance.currentDateIndex
         datesForCoreData = CalendarService.instance.datesForCoreData()
@@ -63,17 +68,25 @@ class EditingViewController: UIViewController {
         let indexPathForFirstRow = IndexPath(row: transferredDateIndex!, section: 0)
         self.setSelectedItemFromScrollView(CalendarCollectionView)
         self.CalendarCollectionView.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .centeredHorizontally)
-        
-
-
-//        date = Date()
-        
-        //MARK: Categories fetch
+    
+        //***************************************************************************
+        //MARK: Categories fetch, autoselect the category which was chosen originally
+        //***************************************************************************
         dataService.instance.fetchCoreDataCategories()
         categories = dataService.instance.categories
+        indexOfCategory = CalendarService.instance.find(value: dataService.instance.editableCategory!, in: dataService.instance.categoriesArray)
         
+        let indexPathForFirstRowCategory = IndexPath(row: indexOfCategory!, section: 0)
+        self.setSelectedCategoryFromScrollView(CategoriesCollectionView)
+        self.CategoriesCollectionView.selectItem(at: indexPathForFirstRowCategory, animated: true, scrollPosition: .centeredHorizontally)
+//        print(indexWeNeed)
+//        print("We are looking for \(dataService.instance.editableCategory!) in \(dataService.instance.categoriesArray)")
     
     }
+    
+    //***************************************************************************
+    //MARK: Adjusting the UI slightly to make it look nice :)
+    //***************************************************************************
     
     func adjustUI() {
         CalendarCollectionView.layer.cornerRadius = 5
@@ -89,6 +102,9 @@ class EditingViewController: UIViewController {
 
     }
     
+    //***************************************************************************
+    //MARK: Checking that all entry values have been set
+    //***************************************************************************
     
     func checkEntry() -> Bool {
         if amount == 0.0 || amountTextField.text == "" {
@@ -106,6 +122,10 @@ class EditingViewController: UIViewController {
         return false
     }
     
+    //***************************************************************************
+    //MARK: Saving the edited data and notifying the TableView to update views
+    //***************************************************************************
+    
     @IBAction func editExistingRecord(_ sender: UIButton) {
         amount = Double(amountTextField.text!) ?? 0.0
         if checkEntry(){
@@ -115,6 +135,11 @@ class EditingViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         }
     }
+    
+    //***************************************************************************
+    //MARK: Checking if the type of record have been changed
+    //MARK: By default it is always expense
+    //***************************************************************************
     
     @IBAction func toggleExpenseSwitch(_ sender: UISwitch) {
         if !expenseSwitch.isOn {
@@ -129,6 +154,10 @@ class EditingViewController: UIViewController {
         }
     }
     
+    //***************************************************************************
+    //MARK: Receiving original information about that particular record
+    //***************************************************************************
+    
     func setupInfoFromTableView() {
         let receivedAmount = dataService.instance.editableAmount
         amountTextField.text = String(describing: receivedAmount!)
@@ -139,6 +168,15 @@ class EditingViewController: UIViewController {
 }
 
 extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate{
+    
+    //***************************************************************************
+    //MARK: Collection Views related code goes below
+    //***************************************************************************
+    
+    
+    //***************************************************************************
+    //Automatically select and center date
+    //***************************************************************************
     
     func setSelectedItemFromScrollView(_ scrollView: UIScrollView) {
             self.CalendarCollectionView.setNeedsLayout()
@@ -153,8 +191,18 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
                 formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
                 let currentlySelectedDate = CalendarService.instance.datesForCoreData()[selectedDateIndex]
                 date = formatter.date(from: currentlySelectedDate) ?? Date()
-//                print(date!)
             }
+    }
+    
+    //***************************************************************************
+    //Automatically select the category that have been chosen originally
+    //***************************************************************************
+    
+    func setSelectedCategoryFromScrollView(_ scrollView: UIScrollView) {
+        let index = IndexPath(row: indexOfCategory!, section: 0)
+        CategoriesCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        self.CategoriesCollectionView.selectItem(at: index, animated: true, scrollPosition: [])
+        currentlySelectedCategory = dataService.instance.editableCategory!
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -208,9 +256,11 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
     }
     
+    //***************************************************************************
+    //MARK: Text field related code goes below
+    //***************************************************************************
     
-    
-    
+    //Limiting the textField to 100 symbols
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 100
         let currentString: NSString = (textField.text ?? "") as NSString
