@@ -461,6 +461,15 @@ AMOUNT</string>
                                     <action selector="saveButtonPressed:" destination="eB3-0m-Ty7" eventType="touchUpInside" id="PLd-cn-8xS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="b6b-v1-WSr">
+                                <rect key="frame" x="9" y="277" width="82.5" height="49.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">DEBITED
+AMOUNT</string>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <color key="textColor" red="0.82976587810000002" green="0.14616116630000001" blue="0.0" alpha="0.69598509929999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iew-XO-KOT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -636,10 +645,10 @@ AMOUNT</string>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="G7D-4K-PuV">
-                                <rect key="frame" x="9.5" y="271" width="82.5" height="49.5"/>
+                                <rect key="frame" x="23" y="271" width="69" height="41"/>
                                 <string key="text">DEBITED
 AMOUNT</string>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                 <color key="textColor" red="0.82976587814693881" green="0.14616116633333334" blue="0.0" alpha="0.69598509933774833" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

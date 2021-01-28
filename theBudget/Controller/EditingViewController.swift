@@ -75,7 +75,7 @@ class EditingViewController: UIViewController {
         dataService.instance.fetchCoreDataCategories()
         categories = dataService.instance.categories
         indexOfCategory = CalendarService.instance.find(value: dataService.instance.editableCategory!, in: dataService.instance.categoriesArray)
-        print(indexOfCategory)
+//        print(indexOfCategory)
         
         let indexPathForFirstRowCategory = IndexPath(row: indexOfCategory ?? 0, section: 0)
         self.setSelectedCategoryFromScrollView(CategoriesCollectionView)
@@ -210,6 +210,8 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
     //***************************************************************************
     
     func setSelectedCategoryFromScrollView(_ scrollView: UIScrollView) {
+        self.CategoriesCollectionView.setNeedsLayout()
+        self.CategoriesCollectionView.layoutIfNeeded()
         let index = IndexPath(row: indexOfCategory ?? 0, section: 0)
         CategoriesCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         self.CategoriesCollectionView.selectItem(at: index, animated: true, scrollPosition: [])

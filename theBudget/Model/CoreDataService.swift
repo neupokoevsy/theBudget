@@ -42,7 +42,6 @@ class dataService{
                 }
                 for category in categories {
                     categoriesArray.append(String(describing: category.title!))
-                    
                     }
             }
             catch
