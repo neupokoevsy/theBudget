@@ -26,8 +26,15 @@ class AddIncomeViewController: UIViewController {
     var comment: String?
     let formatter = DateFormatter()
     
+    //MARK: Haptic feedback for selection
+    let selection = UISelectionFeedbackGenerator()
+    let lightImpact = UIImpactFeedbackGenerator(style: .light)
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.selection.prepare()
         
         adjustUI()
         
@@ -100,10 +107,12 @@ extension AddIncomeViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
     }
     
@@ -127,6 +136,7 @@ extension AddIncomeViewController: UICollectionViewDelegate, UICollectionViewDat
 //            print(selectedDate)
             formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
             date = formatter.date(from: selectedDate)!
+            selection.selectionChanged()
 //            print(date!)
     }
     

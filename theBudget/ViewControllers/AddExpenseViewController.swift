@@ -33,10 +33,16 @@ class AddExpenseViewController: UIViewController {
     let formatter = DateFormatter()
     @IBOutlet weak var saveButton: UIButton!
     
+    let selection = UISelectionFeedbackGenerator()
+    let lightImpact = UIImpactFeedbackGenerator(style: .light)
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         adjustUI()
+        
+        self.selection.prepare()
+
         
         
         //MARK: Calendar get dates, autoselect & autocenter date
@@ -130,10 +136,12 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
     }
     
@@ -165,10 +173,12 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
 //            print(selectedDate)
             formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
             date = formatter.date(from: selectedDate)!
+            self.selection.selectionChanged()
 //            print(date!)
         } else {
             let category = categories[indexPath.row]
             currentlySelectedCategory = category.title!
+            self.selection.selectionChanged()
 //            print(currentlySelectedCategory!)
         }
     }

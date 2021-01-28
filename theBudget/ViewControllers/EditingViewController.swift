@@ -35,6 +35,10 @@ class EditingViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var expenseSwitch: UISwitch!
     var receivedIndexPath: IndexPath?
+    
+    //MARK: Haptic feedback for selection
+    let selection = UISelectionFeedbackGenerator()
+    let lightImpact = UIImpactFeedbackGenerator(style: .light)
 
 
 
@@ -45,9 +49,7 @@ class EditingViewController: UIViewController {
         records = dataService.instance.fetchRecords()
         
         setupInfoFromTableView()
-        
-
-        
+        self.selection.prepare()
         
         //MARK: Calendar get dates, autoselect & autocenter date
         datesToDisplay = CalendarService.instance.getDates()
@@ -83,6 +85,8 @@ class EditingViewController: UIViewController {
         amountTextField.becomeFirstResponder()
         amountTextField.addDoneButtonOnKeyboard(textViewDescription: amountTextField)
         commentTextField.delegate = self
+        
+
     }
     
     
@@ -154,11 +158,14 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -189,11 +196,14 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
 //            print(selectedDate)
             formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
             date = formatter.date(from: selectedDate)!
+            selection.selectionChanged()
+
 //            print("Original date: \(String(describing: date!))")
 //            print(formatter.date(from: selectedDate)!)
         } else {
             let category = categories![indexPath.row]
             currentlySelectedCategory = category.title!
+            selection.selectionChanged()
 //            print(currentlySelectedCategory!)
         }
     }
