@@ -29,7 +29,7 @@ class AddExpenseViewController: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     var enteredAmount: String?
     var amount: Double = 0.0
-    let type: String = "Expense"
+    var type: String = "Debit"
     var comment: String?
     let formatter = DateFormatter()
     @IBOutlet weak var saveButton: UIButton!
@@ -37,7 +37,12 @@ class AddExpenseViewController: UIViewController {
     //Haptic feedback for selection
     let selection = UISelectionFeedbackGenerator()
     let lightImpact = UIImpactFeedbackGenerator(style: .light)
-
+    
+    //Outlets
+    @IBOutlet weak var debitedAmountLabel: UILabel!
+    @IBOutlet weak var creditedAmountLabel: UILabel!
+    @IBOutlet weak var expenseSwitch: UISwitch!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +107,24 @@ class AddExpenseViewController: UIViewController {
         }
         return false
     }
+    
+    @IBAction func expenseSwitchAction(_ sender: UISwitch) {
+        if !expenseSwitch.isOn {
+            CategoriesCollectionView.isHidden = true
+            debitedAmountLabel.isHidden = true
+            creditedAmountLabel.isHidden = false
+            type = "Credit"
+            if type == "Credit"{
+                currentlySelectedCategory = "Credit"
+            }
+        } else {
+            type = "Debit"
+            CategoriesCollectionView.isHidden = false
+            debitedAmountLabel.isHidden = false
+            creditedAmountLabel.isHidden = true
+        }
+    }
+    
     
     //***************************************************************************
     //MARK: Save the data and notifying the TableView to update views

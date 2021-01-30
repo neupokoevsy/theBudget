@@ -25,7 +25,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="AddButton_StyleDark"/>
                                 <connections>
-                                    <segue destination="PQy-4d-1Vl" kind="show" id="5bw-dN-3Ed"/>
+                                    <segue destination="eB3-0m-Ty7" kind="show" id="due-rY-sRL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhn-ZX-pQe">
@@ -155,7 +155,7 @@ when you will add more data</string>
                                 </constraints>
                                 <state key="normal" title="Button" image="AddButton_StyleDark"/>
                                 <connections>
-                                    <segue destination="PQy-4d-1Vl" kind="show" id="jFh-oC-Qx1"/>
+                                    <segue destination="eB3-0m-Ty7" kind="show" id="pe5-Kv-8LS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -180,133 +180,6 @@ when you will add more data</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tl7-6k-iA8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1511.5942028985507" y="-214.28571428571428"/>
-        </scene>
-        <!--Add Record View Controller-->
-        <scene sceneID="EN0-JX-ciN">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="PQy-4d-1Vl" customClass="AddRecordViewController" customModule="theBudget" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="xYR-Cq-oZE"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dem-m4-63J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2765" y="110"/>
-        </scene>
-        <!--Add Income View Controller-->
-        <scene sceneID="E5S-KN-23P">
-            <objects>
-                <viewController storyboardIdentifier="AddIncomeViewController" id="mOS-BW-dED" customClass="AddIncomeViewController" customModule="theBudget" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Qax-qa-djf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oJ-fd-h2e">
-                                <rect key="frame" x="20" y="766" width="374" height="46"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="SAVE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="mOS-BW-dED" eventType="touchUpInside" id="DwC-WR-Vpd"/>
-                                    <action selector="saveButtonPressed:" destination="eB3-0m-Ty7" eventType="touchUpInside" id="dwb-2C-Dnr"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hzD-uB-fDI">
-                                <rect key="frame" x="20" y="59" width="374" height="75"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="cqg-Ww-bC9"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="gaP-cW-9da"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zzO-Hv-wuC">
-                                    <size key="itemSize" width="77" height="53"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCollectionViewCell" id="hls-Fy-2b1" customClass="CalendarCollectionViewCell" customModule="theBudget" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="17.5" width="77" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sYp-mN-qDK">
-                                            <rect key="frame" x="0.0" y="0.0" width="77" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wr-39-Z5U">
-                                                    <rect key="frame" x="19.5" y="10" width="38" height="20.5"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="8wr-39-Z5U" firstAttribute="centerX" secondItem="sYp-mN-qDK" secondAttribute="centerX" id="Oq1-Da-MvA"/>
-                                                <constraint firstItem="8wr-39-Z5U" firstAttribute="centerY" secondItem="sYp-mN-qDK" secondAttribute="centerY" id="kjE-aK-7TI"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="77" height="40"/>
-                                        <connections>
-                                            <outlet property="dateLabel" destination="8wr-39-Z5U" id="z4o-Lv-RTH"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="mOS-BW-dED" id="IRd-rq-Wbp"/>
-                                    <outlet property="delegate" destination="mOS-BW-dED" id="LGb-cu-uwR"/>
-                                </connections>
-                            </collectionView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.00" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="I3F-Yx-ewl">
-                                <rect key="frame" x="100" y="265" width="214" height="63.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="continue"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="You can comment your record" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nZV-Sf-eSp">
-                                <rect key="frame" x="20" y="336" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-1r-Otk">
-                                <rect key="frame" x="18" y="276" width="74" height="41"/>
-                                <string key="text">CREDITED
-AMOUNT</string>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.45300108980272114" blue="0.0" alpha="0.69598509933774833" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="C31-VZ-UxH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="nZV-Sf-eSp" firstAttribute="top" secondItem="I3F-Yx-ewl" secondAttribute="bottom" constant="7.5" id="AT1-yG-BGg"/>
-                            <constraint firstItem="hzD-uB-fDI" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="IPu-W3-e0f"/>
-                            <constraint firstItem="9oJ-fd-h2e" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="IVo-nd-2bI"/>
-                            <constraint firstItem="I3F-Yx-ewl" firstAttribute="top" secondItem="hzD-uB-fDI" secondAttribute="bottom" constant="131" id="KsL-I6-pGB"/>
-                            <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="hzD-uB-fDI" secondAttribute="trailing" constant="20" id="L8p-0Y-Fzf"/>
-                            <constraint firstItem="hzD-uB-fDI" firstAttribute="top" secondItem="C31-VZ-UxH" secondAttribute="top" constant="15" id="Osr-5D-BTI"/>
-                            <constraint firstItem="I3F-Yx-ewl" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="100" id="Pc0-pa-xCe"/>
-                            <constraint firstItem="I3F-Yx-ewl" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="QGz-02-CeI"/>
-                            <constraint firstItem="hzD-uB-fDI" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="Wvc-vi-8ly"/>
-                            <constraint firstItem="C31-VZ-UxH" firstAttribute="bottom" secondItem="9oJ-fd-h2e" secondAttribute="bottom" constant="50" id="at2-XL-UZO"/>
-                            <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="I3F-Yx-ewl" secondAttribute="trailing" constant="100" id="cBp-oi-HQs"/>
-                            <constraint firstItem="nZV-Sf-eSp" firstAttribute="top" secondItem="zW7-1r-Otk" secondAttribute="bottom" constant="19" id="gf9-wg-3Va"/>
-                            <constraint firstItem="nZV-Sf-eSp" firstAttribute="leading" secondItem="C31-VZ-UxH" secondAttribute="leading" constant="20" id="mbB-he-O2P"/>
-                            <constraint firstItem="I3F-Yx-ewl" firstAttribute="leading" secondItem="zW7-1r-Otk" secondAttribute="trailing" constant="8" symbolic="YES" id="oPI-KF-9qE"/>
-                            <constraint firstItem="nZV-Sf-eSp" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="ohu-wj-q8a"/>
-                            <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="nZV-Sf-eSp" secondAttribute="trailing" constant="20" id="wyc-FM-B3e"/>
-                            <constraint firstItem="C31-VZ-UxH" firstAttribute="trailing" secondItem="9oJ-fd-h2e" secondAttribute="trailing" constant="20" id="xZH-co-UEP"/>
-                            <constraint firstItem="9oJ-fd-h2e" firstAttribute="centerX" secondItem="Qax-qa-djf" secondAttribute="centerX" id="xgq-aj-il2"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="CalendarCollectionView" destination="hzD-uB-fDI" id="bFa-9d-Zh2"/>
-                        <outlet property="amountTextField" destination="I3F-Yx-ewl" id="Ric-MW-Bhs"/>
-                        <outlet property="commentTextField" destination="nZV-Sf-eSp" id="3RM-nK-DBu"/>
-                        <outlet property="saveButton" destination="9oJ-fd-h2e" id="KeA-TQ-Z5m"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d4I-9x-Ia6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3843" y="453"/>
         </scene>
         <!--Editing View Controller-->
         <scene sceneID="zp8-6I-3PX">
@@ -430,7 +303,7 @@ AMOUNT</string>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="You can comment your record" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-AY-c0x">
                                 <rect key="frame" x="20" y="341" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qtm-fB-U9Y">
                                 <rect key="frame" x="142" y="383" width="130" height="31"/>
@@ -492,12 +365,12 @@ AMOUNT</string>
                             <constraint firstItem="b2g-AY-c0x" firstAttribute="top" secondItem="p6Y-lF-TaJ" secondAttribute="bottom" constant="7.5" id="UCW-G5-tLY"/>
                             <constraint firstItem="uVU-6d-AWV" firstAttribute="centerX" secondItem="wbM-we-0KI" secondAttribute="centerX" id="XJt-bL-6Ji"/>
                             <constraint firstItem="o17-oA-PQ4" firstAttribute="centerX" secondItem="wbM-we-0KI" secondAttribute="centerX" id="XLb-Ej-j6Z"/>
-                            <constraint firstItem="HP4-06-O9m" firstAttribute="top" secondItem="uVU-6d-AWV" secondAttribute="bottom" constant="19" id="Ygn-0C-F5e"/>
                             <constraint firstItem="H5k-T6-uq1" firstAttribute="top" secondItem="iew-XO-KOT" secondAttribute="top" constant="20" id="cQe-ik-Qit"/>
                             <constraint firstItem="iew-XO-KOT" firstAttribute="trailing" secondItem="p6Y-lF-TaJ" secondAttribute="trailing" constant="100" id="cT6-MP-PP4"/>
                             <constraint firstItem="p6Y-lF-TaJ" firstAttribute="centerX" secondItem="wbM-we-0KI" secondAttribute="centerX" id="dSr-Pd-xoz"/>
                             <constraint firstItem="H5k-T6-uq1" firstAttribute="centerX" secondItem="wbM-we-0KI" secondAttribute="centerX" id="eSI-7N-vb0"/>
                             <constraint firstItem="Qtm-fB-U9Y" firstAttribute="top" secondItem="b2g-AY-c0x" secondAttribute="bottom" constant="8" symbolic="YES" id="eZW-H6-sMa"/>
+                            <constraint firstItem="b2g-AY-c0x" firstAttribute="top" secondItem="HP4-06-O9m" secondAttribute="bottom" constant="19" id="hey-AR-oak"/>
                             <constraint firstItem="iew-XO-KOT" firstAttribute="trailing" secondItem="b2g-AY-c0x" secondAttribute="trailing" constant="20" id="i59-h5-HGI"/>
                             <constraint firstItem="b2g-AY-c0x" firstAttribute="centerX" secondItem="wbM-we-0KI" secondAttribute="centerX" id="jEM-cx-xxE"/>
                             <constraint firstItem="iew-XO-KOT" firstAttribute="bottom" secondItem="o17-oA-PQ4" secondAttribute="bottom" constant="50" id="kdB-FP-MRP"/>
@@ -529,11 +402,11 @@ AMOUNT</string>
             <objects>
                 <viewController storyboardIdentifier="AddExpenseViewController" id="eB3-0m-Ty7" customClass="AddExpenseViewController" customModule="theBudget" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4D-8A-JWa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2E-bE-zq7">
-                                <rect key="frame" x="20" y="766" width="374" height="46"/>
+                                <rect key="frame" x="20" y="712" width="374" height="46"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="SAVE">
@@ -544,7 +417,7 @@ AMOUNT</string>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dXc-qy-NyW">
-                                <rect key="frame" x="20" y="59" width="374" height="75"/>
+                                <rect key="frame" x="20" y="15" width="374" height="75"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="2lV-kO-Frn"/>
@@ -587,7 +460,7 @@ AMOUNT</string>
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oKU-Ld-CFT">
-                                <rect key="frame" x="20" y="142" width="374" height="115"/>
+                                <rect key="frame" x="20" y="98" width="374" height="115"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="115" id="9To-CI-ZM0"/>
@@ -648,23 +521,49 @@ AMOUNT</string>
                                 </connections>
                             </collectionView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0.00" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vTR-mn-hqZ">
-                                <rect key="frame" x="100" y="265" width="214" height="63.5"/>
+                                <rect key="frame" x="100" y="221" width="214" height="63.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="continue"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="You can comment your record" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UjI-iC-HX7">
-                                <rect key="frame" x="20" y="336" width="374" height="34"/>
+                                <rect key="frame" x="20" y="292" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="G7D-4K-PuV">
-                                <rect key="frame" x="23" y="276" width="69" height="41"/>
+                                <rect key="frame" x="23" y="232" width="69" height="41"/>
                                 <string key="text">DEBITED
 AMOUNT</string>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                 <color key="textColor" red="0.82976587814693881" green="0.14616116633333334" blue="0.0" alpha="0.69598509933774833" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="d7k-xm-EJp">
+                                <rect key="frame" x="18" y="232" width="74" height="41"/>
+                                <string key="text">CREDITED
+AMOUNT</string>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.45300108979999998" blue="0.0" alpha="0.69598509929999997" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7Io-sb-R4A">
+                                <rect key="frame" x="142" y="334" width="130" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hc0-oZ-7es">
+                                        <rect key="frame" x="0.0" y="0.0" width="73" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vq5-8v-ULW">
+                                        <rect key="frame" x="81" y="0.0" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="expenseSwitchAction:" destination="eB3-0m-Ty7" eventType="valueChanged" id="DZQ-3C-JCX"/>
+                                            <action selector="toggleExpenseSwitch:" destination="aVu-50-doe" eventType="valueChanged" id="rGu-cU-7ti"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ANc-hL-LSD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -676,14 +575,18 @@ AMOUNT</string>
                             <constraint firstItem="t2E-bE-zq7" firstAttribute="leading" secondItem="ANc-hL-LSD" secondAttribute="leading" constant="20" id="7sF-8Z-DAv"/>
                             <constraint firstItem="t2E-bE-zq7" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="Bq4-W3-OlH"/>
                             <constraint firstItem="ANc-hL-LSD" firstAttribute="trailing" secondItem="vTR-mn-hqZ" secondAttribute="trailing" constant="100" id="FHn-IY-4QZ"/>
+                            <constraint firstItem="7Io-sb-R4A" firstAttribute="top" secondItem="UjI-iC-HX7" secondAttribute="bottom" constant="8" symbolic="YES" id="FsG-rd-lmD"/>
                             <constraint firstItem="ANc-hL-LSD" firstAttribute="bottom" secondItem="t2E-bE-zq7" secondAttribute="bottom" constant="50" id="G63-qu-oS9"/>
                             <constraint firstItem="ANc-hL-LSD" firstAttribute="trailing" secondItem="UjI-iC-HX7" secondAttribute="trailing" constant="20" id="Iq4-Ye-VRK"/>
                             <constraint firstItem="vTR-mn-hqZ" firstAttribute="top" secondItem="oKU-Ld-CFT" secondAttribute="bottom" constant="8" symbolic="YES" id="JbF-Hu-cUG"/>
                             <constraint firstItem="oKU-Ld-CFT" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="QsB-hF-veB"/>
                             <constraint firstItem="oKU-Ld-CFT" firstAttribute="top" secondItem="dXc-qy-NyW" secondAttribute="bottom" constant="8" symbolic="YES" id="RVt-iD-c6g"/>
-                            <constraint firstItem="G7D-4K-PuV" firstAttribute="top" secondItem="oKU-Ld-CFT" secondAttribute="bottom" constant="19" id="SMt-53-sxT"/>
                             <constraint firstItem="ANc-hL-LSD" firstAttribute="trailing" secondItem="dXc-qy-NyW" secondAttribute="trailing" constant="20" id="VUE-LO-5Ic"/>
+                            <constraint firstItem="vTR-mn-hqZ" firstAttribute="leading" secondItem="d7k-xm-EJp" secondAttribute="trailing" constant="8" symbolic="YES" id="Wrd-FE-9Qf"/>
+                            <constraint firstItem="UjI-iC-HX7" firstAttribute="top" secondItem="d7k-xm-EJp" secondAttribute="bottom" constant="19" id="XNu-6q-w0e"/>
                             <constraint firstItem="UjI-iC-HX7" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="eMc-Nx-6va"/>
+                            <constraint firstItem="7Io-sb-R4A" firstAttribute="centerX" secondItem="c4D-8A-JWa" secondAttribute="centerX" id="gEL-V9-saG"/>
+                            <constraint firstItem="UjI-iC-HX7" firstAttribute="top" secondItem="G7D-4K-PuV" secondAttribute="bottom" constant="19" id="iPY-Mp-DJj"/>
                             <constraint firstItem="dXc-qy-NyW" firstAttribute="top" secondItem="ANc-hL-LSD" secondAttribute="top" constant="15" id="s62-Qf-yGK"/>
                             <constraint firstItem="vTR-mn-hqZ" firstAttribute="leading" secondItem="ANc-hL-LSD" secondAttribute="leading" constant="100" id="us7-Bh-8HQ"/>
                             <constraint firstItem="ANc-hL-LSD" firstAttribute="trailing" secondItem="oKU-Ld-CFT" secondAttribute="trailing" constant="20" id="vCl-Rd-fcT"/>
@@ -693,17 +596,21 @@ AMOUNT</string>
                             <constraint firstItem="UjI-iC-HX7" firstAttribute="top" secondItem="vTR-mn-hqZ" secondAttribute="bottom" constant="7.5" id="zHl-FO-EhQ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ZS5-xr-40x"/>
                     <connections>
                         <outlet property="CalendarCollectionView" destination="dXc-qy-NyW" id="BgU-Mt-9oe"/>
                         <outlet property="CategoriesCollectionView" destination="oKU-Ld-CFT" id="Ext-0L-ihi"/>
                         <outlet property="amountTextField" destination="vTR-mn-hqZ" id="QV4-C2-qhO"/>
                         <outlet property="commentTextField" destination="UjI-iC-HX7" id="dnA-Cc-ziv"/>
+                        <outlet property="creditedAmountLabel" destination="d7k-xm-EJp" id="1F0-cx-Zt0"/>
+                        <outlet property="debitedAmountLabel" destination="G7D-4K-PuV" id="i9s-Rh-CiO"/>
+                        <outlet property="expenseSwitch" destination="Vq5-8v-ULW" id="f0P-yb-BE5"/>
                         <outlet property="saveButton" destination="t2E-bE-zq7" id="FED-EE-Bem"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pl1-XK-YOz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3840.579710144928" y="-251.11607142857142"/>
+            <point key="canvasLocation" x="2764" y="110"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rXH-eO-ocQ">
@@ -733,7 +640,7 @@ AMOUNT</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5bw-dN-3Ed"/>
+        <segue reference="due-rY-sRL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AddButton_StyleDark" width="120" height="120"/>

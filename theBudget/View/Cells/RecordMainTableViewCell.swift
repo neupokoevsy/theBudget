@@ -22,9 +22,9 @@ class RecordMainTableViewCell: UITableViewCell {
         self.amountLabel.text = String(describing: record.amount)
         self.categoryLabel.text = record.category
         self.typeLabel.text = record.type
-        if record.type! == "Income" {
-            self.categoryImage.image = UIImage(named: "income.png")
-            self.categoryLabel.text = "Income"
+        if record.type! == "Credit" {
+            self.categoryImage.image = UIImage(named: "credit.png")
+            self.categoryLabel.text = "Credit"
         }
         if record.category != nil {
             self.categoryImage.image = UIImage(named: "\(String(describing: record.category!.lowercased())).png")
@@ -36,7 +36,7 @@ class RecordMainTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "dd MMM yyyy"
         self.dateLabel.text = dateFormatter.string(from: date!)
         
-        if typeLabel.text == "Expense" {
+        if typeLabel.text == "Debit" {
             typeLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         } else {
             typeLabel.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)

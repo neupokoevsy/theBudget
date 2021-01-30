@@ -22,7 +22,6 @@
 		A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */; };
 		A3672D0025A5F0D900931044 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */; };
 		A3672D0525A5F12E00931044 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */; };
-		A3672D0A25A5F13E00931044 /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672D0925A5F13E00931044 /* AddIncomeViewController.swift */; };
 		A3672D0F25A5F3AC00931044 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672D0E25A5F3AC00931044 /* CategoryModel.swift */; };
 		A37227BB25BC4BD2003CDAFD /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37227BA25BC4BD2003CDAFD /* CoreDataService.swift */; };
 		A39F6D3525B1C4EC00209262 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F6D3425B1C4EC00209262 /* CalendarData.swift */; };
@@ -72,7 +71,6 @@
 		A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
 		A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
-		A3672D0925A5F13E00931044 /* AddIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
 		A3672D0E25A5F3AC00931044 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		A37227BA25BC4BD2003CDAFD /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		A39F6D3425B1C4EC00209262 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				A30A5F2725A5D3800046D1D0 /* Assets.xcassets */,
 				A30A5F2425A5D37F0046D1D0 /* theBudget.xcdatamodeld */,
 				A30A5F2C25A5D3800046D1D0 /* Info.plist */,
-				A30A5F2925A5D3800046D1D0 /* LaunchScreen.storyboard */,
 			);
 			path = theBudget;
 			sourceTree = "<group>";
@@ -169,6 +166,15 @@
 				A30A5F4225A5D3800046D1D0 /* Info.plist */,
 			);
 			path = theBudgetUITests;
+			sourceTree = "<group>";
+		};
+		A3AD94DD25C55EE300AA9022 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A30A5F2125A5D37F0046D1D0 /* Main.storyboard */,
+				A30A5F2925A5D3800046D1D0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		A3D8D80F25BDE85A002E1A6D /* Supporting Files */ = {
@@ -193,12 +199,12 @@
 		A3FD6B6525A5D624006B54E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A3AD94DD25C55EE300AA9022 /* Storyboards */,
 				A306EC2D25C329C4008C65FC /* Cells */,
 				A3FD6B7225A5D674006B54E0 /* CustomTabBar.swift */,
 				A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */,
 				A3D8D81625BDE891002E1A6D /* Extensions.swift */,
 				A349A4F225C05A06000F41FD /* ShadowView.swift */,
-				A30A5F2125A5D37F0046D1D0 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,7 +215,6 @@
 				A3672CF525A5EB3F00931044 /* RecordsViewController.swift */,
 				A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */,
 				A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */,
-				A3672D0925A5F13E00931044 /* AddIncomeViewController.swift */,
 				A349A4F725C09D30000F41FD /* EditingViewController.swift */,
 				A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */,
 			);
@@ -354,7 +359,6 @@
 				A30A5F1C25A5D37F0046D1D0 /* AppDelegate.swift in Sources */,
 				A30A5F2625A5D37F0046D1D0 /* theBudget.xcdatamodeld in Sources */,
 				A3672D0525A5F12E00931044 /* AddExpenseViewController.swift in Sources */,
-				A3672D0A25A5F13E00931044 /* AddIncomeViewController.swift in Sources */,
 				A30A5F1E25A5D37F0046D1D0 /* SceneDelegate.swift in Sources */,
 				A3672D0F25A5F3AC00931044 /* CategoryModel.swift in Sources */,
 				A3D8D80325BD92FF002E1A6D /* SearchBarView.swift in Sources */,

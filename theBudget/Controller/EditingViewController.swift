@@ -25,7 +25,7 @@ class EditingViewController: UIViewController {
     var records: [Record]?
     var enteredAmount: String?
     var amount: Double?
-    var type: String = "Expense"
+    var type: String = "Debit"
     var comment: String?
     
     //Categories variables
@@ -152,15 +152,15 @@ class EditingViewController: UIViewController {
             CategoriesCollectionView.isHidden = true
             debitedAmountLabel.isHidden = true
             creditedAmountLabel.isHidden = false
-            type = "Income"
-            if type == "Income" {
-                currentlySelectedCategory = "Income"
+            type = "Credit"
+            if type == "Credit" {
+                currentlySelectedCategory = "Credit"
             }
         } else {
             CategoriesCollectionView.isHidden = false
             debitedAmountLabel.isHidden = false
             creditedAmountLabel.isHidden = true
-            type = "Expense"
+            type = "Debit"
         }
     }
     
@@ -169,15 +169,19 @@ class EditingViewController: UIViewController {
     //***************************************************************************
     
     func setupInfoFromTableView() {
-        if dataService.instance.editableCategory == "Income" {
+        if dataService.instance.editableCategory == "Credit" {
             expenseSwitch.setOn(false, animated: true)
-            currentlySelectedCategory = "Income"
+            currentlySelectedCategory = "Credit"
             CategoriesCollectionView.isHidden = true
-            type = "Income"
+            debitedAmountLabel.isHidden = true
+            creditedAmountLabel.isHidden = false
+            type = "Credit"
         } else {
             expenseSwitch.setOn(true, animated: true)
             currentlySelectedCategory = dataService.instance.editableCategory!
             CategoriesCollectionView.isHidden = false
+            debitedAmountLabel.isHidden = true
+            creditedAmountLabel.isHidden = false
         }
         let receivedAmount = dataService.instance.editableAmount
         amountTextField.text = String(describing: receivedAmount!)
