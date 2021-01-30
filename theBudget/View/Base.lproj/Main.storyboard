@@ -323,7 +323,7 @@ AMOUNT</string>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="ADB-qE-22B"/>
                                     <constraint firstAttribute="height" constant="75" id="J9B-6u-jgj"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="TL7-MY-c2T">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" sectionInsetReference="layoutMargins" id="TL7-MY-c2T">
                                     <size key="itemSize" width="77" height="53"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -331,7 +331,7 @@ AMOUNT</string>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCollectionViewCell" id="Weo-kC-EiM" customClass="CalendarCollectionViewCell" customModule="theBudget" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="17.5" width="77" height="40"/>
+                                        <rect key="frame" x="13" y="17.5" width="77" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cEN-Oe-D6E">
                                             <rect key="frame" x="0.0" y="0.0" width="77" height="40"/>
