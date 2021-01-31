@@ -26,6 +26,8 @@
 		A37227BB25BC4BD2003CDAFD /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37227BA25BC4BD2003CDAFD /* CoreDataService.swift */; };
 		A39F6D3525B1C4EC00209262 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39F6D3425B1C4EC00209262 /* CalendarData.swift */; };
 		A3A4653025B1C1A6004B8451 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */; };
+		A3AD94EA25C5604200AA9022 /* StatisticsGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD94E925C5604200AA9022 /* StatisticsGraphView.swift */; };
+		A3AD94EF25C5885300AA9022 /* MonthsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD94EE25C5885300AA9022 /* MonthsCollectionViewCell.swift */; };
 		A3D8D7FE25BD620E002E1A6D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */; };
 		A3D8D80325BD92FF002E1A6D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */; };
 		A3D8D81725BDE891002E1A6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D81625BDE891002E1A6D /* Extensions.swift */; };
@@ -75,6 +77,8 @@
 		A37227BA25BC4BD2003CDAFD /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		A39F6D3425B1C4EC00209262 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		A3AD94E925C5604200AA9022 /* StatisticsGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsGraphView.swift; sourceTree = "<group>"; };
+		A3AD94EE25C5885300AA9022 /* MonthsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		A3D8D81625BDE891002E1A6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 				A35D8A8025BED21D00F67BE8 /* RecordMainTableViewCell.swift */,
 				A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */,
 				A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */,
+				A3AD94EE25C5885300AA9022 /* MonthsCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */,
 				A3D8D81625BDE891002E1A6D /* Extensions.swift */,
 				A349A4F225C05A06000F41FD /* ShadowView.swift */,
+				A3AD94E925C5604200AA9022 /* StatisticsGraphView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -364,7 +370,9 @@
 				A3D8D80325BD92FF002E1A6D /* SearchBarView.swift in Sources */,
 				A3D8D81725BDE891002E1A6D /* Extensions.swift in Sources */,
 				A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */,
+				A3AD94EF25C5885300AA9022 /* MonthsCollectionViewCell.swift in Sources */,
 				A35D8A8125BED21D00F67BE8 /* RecordMainTableViewCell.swift in Sources */,
+				A3AD94EA25C5604200AA9022 /* StatisticsGraphView.swift in Sources */,
 				A349A4F825C09D30000F41FD /* EditingViewController.swift in Sources */,
 				A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */,
 				A3D8D7FE25BD620E002E1A6D /* CategoryCollectionViewCell.swift in Sources */,

@@ -13,12 +13,18 @@ let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class RecordsViewController: UIViewController {
     
-    
+    //Outlets
     @IBOutlet weak var addRecordButton: UIButton!
     @IBOutlet weak var recordsButton: UITabBarItem!
     @IBOutlet weak var recordsTable: UITableView!
     
+    @IBOutlet weak var monthsCollectionView: UICollectionView!
+    
+    //Variables
     var records: [Record]?
+    var monthsToDisplay: [String] = []
+    var numberOfMonthsToDisplay: Int?
+    
     
 
     override func viewDidLoad() {
@@ -26,6 +32,11 @@ class RecordsViewController: UIViewController {
                 
         records = dataService.instance.fetchRecords()
         NotificationCenter.default.addObserver(self, selector: #selector(fetchRecordsWithNotification(notification:)), name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
+        
+
+        
+        getMonthsForSelection()
+        print(monthsToDisplay)
         
         //MARK: Show the add button always on top of other views
         super.view.bringSubviewToFront(addRecordButton)        
@@ -41,10 +52,62 @@ class RecordsViewController: UIViewController {
         recordsTable.reloadData()
     }
     
+    @IBAction func nextMonthButton(_ sender: UIButton) {
+        
+        guard let indexPath = monthsCollectionView.indexPathsForVisibleItems.first.flatMap(
+                { IndexPath(item: $0.row + 1, section: $0.section)})
+        else {
+                return
+        }
+        if indexPath.item < monthsToDisplay.count && indexPath.item >= 0 {
+            monthsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
 
+    
+    @IBAction func previousMonthButton(_ sender: UIButton) {
+        
+        guard let indexPath = monthsCollectionView.indexPathsForVisibleItems.first.flatMap(
+                { IndexPath(item: $0.row - 1, section: $0.section)})
+        else {
+                return
+        }
+        if indexPath.item < monthsToDisplay.count && indexPath.item >= 0 {
+            monthsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
 }
+    
 
-extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
+
+
+extension RecordsViewController: UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    //******************************************************************
+    //MARK: Month collection view
+    //******************************************************************
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        monthsToDisplay.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MonthsDisplayCell", for: indexPath) as! MonthsCollectionViewCell
+        cell.monthsToDisplayLabel.text = monthsToDisplay[indexPath.row]
+        print(monthsToDisplay[indexPath.row])
+        return cell
+    }
+    
+    func getMonthsForSelection() {
+        for result in records! {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMMM"
+            monthsToDisplay.append(formatter.string(from: result.date!))
+            monthsToDisplay = monthsToDisplay.removingDuplicates()
+            numberOfMonthsToDisplay = monthsToDisplay.count
+        }
+    }
     
     //******************************************************************
     //MARK: Getting work done with TableView
