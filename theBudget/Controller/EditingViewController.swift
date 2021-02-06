@@ -157,6 +157,8 @@ class EditingViewController: UIViewController {
                 currentlySelectedCategory = "Credit"
             }
         } else {
+            currentlySelectedCategory = nil
+            CategoriesCollectionView.selectItem(at: nil, animated: true, scrollPosition: .centeredHorizontally)
             CategoriesCollectionView.isHidden = false
             debitedAmountLabel.isHidden = false
             creditedAmountLabel.isHidden = true

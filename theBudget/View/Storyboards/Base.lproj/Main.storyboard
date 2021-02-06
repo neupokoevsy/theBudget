@@ -123,15 +123,15 @@ when you will add more data</string>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuF-gN-9D9">
-                                        <rect key="frame" x="275" y="40" width="55" height="20.5"/>
+                                        <rect key="frame" x="275" y="30" width="55" height="20.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="15"/>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="JuF-gN-9D9" firstAttribute="top" secondItem="aGp-vj-6zQ" secondAttribute="top" constant="40" id="4rH-9e-zcS"/>
+                                    <constraint firstItem="JuF-gN-9D9" firstAttribute="top" secondItem="aGp-vj-6zQ" secondAttribute="top" constant="30" id="4rH-9e-zcS"/>
                                     <constraint firstAttribute="height" constant="200" id="65c-8o-dGJ"/>
                                     <constraint firstItem="hNs-cV-nYg" firstAttribute="top" secondItem="aGp-vj-6zQ" secondAttribute="top" constant="30" id="CuB-sq-It1"/>
                                     <constraint firstAttribute="trailing" secondItem="JuF-gN-9D9" secondAttribute="trailing" constant="15" id="LRW-O6-dOm"/>
@@ -145,7 +145,7 @@ when you will add more data</string>
                                         <color key="value" red="0.3939186335" green="0.80963033439999998" blue="0.98269480470000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" red="0.99611777069999996" green="0.99997395280000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -167,6 +167,7 @@ when you will add more data</string>
                         <outlet property="graphView" destination="aGp-vj-6zQ" id="akg-wL-dGN"/>
                         <outlet property="maxLabel" destination="JuF-gN-9D9" id="FFJ-va-Wnh"/>
                         <outlet property="stackView" destination="n0A-fy-kF0" id="tmU-m6-YXi"/>
+                        <outlet property="totalSpentLabel" destination="hNs-cV-nYg" id="Eg6-hG-yzE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76E-zu-8ZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -208,7 +209,7 @@ when you will add more data</string>
                                                         <constraint firstAttribute="height" constant="78" id="MH3-Ge-DRo"/>
                                                     </constraints>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Naj-zH-wkB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Naj-zH-wkB">
                                                     <rect key="frame" x="294" y="41" width="100" height="48"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                     <nil key="textColor"/>
@@ -276,7 +277,7 @@ when you will add more data</string>
                                     <segue destination="eB3-0m-Ty7" kind="show" id="pe5-Kv-8LS"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rgc-Xh-GMe">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rgc-Xh-GMe">
                                 <rect key="frame" x="116" y="44" width="182" height="28"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euX-UB-KuJ">
@@ -467,7 +468,7 @@ when you will add more data</string>
                                                                 <constraint firstAttribute="width" secondItem="mNv-jU-gtX" secondAttribute="height" multiplier="1:1" id="GuE-x8-JQg"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb3-sa-Pi6">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb3-sa-Pi6">
                                                             <rect key="frame" x="10.5" y="50" width="29.5" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="G8F-8T-FOn"/>
@@ -692,7 +693,7 @@ AMOUNT</string>
                                                                 <constraint firstAttribute="width" secondItem="kvd-KA-Yr5" secondAttribute="height" multiplier="1:1" id="ojJ-r3-sCJ"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rby-Yb-3Sh">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rby-Yb-3Sh">
                                                             <rect key="frame" x="10.5" y="50" width="29.5" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="4xO-8w-frZ"/>
@@ -842,7 +843,7 @@ AMOUNT</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pe5-Kv-8LS"/>
+        <segue reference="due-rY-sRL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AddButton_StyleDark" width="120" height="120"/>

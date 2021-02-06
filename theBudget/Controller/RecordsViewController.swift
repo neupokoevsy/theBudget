@@ -24,7 +24,10 @@ class RecordsViewController: UIViewController {
     var records: [Record]?
     var monthsToDisplay: [String] = []
     var numberOfMonthsToDisplay: Int?
-    
+    let formatter = DateFormatter()
+    var arrayOfDates: [String] = []
+    var currentlySelectedMonth: String?
+
     
 
     override func viewDidLoad() {
@@ -36,8 +39,7 @@ class RecordsViewController: UIViewController {
 
         
         getMonthsForSelection()
-        print(monthsToDisplay)
-        
+        getDataForMonths()
         //MARK: Show the add button always on top of other views
         super.view.bringSubviewToFront(addRecordButton)        
         
@@ -52,6 +54,8 @@ class RecordsViewController: UIViewController {
         recordsTable.reloadData()
     }
     
+    
+    //Switch no next month
     @IBAction func nextMonthButton(_ sender: UIButton) {
         
         guard let indexPath = monthsCollectionView.indexPathsForVisibleItems.first.flatMap(
@@ -60,11 +64,13 @@ class RecordsViewController: UIViewController {
                 return
         }
         if indexPath.item < monthsToDisplay.count && indexPath.item >= 0 {
+            currentlySelectedMonth = monthsToDisplay[indexPath.item]
+            getDataForMonths()
             monthsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
     }
 
-    
+    //Switch no previous month
     @IBAction func previousMonthButton(_ sender: UIButton) {
         
         guard let indexPath = monthsCollectionView.indexPathsForVisibleItems.first.flatMap(
@@ -73,8 +79,26 @@ class RecordsViewController: UIViewController {
                 return
         }
         if indexPath.item < monthsToDisplay.count && indexPath.item >= 0 {
+            currentlySelectedMonth = monthsToDisplay[indexPath.item]
+            getDataForMonths()
             monthsCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
+    }
+    
+    func getDataForMonths() {
+        var dates = records!.map({ return $0.date! })
+        formatter.dateFormat = "MMMM"
+        for date in dates {
+            arrayOfDates.append(formatter.string(from: date))
+        }
+        let result = records!.filter({ dates.contains($0.date!) })
+        for res in result {
+            if formatter.string(from: res.date!) == currentlySelectedMonth {
+                print(res.amount)
+                print(res.category!)
+            }
+        }
+
     }
 }
     
@@ -95,7 +119,8 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MonthsDisplayCell", for: indexPath) as! MonthsCollectionViewCell
         cell.monthsToDisplayLabel.text = monthsToDisplay[indexPath.row]
-        print(monthsToDisplay[indexPath.row])
+//        print(monthsToDisplay[indexPath.row])
+        currentlySelectedMonth = monthsToDisplay[indexPath.row]
         return cell
     }
     

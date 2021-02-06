@@ -7,6 +7,41 @@
 
 import Foundation
 
+
+enum Month {
+    case Jan
+    case Feb
+    case Mar
+    case Apr
+    case May
+    case Jun
+    case Jul
+    case Aug
+    case Sep
+    case Oct
+    case Nov
+    case Dec
+    
+    var monthTitle: String {
+        switch self {
+        case .Jan:            return "JAN"
+        case .Feb:           return "FEB"
+        case .Mar:              return "MAR"
+        case .Apr:              return "APR"
+        case .May:                return "MAY"
+        case .Jun:               return "JUN"
+        case .Jul:               return "JUL"
+        case .Aug:             return "AUG"
+        case .Sep:          return "SEP"
+        case .Oct:            return "OCT"
+        case .Nov:           return "NOV"
+        case .Dec:           return "DEC"
+        }
+    }
+}
+
+
+
 extension Date {
     func xDays(_ x: Int) -> Date {
         return Calendar.current.date(byAdding: .day, value: x, to: self)!

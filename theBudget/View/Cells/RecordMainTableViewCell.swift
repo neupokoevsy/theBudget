@@ -36,6 +36,9 @@ class RecordMainTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "dd MMM yyyy"
         self.dateLabel.text = dateFormatter.string(from: date!)
         
+//        dateFormatter.dateFormat = "MMMM"
+//        dateConverted = record.date
+        
         if typeLabel.text == "Debit" {
             typeLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         } else {
