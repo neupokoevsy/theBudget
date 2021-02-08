@@ -149,6 +149,49 @@ when you will add more data</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F3c-dv-71P">
+                                <rect key="frame" x="20" y="252" width="374" height="561"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MonthlyStatisticsCell" rowHeight="70" id="cfG-TG-KUM" customClass="MonthlyStatisticsCell" customModule="theBudget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cfG-TG-KUM" id="ZN9-0E-CwP">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuV-1i-ooJ">
+                                                    <rect key="frame" x="265" y="14.5" width="89" height="41"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="February" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6VR-wX-HjC">
+                                                    <rect key="frame" x="20" y="21.5" width="84" height="27.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AuV-1i-ooJ" firstAttribute="centerY" secondItem="ZN9-0E-CwP" secondAttribute="centerY" id="a7D-Qy-VFt"/>
+                                                <constraint firstItem="6VR-wX-HjC" firstAttribute="leading" secondItem="ZN9-0E-CwP" secondAttribute="leadingMargin" id="hfr-rp-oqS"/>
+                                                <constraint firstItem="6VR-wX-HjC" firstAttribute="centerY" secondItem="ZN9-0E-CwP" secondAttribute="centerY" id="jO8-wK-4Fo"/>
+                                                <constraint firstItem="AuV-1i-ooJ" firstAttribute="trailing" secondItem="ZN9-0E-CwP" secondAttribute="trailingMargin" id="sTN-pF-yOK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="monthLabel" destination="6VR-wX-HjC" id="MEW-yg-sfP"/>
+                                            <outlet property="monthlyAmountLabel" destination="AuV-1i-ooJ" id="1Oy-8A-HYM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gZn-lI-9Gi" id="hWI-1u-TRX"/>
+                                    <outlet property="delegate" destination="gZn-lI-9Gi" id="uEY-ys-boI"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CAZ-1i-IZt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -164,8 +207,10 @@ when you will add more data</string>
                     <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.xaxis" catalog="system" selectedImage="chart.bar.xaxis" id="nZm-1v-75m"/>
                     <connections>
                         <outlet property="NoDataLabel" destination="Jhn-ZX-pQe" id="5zD-rF-AYM"/>
+                        <outlet property="addRecordButton" destination="MK0-Vt-avE" id="fvn-Yn-bMZ"/>
                         <outlet property="graphView" destination="aGp-vj-6zQ" id="akg-wL-dGN"/>
                         <outlet property="maxLabel" destination="JuF-gN-9D9" id="FFJ-va-Wnh"/>
+                        <outlet property="monthlyStatisticsTable" destination="F3c-dv-71P" id="NO7-2a-C97"/>
                         <outlet property="stackView" destination="n0A-fy-kF0" id="tmU-m6-YXi"/>
                         <outlet property="totalSpentLabel" destination="hNs-cV-nYg" id="Eg6-hG-yzE"/>
                     </connections>

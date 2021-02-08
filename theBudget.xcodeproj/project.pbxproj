@@ -28,6 +28,7 @@
 		A3A4653025B1C1A6004B8451 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */; };
 		A3AD94EA25C5604200AA9022 /* StatisticsGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD94E925C5604200AA9022 /* StatisticsGraphView.swift */; };
 		A3AD94EF25C5885300AA9022 /* MonthsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AD94EE25C5885300AA9022 /* MonthsCollectionViewCell.swift */; };
+		A3C703F925D1749A00E34AF2 /* MonthlyStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C703F825D1749A00E34AF2 /* MonthlyStatisticsCell.swift */; };
 		A3D8D7FE25BD620E002E1A6D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */; };
 		A3D8D80325BD92FF002E1A6D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */; };
 		A3D8D81725BDE891002E1A6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D8D81625BDE891002E1A6D /* Extensions.swift */; };
@@ -79,6 +80,7 @@
 		A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3AD94E925C5604200AA9022 /* StatisticsGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsGraphView.swift; sourceTree = "<group>"; };
 		A3AD94EE25C5885300AA9022 /* MonthsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsCollectionViewCell.swift; sourceTree = "<group>"; };
+		A3C703F825D1749A00E34AF2 /* MonthlyStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyStatisticsCell.swift; sourceTree = "<group>"; };
 		A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		A3D8D80225BD92FF002E1A6D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		A3D8D81625BDE891002E1A6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				A3A4652F25B1C1A6004B8451 /* CalendarCollectionViewCell.swift */,
 				A3D8D7FD25BD620E002E1A6D /* CategoryCollectionViewCell.swift */,
 				A3AD94EE25C5885300AA9022 /* MonthsCollectionViewCell.swift */,
+				A3C703F825D1749A00E34AF2 /* MonthlyStatisticsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				A30A5F1C25A5D37F0046D1D0 /* AppDelegate.swift in Sources */,
 				A30A5F2625A5D37F0046D1D0 /* theBudget.xcdatamodeld in Sources */,
 				A3672D0525A5F12E00931044 /* AddExpenseViewController.swift in Sources */,
+				A3C703F925D1749A00E34AF2 /* MonthlyStatisticsCell.swift in Sources */,
 				A30A5F1E25A5D37F0046D1D0 /* SceneDelegate.swift in Sources */,
 				A3672D0F25A5F3AC00931044 /* CategoryModel.swift in Sources */,
 				A3D8D80325BD92FF002E1A6D /* SearchBarView.swift in Sources */,

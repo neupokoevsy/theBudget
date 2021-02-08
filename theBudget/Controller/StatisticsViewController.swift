@@ -11,7 +11,6 @@ public var dataReceivedForGraph = [Double]()
 
 class StatisticsViewController: UIViewController {
     
-    @IBOutlet weak var NoDataLabel: UILabel!
     
 
     var records: [Record]?
@@ -22,6 +21,10 @@ class StatisticsViewController: UIViewController {
     let formatter = DateFormatter()
     
     //Outlets
+    
+    @IBOutlet weak var monthlyStatisticsTable: UITableView!
+    @IBOutlet weak var NoDataLabel: UILabel!
+    @IBOutlet weak var addRecordButton: UIButton!
     @IBOutlet weak var maxLabel: UILabel!
     @IBOutlet weak var totalSpentLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
@@ -35,6 +38,7 @@ class StatisticsViewController: UIViewController {
 
         
         // Do any additional setup after loading the view.
+        super.view.bringSubviewToFront(addRecordButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,7 +109,36 @@ class StatisticsViewController: UIViewController {
             }
         }
     }
-    
-    
+}
 
+extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var arrayOfNonEmptyRecords = [Double]()
+        for quantity in dataReceivedForGraph {
+            if quantity != 0.0 {
+                arrayOfNonEmptyRecords.append(quantity)
+            }
+        }
+//        dataReceivedForGraph.count
+      return arrayOfNonEmptyRecords.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = monthlyStatisticsTable.dequeueReusableCell(withIdentifier: "MonthlyStatisticsCell") as? MonthlyStatisticsCell
+        else {
+            return UITableViewCell()
+        }
+        let statisticsRecord = dataReceivedForGraph[indexPath.row]
+        let statisticsMonth = monthsReceived[indexPath.row]
+        
+        if String(describing: statisticsRecord) != "0.0"{
+        cell.configureCell(month: statisticsMonth, amount: String(describing: statisticsRecord))
+        }
+//        print(monthsReceived)
+        
+        return cell
+    }
+    
+    
 }
