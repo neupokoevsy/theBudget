@@ -61,7 +61,7 @@ class StatisticsViewController: UIViewController {
 
     func getAmountsByMonths(months: String) -> Double {
             var amount = [Double]()
-        var sum: Double = 0.0
+            var sum: Double = 0.0
             let dates = records!.map({ return $0.date! })
             formatter.dateFormat = "MMM"
             let result = records!.filter({ dates.contains($0.date!) })
@@ -72,44 +72,17 @@ class StatisticsViewController: UIViewController {
             }
         }
         return sum
-    
-//    func getAmountsByMonths(months: [String]) -> Double {
-//            var amount = [Double]()
-//            var sum: Double?
-//            let dates = records!.map({ return $0.date! })
-//            formatter.dateFormat = "MMM"
-//            let result = records!.filter({ dates.contains($0.date!) })
-//        print(monthsReceived.first!)
-//            for res in result {
-//                if formatter.string(from: res.date!) == months.first {
-//                    amount.append(res.amount)
-//                    print(amount)
-//                    print("Maximum amount is: \(amount.max()!)")
-//
-//                    sum = amount.reduce(0, +)
-//                    print(sum!)
-//            }
-//        }
-//        return sum!
-//        for result in array {
-//            amount += amount.append(result.amount) as? [Double] ?? [0.0]
-//            let sum = amount.reduce(0, +)
-//            if sum != 0.0 {
-//                computedAmount = sum
     }
     
     func setupGraphDisplay() {
-//        let maxMonthIndex = stackView.arrangedSubviews.count - 1
         let maxMonthIndex = monthsReceived.count
-//        let maxMonthIndex = 11
-//        print("Max month index \(maxMonthIndex)")
         
         graphView.setNeedsDisplay()
         
         //Max label to be updated
         
-        let maximum = dataReceivedForGraph.max() ?? 0.0
-        maxLabel.text = "\(maximum)"
+//        let maximum = dataReceivedForGraph.max() ?? 0.0
+//        maxLabel.text = "\(maximum)"
         
         let today = Date()
         let calenendar = Calendar.current
@@ -117,7 +90,6 @@ class StatisticsViewController: UIViewController {
         var startOfYear = today
         var timeInterval : TimeInterval = 0.0
         Calendar.current.dateInterval(of: .year, start: &startOfYear, interval: &timeInterval, for: today)
-//        print(startOfYear)
 
 
         let formatter = DateFormatter()

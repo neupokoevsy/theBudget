@@ -182,8 +182,8 @@ class EditingViewController: UIViewController {
             expenseSwitch.setOn(true, animated: true)
             currentlySelectedCategory = dataService.instance.editableCategory!
             CategoriesCollectionView.isHidden = false
-            debitedAmountLabel.isHidden = true
-            creditedAmountLabel.isHidden = false
+            debitedAmountLabel.isHidden = false
+            creditedAmountLabel.isHidden = true
         }
         let receivedAmount = dataService.instance.editableAmount
         amountTextField.text = String(describing: receivedAmount!)
