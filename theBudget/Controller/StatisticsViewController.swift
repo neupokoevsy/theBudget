@@ -39,6 +39,7 @@ class StatisticsViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         super.view.bringSubviewToFront(addRecordButton)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +51,9 @@ class StatisticsViewController: UIViewController {
             monthsReceived = []
             
             setupGraphDisplay()
+            
+            getMonthsForRecords()
+
             for months in monthsReceived {
                 dataReceivedForGraph.append(getAmountsByMonths(months: months))
             }
@@ -114,14 +118,13 @@ class StatisticsViewController: UIViewController {
 extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var arrayOfNonEmptyRecords = [Double]()
-        for quantity in dataReceivedForGraph {
-            if quantity != 0.0 {
-                arrayOfNonEmptyRecords.append(quantity)
-            }
-        }
-//        dataReceivedForGraph.count
-      return arrayOfNonEmptyRecords.count
+//        for quantity in dataReceivedForGraph {
+//            if quantity != 0.0 {
+//                arrayOfNonEmptyRecords.append(quantity)
+//            }
+//        }
+        dataReceivedForGraph.count
+//      return arrayOfNonEmptyRecords.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -132,13 +135,39 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
         let statisticsRecord = dataReceivedForGraph[indexPath.row]
         let statisticsMonth = monthsReceived[indexPath.row]
         
-        if String(describing: statisticsRecord) != "0.0"{
         cell.configureCell(month: statisticsMonth, amount: String(describing: statisticsRecord))
-        }
-//        print(monthsReceived)
+        
         
         return cell
     }
     
-    
+    func getMonthsForRecords() {
+
+        let today = Date()
+        let calenendar = Calendar.current
+        
+        var monthsToShow = [String]()
+        var arrayOfNonEmptyRecords = [Double]()
+
+        var startOfYear = today
+        var timeInterval : TimeInterval = 0.0
+        let dateToDate = Calendar.current.dateInterval(of: .year, start: &startOfYear, interval: &timeInterval, for: today)
+        print(dateToDate)
+
+        let formatter = DateFormatter()
+        formatter.setLocalizedDateFormatFromTemplate("MMMM")
+        
+        for records in dataReceivedForGraph {
+            if records != 0.0 {
+                arrayOfNonEmptyRecords.append(records)
+            }
+        }
+
+        for i in 0...arrayOfNonEmptyRecords.count {
+            let date = calenendar.date(byAdding: .month, value: i, to: startOfYear)
+                monthsToShow.append(formatter.string(from: date!))
+        }
+        
+        print(monthsToShow)
+    }
 }

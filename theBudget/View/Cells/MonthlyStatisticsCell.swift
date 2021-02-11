@@ -15,6 +15,10 @@ class MonthlyStatisticsCell: UITableViewCell {
     func configureCell(month: String, amount: String) {
         self.monthLabel.text = month
         self.monthlyAmountLabel.text = amount
+        
+        if self.monthlyAmountLabel.text == "0.0" {
+            self.monthlyAmountLabel.text = ""
+        }
     }
 
 }
