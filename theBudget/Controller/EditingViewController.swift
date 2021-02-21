@@ -41,6 +41,9 @@ class EditingViewController: UIViewController {
     @IBOutlet weak var creditedAmountLabel: UILabel!
     var receivedIndexPath: IndexPath?
     
+    var alertView: UIAlertController?
+
+    
     //Haptic feedback for selection
     let selection = UISelectionFeedbackGenerator()
     let lightImpact = UIImpactFeedbackGenerator(style: .light)
@@ -55,6 +58,8 @@ class EditingViewController: UIViewController {
         records = dataService.instance.fetchRecords()
         setupInfoFromTableView()
         self.selection.prepare()
+
+
         
         
         //***************************************************************************
@@ -68,6 +73,16 @@ class EditingViewController: UIViewController {
         formatter.dateFormat = "MMM\ndd\nE"
         let convertedDate = formatter.string(from: dataService.instance.editableDate!)
         transferredDateIndex = CalendarService.instance.find(value: convertedDate, in: datesToDisplay)
+        
+//        let alert = UIAlertController(title: "Selected date is old", message: "Selected date is too old to be edited.", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        
+//
+        
+        if transferredDateIndex == nil {
+            print("OUT OF RANGE")
+            transferredDateIndex = 0
+        }
         
         let indexPathForFirstRow = IndexPath(row: transferredDateIndex!, section: 0)
         self.setSelectedItemFromScrollView(CalendarCollectionView)
@@ -87,6 +102,22 @@ class EditingViewController: UIViewController {
 //        print(indexWeNeed)
 //        print("We are looking for \(dataService.instance.editableCategory!) in \(dataService.instance.categoriesArray)")
     
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if transferredDateIndex == nil || transferredDateIndex == 0 {
+            presentAlert()
+        }
+    }
+    
+    
+    func presentAlert() {
+
+        self.alertView = UIAlertController(title: "Date index is out of bounds", message: "Sorry. Selected date is too old to be edited. You can either select a new date or delete this record.", preferredStyle: .alert)
+        alertView?.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in })
+
+        self.present(alertView!, animated: true, completion: nil)
+
     }
     
     //***************************************************************************

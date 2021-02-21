@@ -22,7 +22,6 @@
 		A35E42D625D82F0800AE179A /* PieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A35E42D525D82F0800AE179A /* PieChartView.xib */; };
 		A3672CF625A5EB3F00931044 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CF525A5EB3F00931044 /* RecordsViewController.swift */; };
 		A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */; };
-		A3672D0025A5F0D900931044 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */; };
 		A3672D0525A5F12E00931044 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */; };
 		A3672D0F25A5F3AC00931044 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3672D0E25A5F3AC00931044 /* CategoryModel.swift */; };
 		A37227BB25BC4BD2003CDAFD /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37227BA25BC4BD2003CDAFD /* CoreDataService.swift */; };
@@ -79,7 +78,6 @@
 		A35E42D525D82F0800AE179A /* PieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartView.xib; sourceTree = "<group>"; };
 		A3672CF525A5EB3F00931044 /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
-		A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
 		A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		A3672D0E25A5F3AC00931044 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		A37227BA25BC4BD2003CDAFD /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				A3672CF525A5EB3F00931044 /* RecordsViewController.swift */,
-				A3672CFF25A5F0D900931044 /* AddRecordViewController.swift */,
 				A3672D0425A5F12E00931044 /* AddExpenseViewController.swift */,
 				A349A4F725C09D30000F41FD /* EditingViewController.swift */,
 				A3672CFA25A5EB5100931044 /* StatisticsViewController.swift */,
@@ -400,7 +397,6 @@
 				A3672CFB25A5EB5100931044 /* StatisticsViewController.swift in Sources */,
 				A3CBBCEA25E26EEB007EFFD8 /* PieStatisticsCell.swift in Sources */,
 				A3D8D7FE25BD620E002E1A6D /* CategoryCollectionViewCell.swift in Sources */,
-				A3672D0025A5F0D900931044 /* AddRecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -36,7 +36,6 @@ class RecordsViewController: UIViewController {
         records = dataService.instance.fetchRecords()
         NotificationCenter.default.addObserver(self, selector: #selector(fetchRecordsWithNotification(notification:)), name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
         
-
         
         getMonthsForSelection()
         getDataForMonths()
@@ -168,9 +167,6 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource, UIC
             dataService.instance.showEditRecord(atIndexPath: indexPath)
             let editingViewController = self.storyboard?.instantiateViewController(identifier: "RecordEditingViewController") as! EditingViewController
             editingViewController.receivedIndexPath = indexPath
-            
-            
-            
             self.present(editingViewController, animated: true)
             completionHandler(true)
         }
@@ -193,6 +189,7 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource, UIC
             self.records = dataService.instance.fetchRecords()
             self.recordsTable.deleteRows(at: [indexPath], with: .fade)
             completionHandler(true)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
         }
         return action
     }

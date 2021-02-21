@@ -131,9 +131,7 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let statisticsRecord = dataReceivedForGraph[indexPath.row]
         let statisticsMonth = monthsReceived[indexPath.row]
-        
         cell.configureCell(month: statisticsMonth, amount: String(describing: statisticsRecord))
-        
         
         return cell
     }
