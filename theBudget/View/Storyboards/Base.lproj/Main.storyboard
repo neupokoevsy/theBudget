@@ -154,22 +154,22 @@ when you will add more data</string>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MonthlyStatisticsCell" rowHeight="70" id="cfG-TG-KUM" customClass="MonthlyStatisticsCell" customModule="theBudget" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MonthlyStatisticsCell" id="cfG-TG-KUM" customClass="MonthlyStatisticsCell" customModule="theBudget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cfG-TG-KUM" id="ZN9-0E-CwP">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuV-1i-ooJ">
-                                                    <rect key="frame" x="265" y="14.5" width="89" height="41"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
+                                                    <rect key="frame" x="274" y="3.5" width="80" height="37"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="February" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6VR-wX-HjC">
-                                                    <rect key="frame" x="20" y="21.5" width="84" height="27.5"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                                    <rect key="frame" x="20" y="9.5" width="75.5" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -218,6 +218,109 @@ when you will add more data</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76E-zu-8ZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1511.5942028985507" y="445.98214285714283"/>
+        </scene>
+        <!--Detailed Statistics View Controller-->
+        <scene sceneID="lLJ-vy-Wts">
+            <objects>
+                <viewController storyboardIdentifier="StatisticsDetailVC" id="jOj-FA-ixs" customClass="DetailedStatisticsViewController" customModule="theBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n7E-kI-tFv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aD8-gL-GRH">
+                                <rect key="frame" x="20" y="372" width="374" height="451"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PieStatisticsCell" rowHeight="60" id="jyU-Cz-7ak" customClass="PieStatisticsCell" customModule="theBudget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jyU-Cz-7ak" id="BcV-IR-6Id">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Utility Payments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAf-1V-Jhx">
+                                                    <rect key="frame" x="20" y="18.5" width="121.5" height="23.5"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0k1-rN-5I2">
+                                                    <rect key="frame" x="165.5" y="13.5" width="43" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S98-3T-BrV">
+                                                    <rect key="frame" x="314" y="12" width="40" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Wx4-qt-4zg"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="S98-3T-BrV" firstAttribute="top" secondItem="BcV-IR-6Id" secondAttribute="topMargin" constant="1" id="Azq-pZ-c1A"/>
+                                                <constraint firstItem="FAf-1V-Jhx" firstAttribute="leading" secondItem="BcV-IR-6Id" secondAttribute="leadingMargin" id="FVq-OB-ubJ"/>
+                                                <constraint firstItem="0k1-rN-5I2" firstAttribute="centerX" secondItem="BcV-IR-6Id" secondAttribute="centerX" id="Tql-jY-JUu"/>
+                                                <constraint firstItem="FAf-1V-Jhx" firstAttribute="centerY" secondItem="BcV-IR-6Id" secondAttribute="centerY" id="dzN-Sb-y94"/>
+                                                <constraint firstItem="S98-3T-BrV" firstAttribute="trailing" secondItem="BcV-IR-6Id" secondAttribute="trailingMargin" id="emG-O1-c5u"/>
+                                                <constraint firstItem="0k1-rN-5I2" firstAttribute="centerY" secondItem="BcV-IR-6Id" secondAttribute="centerY" id="hD8-l6-L4q"/>
+                                                <constraint firstItem="S98-3T-BrV" firstAttribute="centerY" secondItem="BcV-IR-6Id" secondAttribute="centerY" id="kNQ-ri-7TO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="AmountLabel" destination="0k1-rN-5I2" id="D8l-T2-UJK"/>
+                                            <outlet property="CategoryColor" destination="S98-3T-BrV" id="RQN-XS-Jwu"/>
+                                            <outlet property="CategoryLabel" destination="FAf-1V-Jhx" id="8hc-nr-n5b"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jOj-FA-ixs" id="9dw-hO-fUZ"/>
+                                    <outlet property="delegate" destination="jOj-FA-ixs" id="xG7-Bu-iUF"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k34-eM-pve" customClass="PieChartView" customModule="theBudget" customModuleProvider="target">
+                                <rect key="frame" x="57" y="64" width="300" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="k34-eM-pve" secondAttribute="height" multiplier="1:1" id="HSd-wB-rf6"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5f-8c-vc4">
+                                <rect key="frame" x="377" y="15" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="Zz8-1C-wZI"/>
+                                    <constraint firstAttribute="width" secondItem="L5f-8c-vc4" secondAttribute="height" multiplier="1:1" id="ehQ-lz-o16"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Close"/>
+                                <connections>
+                                    <action selector="dismissVC:" destination="jOj-FA-ixs" eventType="touchUpInside" id="yvI-yT-x94"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UWN-Lm-7ZJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="L5f-8c-vc4" secondAttribute="trailing" constant="15" id="39B-ht-kDo"/>
+                            <constraint firstItem="L5f-8c-vc4" firstAttribute="top" secondItem="n7E-kI-tFv" secondAttribute="top" constant="15" id="4xb-Uu-SA6"/>
+                            <constraint firstItem="k34-eM-pve" firstAttribute="top" secondItem="UWN-Lm-7ZJ" secondAttribute="top" constant="20" id="5Hn-6M-hoo"/>
+                            <constraint firstItem="UWN-Lm-7ZJ" firstAttribute="bottom" secondItem="aD8-gL-GRH" secondAttribute="bottom" constant="39" id="GCN-jI-LU2"/>
+                            <constraint firstItem="aD8-gL-GRH" firstAttribute="leading" secondItem="UWN-Lm-7ZJ" secondAttribute="leading" constant="20" id="IDM-kN-fri"/>
+                            <constraint firstItem="aD8-gL-GRH" firstAttribute="centerX" secondItem="n7E-kI-tFv" secondAttribute="centerX" id="ORv-5e-Z5E"/>
+                            <constraint firstItem="k34-eM-pve" firstAttribute="leading" secondItem="UWN-Lm-7ZJ" secondAttribute="leading" constant="57" id="TbE-dy-KBa"/>
+                            <constraint firstItem="UWN-Lm-7ZJ" firstAttribute="trailing" secondItem="aD8-gL-GRH" secondAttribute="trailing" constant="20" id="dmC-bp-klh"/>
+                            <constraint firstItem="aD8-gL-GRH" firstAttribute="top" secondItem="k34-eM-pve" secondAttribute="bottom" constant="8" symbolic="YES" id="gSp-N9-DEl"/>
+                            <constraint firstItem="k34-eM-pve" firstAttribute="centerX" secondItem="n7E-kI-tFv" secondAttribute="centerX" id="mce-nY-KbW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailedStatisticsTable" destination="aD8-gL-GRH" id="RaL-Mp-Sad"/>
+                        <outlet property="pieChartView" destination="k34-eM-pve" id="YVN-0p-VBT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2T2-QT-egv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2789.8550724637685" y="890.625"/>
         </scene>
         <!--Records-->
         <scene sceneID="OHA-Kk-BsJ">
@@ -892,6 +995,7 @@ AMOUNT</string>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AddButton_StyleDark" width="120" height="120"/>
+        <image name="Close" width="96" height="96"/>
         <image name="arrowtriangle.forward.circle" catalog="system" width="128" height="121"/>
         <image name="arrowtriangle.left.circle" catalog="system" width="128" height="121"/>
         <image name="chart.bar.xaxis" catalog="system" width="128" height="98"/>

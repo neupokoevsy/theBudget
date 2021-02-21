@@ -14,6 +14,7 @@ class StatisticsViewController: UIViewController {
     
 
     var records: [Record]?
+    var recordsForDetailedView: [Record]?
     var monthsReceived: [String] = []
     
     var dataToShow: Double?
@@ -47,22 +48,24 @@ class StatisticsViewController: UIViewController {
         if records!.count > 0 {
             NoDataLabel.isHidden = true
             graphView.isHidden = false
+            monthlyStatisticsTable.isHidden = false
             dataReceivedForGraph = [Double]()
             monthsReceived = []
-            
             setupGraphDisplay()
-            
             getMonthsForRecords()
-
             for months in monthsReceived {
                 dataReceivedForGraph.append(getAmountsByMonths(months: months))
             }
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(fetchRecordsWithNotification(notification:)), name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
+            
             print(dataReceivedForGraph)
             maxLabel.text = String(describing: "Max. monthly spent: \((String(format: "%.2f", dataReceivedForGraph.max()!)))")
             totalSpentLabel.text = String(describing: "Total spent: \(String(format: "%.2f", dataReceivedForGraph.reduce(0, +)))")
         } else {
             NoDataLabel.isHidden = false
             graphView.isHidden = true
+            monthlyStatisticsTable.isHidden = true
         }
     }
     
@@ -118,13 +121,7 @@ class StatisticsViewController: UIViewController {
 extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        for quantity in dataReceivedForGraph {
-//            if quantity != 0.0 {
-//                arrayOfNonEmptyRecords.append(quantity)
-//            }
-//        }
         dataReceivedForGraph.count
-//      return arrayOfNonEmptyRecords.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -140,6 +137,35 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedMonth = monthsReceived[indexPath.row]
+        print("Selected month is: \(String(describing: selectedMonth))")
+        let viewControllerB = storyboard?.instantiateViewController(withIdentifier: "StatisticsDetailVC") as! DetailedStatisticsViewController
+        viewControllerB.monthSelected = selectedMonth
+        self.present(viewControllerB, animated: true, completion: nil)
+    }
+    
+    
+    @objc func fetchRecordsWithNotification(notification: NSNotification) {
+        records = dataService.instance.fetchRecords()
+        monthlyStatisticsTable.reloadData()
+    }
+    
+//    func getRecordsByMonths(month: String) -> [Record] {
+//            var amount = [Double]()
+//            var sum: Double = 0.0
+//            let dates = records!.map({ return $0.date! })
+//            formatter.dateFormat = "MMM"
+//            let result = records!.filter({ dates.contains($0.date!) })
+//            for res in result {
+//                if formatter.string(from: res.date!) == month && (res.type! != "Credit") {
+//                    amount.append(res.amount)
+//                    sum = amount.reduce(0, +)
+//            }
+//        }
+//        return recordsForDetailedView!
+//    }
     
     func getMonthsForRecords() {
 
@@ -168,6 +194,6 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
                 monthsToShow.append(formatter.string(from: date!))
         }
         
-        print(monthsToShow)
+//        print(monthsToShow)
     }
 }

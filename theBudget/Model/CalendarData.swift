@@ -8,37 +8,37 @@
 import Foundation
 
 
-enum Month {
-    case Jan
-    case Feb
-    case Mar
-    case Apr
-    case May
-    case Jun
-    case Jul
-    case Aug
-    case Sep
-    case Oct
-    case Nov
-    case Dec
-    
-    var monthTitle: String {
-        switch self {
-        case .Jan:            return "JAN"
-        case .Feb:           return "FEB"
-        case .Mar:              return "MAR"
-        case .Apr:              return "APR"
-        case .May:                return "MAY"
-        case .Jun:               return "JUN"
-        case .Jul:               return "JUL"
-        case .Aug:             return "AUG"
-        case .Sep:          return "SEP"
-        case .Oct:            return "OCT"
-        case .Nov:           return "NOV"
-        case .Dec:           return "DEC"
-        }
-    }
-}
+//enum Month {
+//    case Jan
+//    case Feb
+//    case Mar
+//    case Apr
+//    case May
+//    case Jun
+//    case Jul
+//    case Aug
+//    case Sep
+//    case Oct
+//    case Nov
+//    case Dec
+//
+//    var monthTitle: String {
+//        switch self {
+//        case .Jan:            return "JAN"
+//        case .Feb:           return "FEB"
+//        case .Mar:              return "MAR"
+//        case .Apr:              return "APR"
+//        case .May:                return "MAY"
+//        case .Jun:               return "JUN"
+//        case .Jul:               return "JUL"
+//        case .Aug:             return "AUG"
+//        case .Sep:          return "SEP"
+//        case .Oct:            return "OCT"
+//        case .Nov:           return "NOV"
+//        case .Dec:           return "DEC"
+//        }
+//    }
+//}
 
 
 
@@ -65,8 +65,8 @@ class CalendarService {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM\ndd\nE"
         
-        var dateStartingIndex = -30
-        while dateStartingIndex != 30 {
+        var dateStartingIndex = -45
+        while dateStartingIndex != 45 {
             dateStartingIndex += 1
             arrayOfFormattedDates.append(formatter.string(from: Date().xDays(dateStartingIndex)))
         }
@@ -79,8 +79,8 @@ class CalendarService {
         var arrayOfDatesForCoreData = [String]()
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
-        var dateStartingIndex = -30
-        while dateStartingIndex != 30 {
+        var dateStartingIndex = -45
+        while dateStartingIndex != 45 {
             dateStartingIndex += 1
             arrayOfDatesForCoreData.append(formatter.string(from: Date().xDays(dateStartingIndex)))
         }
