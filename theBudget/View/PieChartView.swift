@@ -179,7 +179,7 @@ class PieChartView: UIView {
 
         let label = [label1, label2, label3, label4, label5, label6, label7, label8, label9, label10, label11, label12, label13, label14, label15, label16, label17, label18][sliceIndex]
         label?.isHidden = true
-        label?.text = String(format: "%d%%", Int(slice.percent * 100))
+//        label?.text = String(format: "%d%%", Int(slice.percent * 100))
         label?.textColor = UIColor.black
     }
     

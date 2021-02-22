@@ -34,7 +34,7 @@ class DetailedStatisticsViewController: UIViewController {
         formatter.dateFormat = "MMM"
         let result = records!.filter({ dates.contains($0.date!) })
         for res in result {
-            if formatter.string(from: res.date!) == monthSelected {
+            if formatter.string(from: res.date!) == monthSelected && res.category != "Credit" {
                 filteredRecordsByCategories.append(contentsOf: searchTotalAmountOfEachCategory(searchItem: res.category!))
                 calculatedSlices = fillArrayOfSlices(searchCategory: res.category!, searchMonth: monthSelected!)
             }
@@ -68,22 +68,29 @@ class DetailedStatisticsViewController: UIViewController {
             var totalSum = [Double]()
             var incomeAmount = [Double]()
             var income: Double = 0.0
-            let searchItem = "Income"
+            let searchItem = "Credit"
+            formatter.dateFormat = "MMM"
             let searchPredicate = NSPredicate(format: "category CONTAINS[C] %@", searchItem)
             let array = (records! as NSArray).filtered(using: searchPredicate) as! [Record]
-            for result in array{
+            let datesMap = array.map({return $0.date!})
+            let filteredArray = array.filter({datesMap.contains($0.date!)})
+            for result in filteredArray {
+                if formatter.string(from: result.date!) == month {
                 incomeAmount += incomeAmount.append(result.amount) as? [Double] ?? [0.0]
+//                    incomeAmount += Double(incomeAmount.append(result.amount))
+//                    incomeAmount += incomeAmount.append(contentsOf: [Double(result.amount)])
                 income = incomeAmount.reduce(0, +)
+                }
             }
+            print(income)
             let dates = records!.map({ return $0.date! })
-            formatter.dateFormat = "MMM"
             let result = records!.filter({ dates.contains($0.date!) })
             for res in result {
                 if formatter.string(from: res.date!) == month {
                     totalSum += totalSum.append(res.amount) as? [Double] ?? [0.0]
                     let sum = totalSum.reduce(0, +)
                     totalPercents = sum - income
-//                    print("Total percentes \(totalPercents)")
+                    print(totalPercents)
             }
 
         }
@@ -149,7 +156,7 @@ class DetailedStatisticsViewController: UIViewController {
         case "Transport": color =           #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
         case "Vacation": color =            #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         default:
-            color = UIColor.red
+            color = UIColor.black
         }
         return [RecordParsed(category: searchItem, amount: computedAmount, color: color!)]
     }
@@ -196,13 +203,9 @@ class DetailedStatisticsViewController: UIViewController {
         case "Transport": color =           #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
         case "Vacation": color =            #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         default:
-            color = UIColor.red
+            color = UIColor.black
         }
-        
            calculatedSlices = fillSlices(percent: searchPercentage(searchItem: searchCategory, searchMonth: searchMonth), color: color!)
-//        print(calculatedSlices)
-        
-        
         return calculatedSlices
     }
     
@@ -221,9 +224,7 @@ extension DetailedStatisticsViewController: UITableViewDelegate, UITableViewData
                 return UITableViewCell()
     }
         let statisticsRecord = filteredRecordsByCategories[indexPath.row]
-        cell.configureCell(category: statisticsRecord.category, amount: String(describing: (statisticsRecord.amount)), color: statisticsRecord.color)
+            cell.configureCell(category: statisticsRecord.category, amount: String(describing: (statisticsRecord.amount)), color: statisticsRecord.color)
         return cell
     }
-    
-    
 }
