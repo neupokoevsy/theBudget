@@ -138,7 +138,6 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedMonth = monthsReceived[indexPath.row]
-        print("Selected month is: \(String(describing: selectedMonth))")
         let viewControllerB = storyboard?.instantiateViewController(withIdentifier: "StatisticsDetailVC") as! DetailedStatisticsViewController
         viewControllerB.monthSelected = selectedMonth
         self.present(viewControllerB, animated: true, completion: nil)

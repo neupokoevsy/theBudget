@@ -23,13 +23,17 @@ class DetailedStatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Fetching necessary data from CoreData
         records = dataService.instance.fetchRecords()
         calculateTotal(month: monthSelected!)
         dataService.instance.fetchCoreDataCategories()
         
+        
+        //Observer for the update if necessary
         NotificationCenter.default.addObserver(self, selector: #selector(fetchRecordsWithNotification(notification:)), name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
 
-                
+        
+        //Getting slices for the PieChart
         let dates = records!.map({ return $0.date! })
         formatter.dateFormat = "MMM"
         let result = records!.filter({ dates.contains($0.date!) })
@@ -45,14 +49,18 @@ class DetailedStatisticsViewController: UIViewController {
         
     }
     
+    
     @IBAction func dismissVC(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    //Animating the PieChart
     override func viewDidAppear(_ animated: Bool) {
         pieChartView.animateChart()
     }
     
+    
+    //Function for the observer
     @objc func fetchRecordsWithNotification(notification: NSNotification) {
         records = dataService.instance.fetchRecords()
         detailedStatisticsTable.reloadData()
@@ -61,7 +69,7 @@ class DetailedStatisticsViewController: UIViewController {
     
     //***************************************************
     //MARK: Calculation of total amount for all expenses
-    //MARK: Excluding Income (because not expense)
+    //MARK: Excluding Credit (because not expense)
     //***************************************************
     
         func calculateTotal(month: String) {
@@ -77,12 +85,9 @@ class DetailedStatisticsViewController: UIViewController {
             for result in filteredArray {
                 if formatter.string(from: result.date!) == month {
                 incomeAmount += incomeAmount.append(result.amount) as? [Double] ?? [0.0]
-//                    incomeAmount += Double(incomeAmount.append(result.amount))
-//                    incomeAmount += incomeAmount.append(contentsOf: [Double(result.amount)])
                 income = incomeAmount.reduce(0, +)
                 }
             }
-            print(income)
             let dates = records!.map({ return $0.date! })
             let result = records!.filter({ dates.contains($0.date!) })
             for res in result {
@@ -90,7 +95,6 @@ class DetailedStatisticsViewController: UIViewController {
                     totalSum += totalSum.append(res.amount) as? [Double] ?? [0.0]
                     let sum = totalSum.reduce(0, +)
                     totalPercents = sum - income
-                    print(totalPercents)
             }
 
         }
@@ -108,13 +112,11 @@ class DetailedStatisticsViewController: UIViewController {
         let array = (records as! NSArray).filtered(using: searchPredicate) as! [Record]
             for result in array{
                 amount += amount.append(result.amount) as? [Double] ?? [0.0]
-//                print("Amount: \(amount)")
                 let sum = amount.reduce(0, +)
                 calculatedPercent = sum / (totalPercents ?? 0.0)
                 if calculatedPercent == 1.0 {
                     calculatedPercent = 0.9999
                 }
-//                print("calculated percent", calculatedPercent)
             }
         return CGFloat(calculatedPercent)
     }
@@ -211,6 +213,8 @@ class DetailedStatisticsViewController: UIViewController {
     
 
 }
+
+//MARK: Extension for TableView to show the records that are drawn in PieChart
 
 extension DetailedStatisticsViewController: UITableViewDelegate, UITableViewDataSource {
     

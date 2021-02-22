@@ -14,7 +14,8 @@ struct Slice {
 
 class PieChartView: UIView {
     
-    static let ANIMATION_DURATION: CGFloat = 0.8
+    //Animation speed
+    static let ANIMATION_DURATION: CGFloat = 1
     
     @IBOutlet var canvasView: UIView!
     

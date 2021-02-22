@@ -58,8 +58,6 @@ class EditingViewController: UIViewController {
         records = dataService.instance.fetchRecords()
         setupInfoFromTableView()
         self.selection.prepare()
-
-
         
         
         //***************************************************************************
@@ -72,21 +70,20 @@ class EditingViewController: UIViewController {
         
         formatter.dateFormat = "MMM\ndd\nE"
         let convertedDate = formatter.string(from: dataService.instance.editableDate!)
+        
+        
+        //Checking if the date transferred is still available for selection
+        //If yes, select it. If no - Hide the Calendar and show the alert
         transferredDateIndex = CalendarService.instance.find(value: convertedDate, in: datesToDisplay)
-        
-//        let alert = UIAlertController(title: "Selected date is old", message: "Selected date is too old to be edited.", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        
-//
-        
         if transferredDateIndex == nil {
-            print("OUT OF RANGE")
-            transferredDateIndex = 0
+            CalendarCollectionView.isHidden = true
+        } else {
+            CalendarCollectionView.isHidden = false
+            let indexPathForFirstRow = IndexPath(row: transferredDateIndex!, section: 0)
+            self.setSelectedItemFromScrollView(CalendarCollectionView)
+            self.CalendarCollectionView.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .centeredHorizontally)
         }
         
-        let indexPathForFirstRow = IndexPath(row: transferredDateIndex!, section: 0)
-        self.setSelectedItemFromScrollView(CalendarCollectionView)
-        self.CalendarCollectionView.selectItem(at: indexPathForFirstRow, animated: true, scrollPosition: .centeredHorizontally)
     
         //***************************************************************************
         //MARK: Categories fetch, autoselect the category which was chosen originally
@@ -94,26 +91,27 @@ class EditingViewController: UIViewController {
         dataService.instance.fetchCoreDataCategories()
         categories = dataService.instance.categories
         indexOfCategory = CalendarService.instance.find(value: dataService.instance.editableCategory!, in: dataService.instance.categoriesArray)
-//        print(indexOfCategory)
         
         let indexPathForFirstRowCategory = IndexPath(row: indexOfCategory ?? 0, section: 0)
         self.setSelectedCategoryFromScrollView(CategoriesCollectionView)
         self.CategoriesCollectionView.selectItem(at: indexPathForFirstRowCategory, animated: true, scrollPosition: .centeredHorizontally)
-//        print(indexWeNeed)
-//        print("We are looking for \(dataService.instance.editableCategory!) in \(dataService.instance.categoriesArray)")
     
     }
     
+    //In case if date cannot be selected, alert user that index of date is out of bounds
     override func viewDidAppear(_ animated: Bool) {
-        if transferredDateIndex == nil || transferredDateIndex == 0 {
+        if transferredDateIndex == nil {
             presentAlert()
         }
     }
     
-    
+    //***************************************************************************
+    //MARK: Alert function
+    //***************************************************************************
+
     func presentAlert() {
 
-        self.alertView = UIAlertController(title: "Date index is out of bounds", message: "Sorry. Selected date is too old to be edited. You can either select a new date or delete this record.", preferredStyle: .alert)
+        self.alertView = UIAlertController(title: "Date index is out of bounds", message: "Sorry. Selected date is too old to be edited. You can either delete this record or modify this record without changing the date.", preferredStyle: .alert)
         alertView?.addAction(UIAlertAction(title: "OK", style: .cancel) { _ in })
 
         self.present(alertView!, animated: true, completion: nil)
@@ -232,7 +230,7 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     
     //***************************************************************************
-    //Automatically select and center date
+    //Function that allows automatically select and center date
     //***************************************************************************
     
     func setSelectedItemFromScrollView(_ scrollView: UIScrollView) {
@@ -251,9 +249,9 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
             }
     }
     
-    //***************************************************************************
-    //Automatically select the category that have been chosen originally
-    //***************************************************************************
+    //****************************************************************************************
+    //Function that allows automatically select the category that have been chosen originally
+    //****************************************************************************************
     
     func setSelectedCategoryFromScrollView(_ scrollView: UIScrollView) {
         self.CategoriesCollectionView.setNeedsLayout()
@@ -265,14 +263,17 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if transferredDateIndex != nil {
         selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
+        }
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if transferredDateIndex != nil {
         selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
-
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -300,18 +301,13 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == CalendarCollectionView {
             let selectedDate = datesForCoreData[indexPath.row]
-//            print(selectedDate)
             formatter.dateFormat = "YYYY-MM-DD HH:mm:ss"
             date = formatter.date(from: selectedDate)!
             selection.selectionChanged()
-
-//            print("Original date: \(String(describing: date!))")
-//            print(formatter.date(from: selectedDate)!)
         } else {
             let category = categories![indexPath.row]
             currentlySelectedCategory = category.title!
             selection.selectionChanged()
-//            print(currentlySelectedCategory!)
         }
     }
     
