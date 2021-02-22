@@ -11,7 +11,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "icons8-macos_close-1.png",
+      "filename" : "icons8-cancel-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -22,7 +22,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "icons8-macos_close.png",
+      "filename" : "icons8-cancel.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

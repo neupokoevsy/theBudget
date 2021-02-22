@@ -59,7 +59,7 @@ class StatisticsViewController: UIViewController {
             
             NotificationCenter.default.addObserver(self, selector: #selector(fetchRecordsWithNotification(notification:)), name: NSNotification.Name(rawValue: "UpdateEverything"), object: nil)
             
-            print(dataReceivedForGraph)
+//            print(dataReceivedForGraph)
             maxLabel.text = String(describing: "Max. monthly spent: \((String(format: "%.2f", dataReceivedForGraph.max()!)))")
             totalSpentLabel.text = String(describing: "Total spent: \(String(format: "%.2f", dataReceivedForGraph.reduce(0, +)))")
         } else {
@@ -138,9 +138,12 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedMonth = monthsReceived[indexPath.row]
+        let data = dataReceivedForGraph[indexPath.row]
+        if data != 0.0 {
         let viewControllerB = storyboard?.instantiateViewController(withIdentifier: "StatisticsDetailVC") as! DetailedStatisticsViewController
         viewControllerB.monthSelected = selectedMonth
         self.present(viewControllerB, animated: true, completion: nil)
+        }
     }
     
     
@@ -175,7 +178,7 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
         var startOfYear = today
         var timeInterval : TimeInterval = 0.0
         let dateToDate = Calendar.current.dateInterval(of: .year, start: &startOfYear, interval: &timeInterval, for: today)
-        print(dateToDate)
+//        print(dateToDate)
 
         let formatter = DateFormatter()
         formatter.setLocalizedDateFormatFromTemplate("MMMM")

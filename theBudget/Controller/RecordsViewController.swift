@@ -91,12 +91,12 @@ class RecordsViewController: UIViewController {
             arrayOfDates.append(formatter.string(from: date))
         }
         let result = records!.filter({ dates.contains($0.date!) })
-        for res in result {
-            if formatter.string(from: res.date!) == currentlySelectedMonth {
-                print(res.amount)
-                print(res.category!)
-            }
-        }
+//        for res in result {
+//            if formatter.string(from: res.date!) == currentlySelectedMonth {
+//                print(res.amount)
+//                print(res.category!)
+//            }
+//        }
 
     }
 }

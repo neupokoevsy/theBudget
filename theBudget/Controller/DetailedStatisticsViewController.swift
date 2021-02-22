@@ -157,6 +157,7 @@ class DetailedStatisticsViewController: UIViewController {
         case "Pharmacy": color =            #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
         case "Transport": color =           #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
         case "Vacation": color =            #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        case "Household": color =           #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         default:
             color = UIColor.black
         }
@@ -204,6 +205,7 @@ class DetailedStatisticsViewController: UIViewController {
         case "Pharmacy": color =            #colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1)
         case "Transport": color =           #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
         case "Vacation": color =            #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        case "Household": color =           #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         default:
             color = UIColor.black
         }
