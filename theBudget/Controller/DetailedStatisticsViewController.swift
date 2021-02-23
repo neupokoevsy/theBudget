@@ -46,7 +46,7 @@ class DetailedStatisticsViewController: UIViewController {
         
         pieChartView.slices = calculatedSlices
         
-        
+
     }
     
     

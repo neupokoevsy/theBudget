@@ -263,16 +263,20 @@ extension EditingViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if transferredDateIndex != nil {
+        if scrollView == CalendarCollectionView && transferredDateIndex != nil {
         selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
+        } else {
+            selection.selectionChanged()
         }
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if transferredDateIndex != nil {
+        if scrollView == CalendarCollectionView && transferredDateIndex != nil {
         selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
+        } else {
+            selection.selectionChanged()
         }
     }
     

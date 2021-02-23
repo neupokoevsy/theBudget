@@ -175,13 +175,21 @@ extension AddExpenseViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == CalendarCollectionView {
         selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
+        } else {
+            selection.selectionChanged()
+        }
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView == CalendarCollectionView {
         selection.selectionChanged()
         setSelectedItemFromScrollView(CalendarCollectionView)
+        } else {
+            selection.selectionChanged()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
